@@ -303,6 +303,7 @@
     },
     "distribution": {
       "helptext": {
+        "title": "Tittel",
         "type": "Type",
         "accessURL": "Tilgangslenke",
         "format": "Format",

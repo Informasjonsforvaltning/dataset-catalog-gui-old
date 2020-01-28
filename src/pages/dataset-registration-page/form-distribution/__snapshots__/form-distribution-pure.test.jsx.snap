@@ -35,6 +35,9 @@ exports[`should render FormDistributionPure correctly 1`] = `
                 "uri": "https://google.com",
               },
             ],
+            "title": Object {
+              "nb": "Distribusjonstittel",
+            },
             "type": "API",
           },
         ],

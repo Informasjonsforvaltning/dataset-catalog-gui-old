@@ -1,6 +1,7 @@
 export default [
   {
     id: '',
+    title: { nb: 'Distribusjonstittel' },
     description: { nb: 'Beskrivelse av distribusjon' },
     accessURL: ['http://google.no'],
     license: {
