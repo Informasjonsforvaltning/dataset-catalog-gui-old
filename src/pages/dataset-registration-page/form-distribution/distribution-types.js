@@ -5,6 +5,7 @@ export const distributionTypes = values => {
   if (values && values.length > 0) {
     distributions = values.map(item => ({
       id: item.id ? item.id : '',
+      title: item.title ? item.title : textType,
       description: item.description ? item.description : textType,
       accessURL: item.accessURL ? item.accessURL : [],
       license: item.license ? item.license : licenseType,

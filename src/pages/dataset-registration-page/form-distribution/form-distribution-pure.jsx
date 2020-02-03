@@ -88,6 +88,17 @@ export const renderDistributions = ({
               </div>
               <div className="form-group">
                 <Helptext
+                  title={localization.schema.distribution.helptext.title}
+                />
+                <MultilingualField
+                  name={`${distribution}.title`}
+                  component={isReadOnly ? LinkReadonlyField : InputField}
+                  label={localization.schema.common.titleLabel}
+                  languages={languages}
+                />
+              </div>
+              <div className="form-group">
+                <Helptext
                   title={localization.schema.distribution.helptext.type}
                   term="Distribution_type"
                 />
