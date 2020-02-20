@@ -447,8 +447,8 @@
     "concepts": "Begrepskatalog",
     "protocol": "Protokoll",
     "type": {
-      "datasets": "datasett",
-      "apis": "API-er",
+      "datasets": "datasettbeskrivelser",
+      "apis": "API-beskrivelser",
       "concepts": "begreper",
       "protocol": "behandlingsaktiviteter"
     }
