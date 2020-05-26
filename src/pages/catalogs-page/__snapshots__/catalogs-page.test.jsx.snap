@@ -28,7 +28,7 @@ exports[`should render CatalogsPagePure correctly 1`] = `
         >
           Bruksvilkår
         </a>
-         for denne organisasjonen er ikke godkjent. Du har ikke tilgang til katalogene før en bemyndiget person hos Digitaliseringsdirektoratet har akseptert vilkårene.
+         for denne organisasjonen er ikke godkjent. Du har ikke tilgang til katalogene før du eller en annen bemyndiget person i din virksomhet har akseptert vilkårene.
       </Styled(Component)>
       <CardGroup
         tag="div"
