@@ -5,3 +5,13 @@ export enum KeyCode {
   ARROW_UP = 38,
   ARROW_DOWN = 40
 }
+
+export enum RegistrationStatus {
+  DRAFT = 'draft',
+  APPROVE = 'approve',
+  PUBLISH = 'publish'
+}
+
+export enum SearchType {
+  DATASET = 'DATASET_BY_QUERY'
+}

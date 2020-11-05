@@ -2022,9 +2022,7 @@ Her er dagens ekstra tekst",
 />
 `;
 
-exports[
-  `should render DatasetItemsList correctly with missing datasetItems 1`
-] = `
+exports[`should render DatasetItemsList correctly with missing datasetItems 1`] = `
 <Component
   catalogId="123"
   defaultEmptyListText={null}

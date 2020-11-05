@@ -4,7 +4,7 @@ import { DatasetItemsListPure } from './dataset-item-list.component';
 import datasetsResponse from '../../../mock/datasets.response.json';
 
 const {
-  _embedded: { datasets: datasetItems }
+  _embedded: { datasets }
 } = datasetsResponse;
 
 let defaultProps;
@@ -23,14 +23,14 @@ test('should render DatasetItemsList correctly with missing datasetItems', () =>
 
 test('should render DatasetItemsList correctly with datasetItems', () => {
   wrapper.setProps({
-    datasetItems
+    datasets
   });
   expect(wrapper).toMatchSnapshot();
 });
 
 test('should render DatasetItemsList correctly with missing items', () => {
   wrapper.setProps({
-    datasetItems: null
+    datasets: null
   });
   expect(wrapper).toMatchSnapshot();
 });
