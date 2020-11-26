@@ -1,12 +1,8 @@
-import { batch, connect } from 'react-redux';
+import { connect } from 'react-redux';
 import { compose, withProps } from 'recompose';
 import _ from 'lodash';
 
-import {
-  datasetSuccessAction,
-  fetchDatasetsIfNeeded,
-  selectorForDatasetsInCatalog
-} from '../../redux/modules/datasets';
+import { datasetSuccessAction } from '../../redux/modules/datasets';
 import { fetchCatalogIfNeeded } from '../../redux/modules/catalog';
 import DatasetsListPagePure from './dataset-list-page-pure';
 import {
@@ -19,11 +15,10 @@ const mapRouteParams = withProps(({ match: { params } }) =>
   _.pick(params, ['catalogId'])
 );
 
-const mapStateToProps = (state, { catalogId }) => {
+const mapStateToProps = state => {
   const { catalog } = state;
   return {
-    catalog,
-    datasetItems: Object.values(selectorForDatasetsInCatalog(catalogId)(state))
+    catalog
   };
 };
 
@@ -38,10 +33,7 @@ const createDatasetAndNavigateThunk = (
 
 const mapDispatchToProps = (dispatch, { history }) => ({
   dispatchEnsureData: catalogId => {
-    batch(() => {
-      dispatch(fetchCatalogIfNeeded(catalogId));
-      dispatch(fetchDatasetsIfNeeded(catalogId));
-    });
+    dispatch(fetchCatalogIfNeeded(catalogId));
   },
   onClickCreateDataset: catalogId =>
     dispatch(createDatasetAndNavigateThunk(catalogId, history))

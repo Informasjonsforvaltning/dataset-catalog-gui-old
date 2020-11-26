@@ -28,8 +28,34 @@ const CreateButton = styled.button`
   }
 `;
 
+const SearchBox = styled.div`
+  align-items: stretch;
+  display: flex;
+  flex: 1 1 0;
+  flex-flow: row nowrap;
+  position: relative;
+
+  & > svg {
+    font-size: ${theme.fontSize('FS20')};
+    position: absolute;
+    right: ${theme.spacing('S16')};
+    top: 1.4rem;
+  }
+`;
+
+const SearchField = styled.input`
+  border: 1px solid;
+  border-radius: 5px;
+  flex: 1 1 0;
+  margin-left: ${theme.spacing('S10')};
+  outline: none;
+  padding: 0 ${theme.spacing('S8')};
+`;
+
 export default {
   DatasetListPage,
   ListActions,
-  CreateButton
+  CreateButton,
+  SearchBox,
+  SearchField
 };

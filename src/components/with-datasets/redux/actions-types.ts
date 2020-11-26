@@ -1,0 +1,3 @@
+export const DATASETS_REQUESTED = 'DATASETS_REQUESTED' as const;
+export const DATASETS_SUCCEEDED = 'DATASETS_SUCCEEDED' as const;
+export const DATASETS_FAILED = 'DATASETS_FAILED' as const;

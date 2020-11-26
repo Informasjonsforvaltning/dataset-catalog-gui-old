@@ -1,19 +1,26 @@
-import React, { FC, memo, useEffect } from 'react';
+import React, { FC, memo, useEffect, useState } from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import _ from 'lodash';
 import AddIcon from '@material-ui/icons/Add';
+import SearchIcon from '@material-ui/icons/Search';
 
 import localization from '../../services/localization';
 import { FormCatalog } from './form-catalog/form-catalog';
 import DatasetItemsList from './items-list/dataset-item-list.component';
 import { AlertMessage } from '../../components/alert-message/alert-message.component';
 import SC from './styled';
+import withDatasets, {
+  Props as SearchProps
+} from '../../components/with-datasets';
 
-interface Props extends RouteComponentProps {
+import { SearchRequest, Dataset } from '../../types';
+import { SearchType } from '../../types/enums';
+
+interface Props extends RouteComponentProps, SearchProps {
   catalogId: string;
   isReadOnly: boolean;
   catalog: any;
-  datasetItems: any;
+  datasetItems: Dataset[];
   dispatchEnsureData: (catalogId: string) => void;
   onClickCreateDataset: (catalogId: string) => void;
 }
@@ -25,9 +32,22 @@ export const DatasetsListPagePure: FC<Props> = ({
   datasetItems,
   dispatchEnsureData,
   onClickCreateDataset,
-  location
+  location,
+  searchActions: { datasetsRequested: requestSearch }
 }) => {
   useEffect(() => dispatchEnsureData(catalogId), [catalogId]);
+
+  const [searchQuery, setSearchQuery] = useState('');
+
+  useEffect(() => {
+    const searchRequest: SearchRequest = {
+      searchType: SearchType.DATASET,
+      catalogIDs: [catalogId],
+      query: searchQuery
+    };
+
+    requestSearch(searchRequest);
+  }, [searchQuery]);
 
   return (
     <SC.DatasetListPage>
@@ -50,10 +70,23 @@ export const DatasetsListPagePure: FC<Props> = ({
             {localization.datasets.list.btnNewDataset}
           </SC.CreateButton>
         )}
+        <SC.SearchBox role="search">
+          <SC.SearchField
+            type="text"
+            placeholder="Søk etter datasettbeskrivelse"
+            value={searchQuery}
+            onChange={({ target: { value } }) => setSearchQuery(value)}
+          />
+          <SearchIcon />
+        </SC.SearchBox>
       </SC.ListActions>
-      <DatasetItemsList catalogId={catalogId} datasetItems={datasetItems} />
+      <DatasetItemsList
+        catalogId={catalogId}
+        searchSort={searchQuery !== ''}
+        datasetItems={datasetItems}
+      />
     </SC.DatasetListPage>
   );
 };
 
-export default withRouter(memo(DatasetsListPagePure));
+export default withDatasets(withRouter(memo(DatasetsListPagePure)));
