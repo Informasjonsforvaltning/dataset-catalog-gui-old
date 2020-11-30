@@ -13,14 +13,16 @@ beforeEach(() => {
         title: {
           nb: 'Test item'
         },
-        registrationStatus: 'DRAFT'
+        registrationStatus: 'DRAFT',
+        lastModified: null
       },
       {
         id: 2,
         title: {
           nb: 'Test item'
         },
-        registrationStatus: 'PUBLISH'
+        registrationStatus: 'PUBLISH',
+        lastModified: null
       }
     ]
   };
