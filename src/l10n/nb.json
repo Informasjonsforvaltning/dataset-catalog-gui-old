@@ -36,8 +36,7 @@
   "listItems": {
     "header": {
       "title": "Tittel på datasett",
-      "status": "Status",
-      "lastModified": "Sist Endret"
+      "status": "Status"
     },
     "missingDatasetItems": "Ingen datasettbeskrivelse registrert",
     "missingApiItems": "Det er ikke registrert noen API-beskrivelser ennå.",

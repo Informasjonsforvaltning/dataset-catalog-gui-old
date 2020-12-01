@@ -8,7 +8,6 @@ import inputLanguage from '../components/language-picker/redux/reducer';
 import { datasetFormStatus } from './modules/dataset-form-status';
 import { referenceDataReducer } from './modules/referenceData';
 import EnhetsregisteretReducer from '../components/with-enhetsregisteret/redux/reducer';
-import DatsetSearchReducer from '../components/with-datasets/redux/reducer';
 
 const rootReducer = combineReducers({
   form: formReducer,
@@ -19,8 +18,7 @@ const rootReducer = combineReducers({
   datasetFormStatus,
   referenceData: referenceDataReducer,
   inputLanguage,
-  EnhetsregisteretReducer,
-  DatsetSearchReducer
+  EnhetsregisteretReducer
 });
 
 export default rootReducer;

@@ -10,21 +10,9 @@ exports[`should render DatasetsListPagePure correctly 1`] = `
       <AddIcon />
       Legg til ny datasettbeskrivelse
     </styled.button>
-    <styled.div
-      role="search"
-    >
-      <styled.input
-        onChange={[Function]}
-        placeholder="Søk etter datasettbeskrivelse"
-        type="text"
-        value=""
-      />
-      <SearchIcon />
-    </styled.div>
   </styled.div>
   <Memo()
     catalogId="910244132"
-    searchSort={false}
   />
 </Styled(styled.div)>
 `;
