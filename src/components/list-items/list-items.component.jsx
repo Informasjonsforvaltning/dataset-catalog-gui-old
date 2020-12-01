@@ -20,7 +20,7 @@ const renderItems = (
   defaultEmptyListText
 ) => {
   if (items) {
-    let sortedItems;
+    let sortedItems = items;
     if (sortField === 'title') {
       // order by title and ignore case
       sortedItems = orderBy(
@@ -40,8 +40,6 @@ const renderItems = (
       );
     } else if (sortField === 'registrationStatus') {
       sortedItems = orderBy(items, 'registrationStatus', [sortType]);
-    } else if (sortField === 'none') {
-      sortedItems = items;
     } else {
       sortedItems = orderBy(items, '_lastModified', ['desc']);
     }
