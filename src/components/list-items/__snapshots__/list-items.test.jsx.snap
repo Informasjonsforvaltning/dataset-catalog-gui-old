@@ -6,7 +6,7 @@ exports[`should render ListItem correctly with props 1`] = `
     className="fdk-list-header d-flex"
   >
     <div
-      className="d-flex align-items-center w-75"
+      className="d-flex align-items-center w-50"
     >
       <span
         className="header-item mr-1"
@@ -21,23 +21,43 @@ exports[`should render ListItem correctly with props 1`] = `
       />
     </div>
     <div
-      className="d-flex align-items-center w-25"
+      className="d-flex align-items-center justify-content-end w-50"
     >
-      <span
-        className="header-item mr-1"
+      <div
+        className="d-flex align-items-center mr-5"
       >
-        Status
-      </span>
-      <SortButtons
-        field="registrationStatus"
-        onSortField={[MockFunction]}
-        sortField="title"
-        sortType="asc"
-      />
+        <span
+          className="header-item mr-1"
+        >
+          Sist Endret
+        </span>
+        <SortButtons
+          field="lastModified"
+          onSortField={[MockFunction]}
+          sortField="title"
+          sortType="asc"
+        />
+      </div>
+      <div
+        className="d-flex align-items-center w-25 ml-3"
+      >
+        <span
+          className="header-item mr-1"
+        >
+          Status
+        </span>
+        <SortButtons
+          field="registrationStatus"
+          onSortField={[MockFunction]}
+          sortField="title"
+          sortType="asc"
+        />
+      </div>
     </div>
   </div>
   <Component
     key="1"
+    lastModified={null}
     path="/catalogs/123/datasets/1"
     status="DRAFT"
     statusNew={false}
@@ -45,6 +65,7 @@ exports[`should render ListItem correctly with props 1`] = `
   />
   <Component
     key="2"
+    lastModified={null}
     path="/catalogs/123/datasets/2"
     status="PUBLISH"
     statusNew={false}
