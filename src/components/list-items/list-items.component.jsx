@@ -20,7 +20,7 @@ const renderItems = (
   defaultEmptyListText
 ) => {
   if (items) {
-    let sortedItems = items;
+    let sortedItems;
     if (sortField === 'title') {
       // order by title and ignore case
       sortedItems = orderBy(
@@ -40,8 +40,8 @@ const renderItems = (
       );
     } else if (sortField === 'registrationStatus') {
       sortedItems = orderBy(items, 'registrationStatus', [sortType]);
-    } else if (sortField === 'lastModified') {
-      sortedItems = orderBy(items, '_lastModified', [sortType]);
+    } else if (sortField === 'none') {
+      sortedItems = items;
     } else {
       sortedItems = orderBy(items, '_lastModified', ['desc']);
     }
@@ -56,7 +56,6 @@ const renderItems = (
           title={typeof title === 'object' ? null : title}
           status={_.get(item, 'registrationStatus')}
           path={`${prefixPath}/${item.id}`}
-          lastModified={item._lastModified}
         />
       );
     });
@@ -84,7 +83,7 @@ export const ListItemsPure = props => {
   return (
     <div>
       <div className="fdk-list-header d-flex">
-        <div className="d-flex align-items-center w-50">
+        <div className="d-flex align-items-center w-75">
           <span className="header-item mr-1">{localization.title}</span>
           <SortButtons
             field="title"
@@ -93,29 +92,17 @@ export const ListItemsPure = props => {
             onSortField={onSortField}
           />
         </div>
-        <div className="d-flex align-items-center justify-content-end w-50">
-          <div className="d-flex align-items-center mr-5">
-            <span className="header-item mr-1">
-              {localization.listItems.header.lastModified}
-            </span>
-            <SortButtons
-              field="lastModified"
-              sortField={sortField}
-              sortType={sortType}
-              onSortField={onSortField}
-            />
-          </div>
-          <div className="d-flex align-items-center w-25 ml-3">
-            <span className="header-item mr-1">
-              {localization.listItems.header.status}
-            </span>
-            <SortButtons
-              field="registrationStatus"
-              sortField={sortField}
-              sortType={sortType}
-              onSortField={onSortField}
-            />
-          </div>
+
+        <div className="d-flex align-items-center w-25">
+          <span className="header-item mr-1">
+            {localization.listItems.header.status}
+          </span>
+          <SortButtons
+            field="registrationStatus"
+            sortField={sortField}
+            sortType={sortType}
+            onSortField={onSortField}
+          />
         </div>
       </div>
       {renderItems(

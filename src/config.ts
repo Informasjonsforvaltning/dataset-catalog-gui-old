@@ -17,8 +17,7 @@ const env = (window as any).env || {
 
 // override all env variables to staging (inspired by https://registrering.staging.fellesdatakatalog.digdir.no/config.js)
 // env.SEARCH_HOST = 'https://www.staging.fellesdatakatalog.digdir.no';
-// env.REGISTRATION_API_HOST =
-//   'https://registrering.staging.fellesdatakatalog.digdir.no';
+// env.REGISTRATION_API_HOST = 'https://registrering.staging.fellesdatakatalog.digdir.no';
 // env.CONCEPT_REGISTRATION_API_HOST =
 //   'https://registrering-begrep-api.staging.fellesdatakatalog.digdir.no';
 // env.CONCEPT_REGISTRATION_HOST =

@@ -41,12 +41,3 @@ test('should render ListItem correctly when missing title', () => {
   });
   expect(wrapper).toMatchSnapshot();
 });
-
-test('should render ListItem correctly with lastModified date', () => {
-  wrapper.setProps({
-    status: 'DRAFT',
-    lastModified: '2020-11-30T10:31:06.681',
-    path: '/catalogs/123/datasets/1'
-  });
-  expect(wrapper).toMatchSnapshot();
-});
