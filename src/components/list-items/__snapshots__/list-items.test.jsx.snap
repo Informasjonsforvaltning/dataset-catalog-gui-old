@@ -29,7 +29,7 @@ exports[`should render ListItem correctly with props 1`] = `
         <span
           className="header-item mr-1"
         >
-          Sist Endret
+          Sist endret
         </span>
         <SortButtons
           field="lastModified"
