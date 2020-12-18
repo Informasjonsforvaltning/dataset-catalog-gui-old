@@ -23,13 +23,47 @@ const CreateButton = styled.button`
   font-size: ${theme.fontSize('FS14')};
   padding: ${theme.spacing('S10')} ${theme.spacing('S12')};
 
+  &:disabled {
+    opacity: 0.25;
+    pointer-events: none;
+  }
+
   & > svg {
     margin-right: ${theme.spacing('S4')};
   }
 `;
 
+const SearchBox = styled.div`
+  border: 1px solid;
+  border-radius: 5px;
+  align-items: stretch;
+  display: flex;
+  flex: 1 1 0;
+  flex-flow: row nowrap;
+  position: relative;
+  margin-left: ${theme.spacing('S10')};
+  background-color: ${theme.colour(Colour.NEUTRAL, 'N0')};
+  align-items: center;
+
+  & > svg {
+    font-size: ${theme.fontSize('FS20')};
+    margin-right: ${theme.spacing('S16')};
+  }
+`;
+
+const SearchField = styled.input`
+  height: 100%;
+  border-radius: 5px;
+  flex: 1 1 0;
+  border: none;
+  outline: none;
+  padding: 0 ${theme.spacing('S8')};
+`;
+
 export default {
   DatasetListPage,
   ListActions,
-  CreateButton
+  CreateButton,
+  SearchBox,
+  SearchField
 };

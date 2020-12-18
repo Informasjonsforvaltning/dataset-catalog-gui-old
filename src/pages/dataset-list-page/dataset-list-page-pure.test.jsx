@@ -9,11 +9,17 @@ let wrapper;
 beforeEach(() => {
   const fetchCatalogIfNeeded = jest.fn();
   const fetchDatasetsIfNeeded = jest.fn();
+  const requestSearch = jest.fn();
   defaultProps = {
     catalogId: catalog.item.id,
     catalog,
     fetchCatalogIfNeeded,
-    fetchDatasetsIfNeeded
+    fetchDatasetsIfNeeded,
+    datasetsActions: { searchDatasetsRequested: requestSearch },
+    searchResults: {
+      datasets: [],
+      catalogs: []
+    }
   };
   wrapper = shallow(<DatasetsListPagePure {...defaultProps} />);
 });
