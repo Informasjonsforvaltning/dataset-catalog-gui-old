@@ -42,7 +42,7 @@ const validate = values => {
         'uri'
       );
 
-      if (formats.map(s => s.trim()).filter(Boolean).length === 0) {
+      if (formats.map(s => s && s.trim()).filter(Boolean).length === 0) {
         itemErrors.format = localization.validation.required;
       }
 
