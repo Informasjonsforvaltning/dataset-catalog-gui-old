@@ -6,12 +6,16 @@ export default {
 * Dersom datasettet har avgrensninger i populasjon bør dette gjenspeiles i tittelen. Eksempel: «Folketellingen av 1910», «Naturområder i Oslo og nærliggende områder».  
 * Bruk offisielle navn og benevnelser fremfor interne.  
 * Eier/virksomhet skal ikke tas med.  
-* Alternative titler kan registreres i eget felt under søkeord.`
+* Alternative titler kan registreres i eget felt under søkeord.
+
+Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-tittel'>dct:title</a>`
   },
   Dataset_description: {
     abstract:
       'Beskrivelsen skal være kortfattet. Det bør fremgå hvilke opplysninger som utgjør kjernen i datasettet.',
-    description: `Tittel skal ikke gjentas. Dersom tittelen kan gi inntrykk av at datasettet omfatter mer enn det faktisk gjør bør du oppgi begrensninger. Bruk offisielle navn og benevnelser. Formål beskrives ikke her, men i eget felt.`
+    description: `Tittel skal ikke gjentas. Dersom tittelen kan gi inntrykk av at datasettet omfatter mer enn det faktisk gjør bør du oppgi begrensninger. Bruk offisielle navn og benevnelser. Formål beskrives ikke her, men i eget felt.
+
+Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-beskrivelse'>dct:description</a>`
   },
   Dataset_objective: {
     abstract: 'Oppsummer formålet i én setning.',
@@ -111,10 +115,12 @@ Her legger du inn de begrepene som brukes i datasettet. Begrepene brukes til å 
       'Skal gjenspeile det mest begrensede feltet/opplysningen i datasettet.',
     description: `“Offentlig” betyr at datasettet ikke inneholder begrensede opplysninger og kan legges ut som åpne data, selv om det ikke er laget en løsning for tilgang. Se Difis veileder for åpne data.
 
+
 “Begrenset offentlighet” betyr at tilgangen til opplysningene avhenger av hvilket formål opplysningene er innsamlet til, og hvilken lovhjemmel den som skal bruke dataene har. Begrensningen kan skyldes innhold som personopplysninger. Når noen ønsker å benytte datasettet må man foreta en konkret vurdering av tilgangen.
 
 “Unntatt offentlighet” betyr at saksbehandler, med referanse til lov eller forskrift, har valgt at datasettet kan unndras fra offentlighet. Typiske eksempler er interne dokumenter, styringsdialog, ansettelser, gradert informasjon, forretningshemmeligheter eller data som andre eier.
-`
+
+Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-tilgangsniv%C3%A5'>dct:accessRights</a>`
   },
   Dataset_legalBasisForRestriction: {
     abstract:
