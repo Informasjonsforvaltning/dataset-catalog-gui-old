@@ -6,12 +6,16 @@ export default {
 * Dersom datasettet har avgrensninger i populasjon bør dette gjenspeiles i tittelen. Eksempel: «Folketellingen av 1910», «Naturområder i Oslo og nærliggende områder».  
 * Bruk offisielle navn og benevnelser fremfor interne.  
 * Eier/virksomhet skal ikke tas med.  
-* Alternative titler kan registreres i eget felt under søkeord.`
+* Alternative titler kan registreres i eget felt under søkeord.
+
+Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-tittel'>dct:title</a>`
   },
   Dataset_description: {
     abstract:
       'Beskrivelsen skal være kortfattet. Det bør fremgå hvilke opplysninger som utgjør kjernen i datasettet.',
-    description: `Tittel skal ikke gjentas. Dersom tittelen kan gi inntrykk av at datasettet omfatter mer enn det faktisk gjør bør du oppgi begrensninger. Bruk offisielle navn og benevnelser. Formål beskrives ikke her, men i eget felt.`
+    description: `Tittel skal ikke gjentas. Dersom tittelen kan gi inntrykk av at datasettet omfatter mer enn det faktisk gjør bør du oppgi begrensninger. Bruk offisielle navn og benevnelser. Formål beskrives ikke her, men i eget felt.
+
+Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-beskrivelse'>dct:description</a>`
   },
   Dataset_objective: {
     abstract: 'Oppsummer formålet i én setning.',
@@ -20,16 +24,20 @@ export default {
   Dataset_spatial: {
     abstract:
       'Dersom datasettet kun har innhold fra visse geografiske områder angis dette med lenke til Administrative enheter fra Kartverket eller GeoNames.',
-    description: `Eksempler: Land, fylker, kommuner, byer, bydeler eller stedsnavn som innholdet i datasettet er begrenset til. `
+    description: `Eksempler: Fylker, kommuner og nasjonen Norge som datasettet er begrenset til. 
+    Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-dekningsomr%C3%A5de'>dct:spatial</a> `
   },
   Dataset_temporal: {
     abstract:
       'Tidsrommet datasettet dekker dersom det kun har innhold fra visse perioder. ',
     description: `Tidspunkt kan angis som dato eller årstall. Fradato oppgitt som årstall tolkes som fra og med 1. januar. Tildato oppgitt som årstall tolkes som til og med 31. desember.
 
+
 Det kan angis flere tidsperioder per datasett.
 
-Dersom datasettet er ett av flere i en tidsserie anbefales det at det lages et overordnet datasett for tidsserien som dette datasettet kan relateres til. `
+Dersom datasettet er ett av flere i en tidsserie anbefales det at det lages et overordnet datasett for tidsserien som dette datasettet kan relateres til. 
+
+Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-tidsrom'>dct:temporal</a>  `
   },
   Dataset_identifier: {
     abstract: 'Identifikatoren skal automatisk genereres',
@@ -44,18 +52,20 @@ Datasettets URI bør benytte en av de globalt unike identifikatorene i dct:ident
   },
   Dataset_theme: {
     abstract: 'Velg tema som beskriver innholdet i datasettet. ',
-    description: `Listen kommer fra EU publication office og tematisering blir blant annet benyttet for innrapportering til EU.`
+    description: `Listen kommer fra EU publication office og tematisering blir blant annet benyttet for innrapportering til EU.
+    Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-tema'>dcat:theme</a>`
   },
   Dataset_content: {
     abstract: `Søk etter begrep fra Felles begrepskatalog og velg fra nedtrekksliste. 
 Her legger du inn de begrepene som brukes i datasettet. Begrepene brukes til å si noe om hva informasjonen i datasettet betyr. `,
-    description: `Ved å henvise til gjennomarbeidede definisjoner som virksomheten selv er ansvarlig for å vedlikeholde, sikrer vi at det er tydelig hvordan et begrep brukt i datasettet skal forstås og at denne forståelsen til en hver tid er riktig og oppdatert. `
+    description: `Ved å henvise til gjennomarbeidede definisjoner som virksomheten selv er ansvarlig for å vedlikeholde, sikrer vi at det er tydelig hvordan et begrep brukt i datasettet skal forstås og at denne forståelsen til en hver tid er riktig og oppdatert. 
+    Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-begrep'>dct:subject</a>`
   },
   Dataset_keyword: {
     abstract:
       'Sentralt innhold i datasettet som ennå ikke har begrepsdefinisjoner.',
     description: `I noen tilfeller mangler noen av begrepsdefinisjonene som er sentrale for å beskrive datasettet, eller man har et ord som ikke formelt forbindes med datasettet, men som man vet at mange likevel bruker. Da kan dette feltet brukes til å sørge for at disse søkeordene likevel gir treff i søkemotoren, som f. eks. ord og uttrykk som beskriver sentralt innhold i datasettet.
-`
+Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-emneord'>dcat:keyword</a>`
   },
   Dataset_language: {
     abstract: 'Hovedspråket innholdet i datasettet er skrevet på.',
@@ -65,7 +75,7 @@ Her legger du inn de begrepene som brukes i datasettet. Begrepene brukes til å 
   },
   Dataset_issued: {
     abstract: 'Når innholdet i datasettet ble/blir tilgjengeliggjort.',
-    description: ''
+    description: `Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-utgivelsesdato'>dcat:issued</a>`
   },
   Dataset_modified: {
     abstract: 'Dato for når innholdet i datasettet sist er endret.',
@@ -104,22 +114,25 @@ Her legger du inn de begrepene som brukes i datasettet. Begrepene brukes til å 
   Dataset_landingpage: {
     abstract:
       'Lenken kan referere til registerets hjemmeside, eller en samleside som beskriver innhold, struktur, tilgang, nedlasting, bruk og/eller søk. ',
-    description: ''
+    description: ` Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-landingsside'>dct:landingPage</a>  `
   },
   Dataset_accessRights: {
     abstract:
       'Skal gjenspeile det mest begrensede feltet/opplysningen i datasettet.',
     description: `“Offentlig” betyr at datasettet ikke inneholder begrensede opplysninger og kan legges ut som åpne data, selv om det ikke er laget en løsning for tilgang. Se Difis veileder for åpne data.
 
+
 “Begrenset offentlighet” betyr at tilgangen til opplysningene avhenger av hvilket formål opplysningene er innsamlet til, og hvilken lovhjemmel den som skal bruke dataene har. Begrensningen kan skyldes innhold som personopplysninger. Når noen ønsker å benytte datasettet må man foreta en konkret vurdering av tilgangen.
 
 “Unntatt offentlighet” betyr at saksbehandler, med referanse til lov eller forskrift, har valgt at datasettet kan unndras fra offentlighet. Typiske eksempler er interne dokumenter, styringsdialog, ansettelser, gradert informasjon, forretningshemmeligheter eller data som andre eier.
-`
+
+Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-tilgangsniv%C3%A5'>dct:accessRights</a>`
   },
   Dataset_legalBasisForRestriction: {
     abstract:
       'Angi referanse til relevant lov eller forskrift. Helst til lovdata på paragrafnivå.',
-    description: `Dersom datasettet har begrensninger på deling trenger vi å vite hva skjermingen gjelder. Det kan være hjemmel (kilde for påstand) i offentlighetsloven, sikkerhetsloven, beskyttelsesinstruksen eller annet lovverk som ligger til grunn for vurdering av tilgangsnivå.`
+    description: `Dersom datasettet har begrensninger på deling trenger vi å vite hva skjermingen gjelder. Det kan være hjemmel (kilde for påstand) i offentlighetsloven, sikkerhetsloven, beskyttelsesinstruksen eller annet lovverk som ligger til grunn for vurdering av tilgangsnivå.
+  `
   },
   Dataset_legalBasisForProcessing: {
     abstract:
@@ -209,7 +222,9 @@ Velg "Kodelister" dersom datasettbeskrivelsen omhandler tabeller hvor koder besk
 
 Velg "Taksonomi" dersom datasettbeskrivelsen omhandler en hierarkisk strukturering av begreper
 
-Velg "Tesauri" dersom datasettbeskrivelsen omhandler en hierarkisk og  assosiativ strukturering av begreper`
+Velg "Tesauri" dersom datasettbeskrivelsen omhandler en hierarkisk og  assosiativ strukturering av begreper
+
+Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-type '>dct:type</a> `
   },
   Dataset_source: {
     abstract:
@@ -396,7 +411,9 @@ Lenke til IANAs liste over offisielle medietyper: <a style="font-weight: bold;" 
   },
   themesLos: {
     abstract: 'Velg tema(er) som beskriver innholdet i datasettet.',
-    description:
+    description:`
       "Listen kommer fra Los. Los er en felles terminologi for å beskrive offentlige tjenester og ressurser. Formålet med Los er å gjøre det enklere å finne offentlige ressurser. Les mer <a href='https://www.difi.no/fagomrader-og-tjenester/digitalisering-og-samordning/nasjonal-arkitektur/arkitekturbegreper/los'>her</a>"
+      Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-tema'>dcat:theme</a>`
+    
   }
 };
