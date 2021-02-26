@@ -32,9 +32,12 @@ Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Data
       'Tidsrommet datasettet dekker dersom det kun har innhold fra visse perioder. ',
     description: `Tidspunkt kan angis som dato eller årstall. Fradato oppgitt som årstall tolkes som fra og med 1. januar. Tildato oppgitt som årstall tolkes som til og med 31. desember.
 
+
 Det kan angis flere tidsperioder per datasett.
 
-Dersom datasettet er ett av flere i en tidsserie anbefales det at det lages et overordnet datasett for tidsserien som dette datasettet kan relateres til. `
+Dersom datasettet er ett av flere i en tidsserie anbefales det at det lages et overordnet datasett for tidsserien som dette datasettet kan relateres til. 
+
+Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-tidsrom'>dct:temporal</a>  `
   },
   Dataset_identifier: {
     abstract: 'Identifikatoren skal automatisk genereres',
@@ -72,7 +75,7 @@ Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Data
   },
   Dataset_issued: {
     abstract: 'Når innholdet i datasettet ble/blir tilgjengeliggjort.',
-    description: ''
+    description: `Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-utgivelsesdato'>dcat:issued</a>`
   },
   Dataset_modified: {
     abstract: 'Dato for når innholdet i datasettet sist er endret.',
