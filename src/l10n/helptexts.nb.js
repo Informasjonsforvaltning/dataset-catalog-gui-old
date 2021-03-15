@@ -428,9 +428,6 @@ Lenke til IANAs liste over offisielle medietyper: <a style="font-weight: bold;" 
   },
   themesLos: {
     abstract: 'Velg tema(er) som beskriver innholdet i datasettet.',
-    description: `Listen kommer fra Los. Los er en felles terminologi for å beskrive offentlige tjenester og ressurser. Formålet med Los er å gjøre det enklere å finne offentlige ressurser.
-
-      Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-tema' target='_blank'><span>dcat:theme</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
-
+    description: `Listen kommer fra Los. Los er en felles terminologi for å beskrive offentlige tjenester og ressurser. Formålet med Los er å gjøre det enklere å finne offentlige ressurser. Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-tema' target='_blank'><span>dcat:theme</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
   }
 };
