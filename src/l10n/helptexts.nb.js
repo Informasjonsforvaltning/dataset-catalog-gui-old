@@ -160,7 +160,7 @@ Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Data
   Dataset_fdkInformationModel: {
     abstract:
       'Søk etter informasjonsmodeller fra Felles datakatalog og velg fra nedtrekksliste.',
-    description: ''
+    description: `Se spesifikasjonen <a href='https://data.norge.no/specification/modelldcat-ap-no/#Informasjonsmodell-iSamsvarMed' target='_blank'><span>dct:conformsTo</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
   },
   Dataset_externalInformationModel: {
     abstract: 'Legg til informasjonsmodell via lenke.',
