@@ -8,14 +8,14 @@ export default {
 * Eier/virksomhet skal ikke tas med.
 * Alternative titler kan registreres i eget felt under søkeord.
 
-Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-tittel' target='_blank'><span>dct:title</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
+Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-tittel' target='_blank'><span>Datasett: tittel</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
   },
   Dataset_description: {
     abstract:
       'Beskrivelsen skal være kortfattet. Det bør fremgå hvilke opplysninger som utgjør kjernen i datasettet.',
     description: `Tittel skal ikke gjentas. Dersom tittelen kan gi inntrykk av at datasettet omfatter mer enn det faktisk gjør bør du oppgi begrensninger. Bruk offisielle navn og benevnelser. Formål beskrives ikke her, men i eget felt.
 
-Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-beskrivelse' target='_blank'><span>dct:description</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
+Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-beskrivelse' target='_blank'><span>Datasett: beskrivelse</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
   },
   Dataset_objective: {
     abstract: 'Oppsummer formålet i én setning.',
@@ -24,7 +24,7 @@ Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Data
   Dataset_spatial: {
     abstract:
       'Dersom datasettet kun har innhold fra visse geografiske områder angis dette med lenke til Administrative enheter fra Kartverket eller GeoNames.',
-    description: `Eksempler: Fylker, kommuner og nasjonen Norge som datasettet er begrenset til. Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-dekningsomr%C3%A5de' target='_blank'><span>dct:spatial</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
+    description: `Eksempler: Fylker, kommuner og nasjonen Norge som datasettet er begrenset til. Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-dekningsomr%C3%A5de' target='_blank'><span>Datasett: dekningsområde</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
   },
   Dataset_temporal: {
     abstract:
@@ -36,7 +36,7 @@ Det kan angis flere tidsperioder per datasett.
 
 Dersom datasettet er ett av flere i en tidsserie anbefales det at det lages et overordnet datasett for tidsserien som dette datasettet kan relateres til.
 
-Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-tidsrom' target='_blank'><span>dct:temporal</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
+Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-tidsrom' target='_blank'><span>Datasett: tidsrom</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
   },
   Dataset_identifier: {
     abstract: 'Identifikatoren skal automatisk genereres',
@@ -51,17 +51,17 @@ Datasettets URI bør benytte en av de globalt unike identifikatorene i dct:ident
   },
   Dataset_theme: {
     abstract: 'Velg tema som beskriver innholdet i datasettet. ',
-    description: `Listen kommer fra EU publication office og tematisering blir blant annet benyttet for innrapportering til EU. Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-tema' target='_blank'><span>dcat:theme</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
+    description: `Listen kommer fra EU publication office og tematisering blir blant annet benyttet for innrapportering til EU. Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-tema' target='_blank'><span>Datasett: tema</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
   },
   Dataset_content: {
     abstract: `Søk etter begrep fra Felles begrepskatalog og velg fra nedtrekksliste.
 Her legger du inn de begrepene som brukes i datasettet. Begrepene brukes til å si noe om hva informasjonen i datasettet betyr. `,
-    description: `Ved å henvise til gjennomarbeidede definisjoner som virksomheten selv er ansvarlig for å vedlikeholde, sikrer vi at det er tydelig hvordan et begrep brukt i datasettet skal forstås og at denne forståelsen til en hver tid er riktig og oppdatert. Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-begrep' target='_blank'><span>dct:subject</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
+    description: `Ved å henvise til gjennomarbeidede definisjoner som virksomheten selv er ansvarlig for å vedlikeholde, sikrer vi at det er tydelig hvordan et begrep brukt i datasettet skal forstås og at denne forståelsen til en hver tid er riktig og oppdatert. Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-begrep' target='_blank'><span>Datasett: begrep</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
   },
   Dataset_keyword: {
     abstract:
       'Sentralt innhold i datasettet som ennå ikke har begrepsdefinisjoner.',
-    description: `I noen tilfeller mangler noen av begrepsdefinisjonene som er sentrale for å beskrive datasettet, eller man har et ord som ikke formelt forbindes med datasettet, men som man vet at mange likevel bruker. Da kan dette feltet brukes til å sørge for at disse søkeordene likevel gir treff i søkemotoren, som f. eks. ord og uttrykk som beskriver sentralt innhold i datasettet. Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-emneord' target='_blank'><span>dcat:keyword</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
+    description: `I noen tilfeller mangler noen av begrepsdefinisjonene som er sentrale for å beskrive datasettet, eller man har et ord som ikke formelt forbindes med datasettet, men som man vet at mange likevel bruker. Da kan dette feltet brukes til å sørge for at disse søkeordene likevel gir treff i søkemotoren, som f. eks. ord og uttrykk som beskriver sentralt innhold i datasettet. Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-emneord' target='_blank'><span>Datasett: emneord</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
   },
   Dataset_language: {
     abstract: 'Hovedspråket innholdet i datasettet er skrevet på.',
@@ -69,15 +69,15 @@ Her legger du inn de begrepene som brukes i datasettet. Begrepene brukes til å 
 * Datasettet er uten språklige tekster
 * Dersom det ikke er tydelig hva som er hovedspråket, for eksempel hvis datasettet har flere språk
 
-Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-spr%C3%A5k' target='_blank'><span>dct:language</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
+Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-spr%C3%A5k' target='_blank'><span>Datasett: språk</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
   },
   Dataset_issued: {
     abstract: 'Når innholdet i datasettet ble/blir tilgjengeliggjort.',
-    description: `Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-utgivelsesdato' target='_blank'><span>dcat:issued</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
+    description: `Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-utgivelsesdato' target='_blank'><span>Datasett: utgivelsesdato</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
   },
   Dataset_modified: {
     abstract: 'Dato for når innholdet i datasettet sist er endret.',
-    description: `Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-endringsdato' target='_blank'><span>dct:modified</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
+    description: `Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-endringsdato' target='_blank'><span>Datasett: endringsdato</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
   },
   Dataset_publisher: {
     abstract: 'Skal peke på en Enhet i Enhetsregisteret.',
@@ -112,7 +112,7 @@ Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Data
   Dataset_landingpage: {
     abstract:
       'Lenken kan referere til registerets hjemmeside, eller en samleside som beskriver innhold, struktur, tilgang, nedlasting, bruk og/eller søk. ',
-    description: ` Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-landingsside' target='_blank'><span>dct:landingPage</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
+    description: ` Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-landingsside' target='_blank'><span>Datasett: landingsside</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
   },
   Dataset_accessRights: {
     abstract:
@@ -124,7 +124,7 @@ Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Data
 
 “Unntatt offentlighet” betyr at saksbehandler, med referanse til lov eller forskrift, har valgt at datasettet kan unndras fra offentlighet. Typiske eksempler er interne dokumenter, styringsdialog, ansettelser, gradert informasjon, forretningshemmeligheter eller data som andre eier.
 
-Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-tilgangsniv%C3%A5' target='_blank'><span>dct:accessRights</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
+Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-tilgangsniv%C3%A5' target='_blank'><span>Datasett: tilgangsnivå</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
   },
   Dataset_legalBasisForRestriction: {
     abstract:
@@ -150,17 +150,17 @@ Brukerinnsamlede data betyr data innhentet fra brukerne.
 
 Innsamlet fra tredjepart betyr data innhentet fra f. eks. banker og forsikringsselskaper.
 
-Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-opphav' target='_blank'><span>dct:provenance</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
+Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-opphav' target='_blank'><span>Datasett: opphav</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
   },
   Dataset_conformsTo: {
     abstract:
       'Oppgi om datasettet er i henhold til gitt(e) standard(er), spesifikasjon(er) eller implementasjonsregler.',
-    description: `Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-iSamsvarMed' target='_blank'><span>dct:conformsTo</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
+    description: `Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-iSamsvarMed' target='_blank'><span>Datasett: i samsvar med</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
   },
   Dataset_fdkInformationModel: {
     abstract:
       'Søk etter informasjonsmodeller fra Felles datakatalog og velg fra nedtrekksliste.',
-    description: `Se spesifikasjonen <a href='https://data.norge.no/specification/modelldcat-ap-no/#Informasjonsmodell-iSamsvarMed' target='_blank'><span>dct:conformsTo</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
+    description: `Se spesifikasjonen <a href='https://data.norge.no/specification/modelldcat-ap-no/#Informasjonsmodell-iSamsvarMed' target='_blank'><span>Informasjonsmodell: i samsvar med</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
   },
   Dataset_externalInformationModel: {
     abstract: 'Legg til informasjonsmodell via lenke.',
@@ -173,7 +173,7 @@ Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Data
 * Inntektsdata fra likningen (Skattemelding) er årlig
 * Folketelling fra 1910 oppdateres aldri
 
-Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-frekvens' target='_blank'><span>dct:accrualPeriodicity</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
+Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-frekvens' target='_blank'><span>Datasett: frekvens</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
   },
   Dataset_hasQualityAnnotation_accuracy: {
     abstract:
@@ -181,7 +181,7 @@ Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Data
     description: `Eksempel: Formålet med Kontakt- og reservasjonsregisteret er å kunne benytte det til varsling. Kan benyttes i forbindelse med saksbehandling og utføring av forvaltningsoppgaver for øvrig.
 Eksempel på utfylling: "Brukere har selv oppgitt informasjon, sjekkes med SMS."
 
-Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-harKvalitetsnote' target='_blank'><span>dqv:hasQualityAnnotation</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
+Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-harKvalitetsnote' target='_blank'><span>Datasett: har kvalitetsnote</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
   },
   Dataset_hasQualityAnnotation_completeness: {
     abstract:
@@ -190,17 +190,17 @@ Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Data
   },
   Dataset_hasQualityAnnotation_currentness: {
     abstract: 'Avvik eller tilleggsopplysninger om oppdateringsfrekvens ',
-    description: `F. eks. dersom noen av opplysningene har annen oppdateringsfrekvens enn hovedinnholdet. Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-harKvalitetsnote' target='_blank'><span>dqv:hasQualityAnnotation</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
+    description: `F. eks. dersom noen av opplysningene har annen oppdateringsfrekvens enn hovedinnholdet. Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-harKvalitetsnote' target='_blank'><span>Datasett: har kvalitetsnote</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
   },
   Dataset_hasQualityAnnotation_availability: {
     abstract:
       'Dersom datasettets tilgangsnivå har avvik eller tilleggsopplysninger, bør det oppgis her.',
-    description: `Eksempel: “Regnskapsregisteret kan kun hentes ut på forespørsel.” Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-harKvalitetsnote' target='_blank'><span>dqv:hasQualityAnnotation</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
+    description: `Eksempel: “Regnskapsregisteret kan kun hentes ut på forespørsel.” Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-harKvalitetsnote' target='_blank'><span>Datasett: har kvalitetsnote</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
   },
   Dataset_hasQualityAnnotation_relevance: {
     abstract:
       'Dersom det er bruksområder datasettet er spesielt egnet for eller ikke egnet for, bør det oppgis her.',
-    description: `Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-harKvalitetsnote' target='_blank'><span>dqv:hasQualityAnnotation</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
+    description: `Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-harKvalitetsnote' target='_blank'><span>Datasett: har kvalitetsnote</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
   },
   Dataset_distribution: {
     abstract:
@@ -227,7 +227,7 @@ Velg "Taksonomi" dersom datasettbeskrivelsen omhandler en hierarkisk struktureri
 
 Velg "Tesauri" dersom datasettbeskrivelsen omhandler en hierarkisk og  assosiativ strukturering av begreper
 
-Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-type' target='_blank'><span>dct:type</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
+Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-type' target='_blank'><spanDatasett: type</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
   },
   Dataset_source: {
     abstract:
@@ -335,7 +335,7 @@ Velg Feed dersom det er en distribusjon hvor endringer hentes gjennom f.eks. RSS
     abstract:
       'Velg format(er) fra IANAs liste over offisielle medietyper. Dersom formatet ikke finnes i listen kan du angi eget.',
     description: `Skriv inn format og avlsutt med TAB eller Enter. Vi anbefaler at du bruker de samme formatbeskrivelsene som du finner i lenken nedenfor. (Obs: Du må selv kopiere over formatet fra listen.)
-Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Distribusjon-format' target='_blank'><span>dct:format</span><i class="fa fa-external-link fdk-fa-right"></i></a>
+Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Distribusjon-format' target='_blank'><span>Distribusjon: format</span><i class="fa fa-external-link fdk-fa-right"></i></a>
 Lenke til IANAs liste over offisielle medietyper: <a style="font-weight: bold;" target='_blank' href='http://www.iana.org/assignments/media-types/media-types.xhtml'>Media Types<i class="fa fa-external-link fdk-fa-right"/></a>`
   },
   Distribution_accessURL: {
