@@ -227,7 +227,7 @@ Velg "Taksonomi" dersom datasettbeskrivelsen omhandler en hierarkisk struktureri
 
 Velg "Tesauri" dersom datasettbeskrivelsen omhandler en hierarkisk og  assosiativ strukturering av begreper
 
-Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-type' target='_blank'><spanDatasett: type</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
+Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-type' target='_blank'><span>Datasett: type</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
   },
   Dataset_source: {
     abstract:
