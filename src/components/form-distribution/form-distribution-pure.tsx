@@ -73,14 +73,15 @@ const Formats = ({
   translationsService
 }: any) => {
   const [filterText, setFilterText] = useState('');
-
   return (
     <>
       <Autocomplete
         wrapperProps={{ style: { width: '100%' } }}
         getItemValue={({ code }) => code}
         items={mediaTypes.filter(({ code, name }: any) => {
-          const match = inputValue.find((mediaType: any) => code === mediaType);
+          const match = inputValue?.find(
+            (mediaType: any) => code === mediaType
+          );
           return (
             !match &&
             (code.toLowerCase().includes(filterText) ||
@@ -434,7 +435,6 @@ const renderDistributions = ({
 );
 
 const FormDistribution: FC<Props> = ({
-  initialValues,
   openLicenseItems,
   mediaTypes,
   dispatch,
@@ -462,7 +462,6 @@ const FormDistribution: FC<Props> = ({
           ({ isReplacedBy }) => !isReplacedBy
         )}
         mediaTypes={mediaTypes}
-        initialValues={initialValues}
         onDeleteFieldAtIndex={deleteFieldAtIndex}
         languages={languages}
         isReadOnly={isReadOnly}

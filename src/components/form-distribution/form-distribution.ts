@@ -1,25 +1,15 @@
-import { compose, withProps } from 'recompose';
 import { reduxForm } from 'redux-form';
 import _throttle from 'lodash/throttle';
 
 import FormDistributionPure from './form-distribution-pure';
-import { distributionTypes } from './distribution-types';
 import validate from './form-distribution-validations';
 import { asyncValidateDatasetInvokePatch } from '../dataset-registration-form/formsLib/asyncValidateDatasetInvokePatch';
 
-const setInitialValues = withProps(({ datasetItem: { distribution } }) => ({
-  initialValues: {
-    distribution: distributionTypes(distribution)
-  }
-}));
-
 const formConfigurer = reduxForm({
   form: 'distribution',
-  validate,
+  validate: validate as any,
   shouldAsyncValidate: () => true, // override default, save even if sync validation fails
   asyncValidate: _throttle(asyncValidateDatasetInvokePatch, 250)
 });
 
-const enhance = compose(setInitialValues, formConfigurer);
-
-export const FormDistribution = enhance(FormDistributionPure);
+export const FormDistribution = formConfigurer(FormDistributionPure);

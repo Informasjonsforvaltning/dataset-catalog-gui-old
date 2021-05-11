@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { compose } from 'recompose';
+import { compose } from 'redux';
 import { datasetListAllPath } from '../../../../services/api/registration-api/datasets';
 import { reduxFsaThunk } from '../../../../lib/redux-fsa-thunk';
 import { registrationApiGet } from '../../../../services/api/registration-api/host';
@@ -100,16 +100,9 @@ export function datasetsReducer(state = initialState, action) {
 export const getDatasetItemByDatasetiId = (datasets, catalogId, id) =>
   _.get(datasets, [catalogId, 'items', id]);
 
-export const selectorForDatasetsState = state => state.datasets;
-export const selectorForCatalogDatasetsFromDatasetsState =
-  catalogId => datasetsState =>
-    _.get(datasetsState, [catalogId, 'items'], {});
+export const selectorForDatasetsInCatalog = catalogId => datasetsState =>
+  _.get(datasetsState, [catalogId, 'items', 'datasets'], []);
 
-export const selectorForDatasetsInCatalog = catalogId =>
-  compose(
-    selectorForCatalogDatasetsFromDatasetsState(catalogId),
-    selectorForDatasetsState
-  );
 export const selectorForDataset = (catalogId, datasetId) =>
   compose(
     datasets => datasets[datasetId],
