@@ -1,7 +1,7 @@
 import { reduxForm, getFormValues } from 'redux-form';
 import { connect } from 'react-redux';
 import _ from 'lodash';
-import { compose } from 'recompose';
+import { compose } from 'redux';
 
 import { Language } from '../../services/translations';
 

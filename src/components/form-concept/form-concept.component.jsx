@@ -1,6 +1,6 @@
 import { getFormSyncErrors, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { compose } from 'recompose';
+import { compose } from 'redux';
 
 import {
   multilingualObjectToMultilingualTagsArray,

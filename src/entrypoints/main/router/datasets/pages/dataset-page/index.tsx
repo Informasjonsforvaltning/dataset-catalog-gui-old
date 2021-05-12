@@ -62,9 +62,7 @@ const DatasetPage: FC<Props> = ({
   ];
 
   useEffect(() => {
-    if (dataset?.id !== datasetId) {
-      getDataset(catalogId, datasetId);
-    }
+    getDataset(catalogId, datasetId);
 
     if (organization?.id !== catalogId) {
       getOrganization(catalogId);

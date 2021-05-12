@@ -1,4 +1,3 @@
-import { compose } from 'recompose';
 import _ from 'lodash';
 
 export const DATASET_FORM_STATUS_PATCH_SUCCESS =
@@ -63,7 +62,5 @@ export function datasetFormStatus(state = initialState, action) {
   }
 }
 
-const selectorForDatasetFormStatusState = state => state.datasetFormStatus;
-
-export const selectorForDatasetFormStatus = datasetId =>
-  compose(state => state[datasetId], selectorForDatasetFormStatusState);
+export const selectorForDatasetFormStatus = datasetId => state =>
+  state[datasetId]?.datasetFormStatus;

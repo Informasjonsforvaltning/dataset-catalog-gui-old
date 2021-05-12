@@ -68,6 +68,7 @@ import {
   SearchType,
   RegistrationStatus as RegStatusEnum
 } from '../../types/enums';
+import { distributionTypes } from '../form-distribution/distribution-types';
 
 // check the validation state of all rendered forms
 const isAllowedToPublish = (form: any) =>
@@ -502,7 +503,9 @@ const DatasetRegistrationPage: FC<Props> = ({
               recommended
             >
               <FormDistribution
-                datasetItem={datasetItem}
+                initialValues={{
+                  distribution: distributionTypes(datasetItem.distribution)
+                }}
                 openLicenseItems={openLicenseItems}
                 mediaTypes={mediaTypes}
                 catalogId={catalogId}
