@@ -12,8 +12,8 @@ Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Data
   },
   Dataset_description: {
     abstract:
-      'Beskrivelsen skal være kortfattet. Det bør fremgå hvilke opplysninger som utgjør kjernen i datasettet.',
-    description: `Tittel skal ikke gjentas. Dersom tittelen kan gi inntrykk av at datasettet omfatter mer enn det faktisk gjør bør du oppgi begrensninger. Bruk offisielle navn og benevnelser.
+      'Beskrivelsen skal være kortfattet. Det bør fremgå hvilke opplysninger som utgjør kjernen i datasettet, samt formålet til datasettet.',
+    description: `Tittel skal ikke gjentas. Dersom tittelen kan gi inntrykk av at datasettet omfatter mer enn det faktisk gjør bør du oppgi begrensninger. Bruk offisielle navn og benevnelser. Dersom datasettet inneholder personopplysninger skal dette feltet brukes for å gjengi det formålet i henhold til personopplysningsloven som ligger til grunn for datasettet.
 
 Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-beskrivelse' target='_blank'><span>Datasett: beskrivelse</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
   },
