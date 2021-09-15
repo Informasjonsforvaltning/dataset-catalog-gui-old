@@ -19,7 +19,7 @@ Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Data
   },
   Dataset_spatial: {
     abstract:
-      'Dersom datasettet kun har innhold fra visse geografiske områder angis dette med lenke til Administrative enheter fra Kartverket eller GeoNames.',
+      'Søk etter geografisk område fra Administrative enheter (Kartverket) og velg fra nedtrekksliste.',
     description: `Eksempler: Fylker, kommuner og nasjonen Norge som datasettet er begrenset til. Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-dekningsomr%C3%A5de' target='_blank'><span>Datasett: dekningsområde</span><i class="fa fa-external-link fdk-fa-right"></i></a>`
   },
   Dataset_temporal: {
@@ -330,8 +330,7 @@ Velg Feed dersom det er en distribusjon hvor endringer hentes gjennom f.eks. RSS
   Distribution_format: {
     abstract:
       'Velg format(er) fra IANAs liste over offisielle medietyper. Dersom formatet ikke finnes i listen kan du angi eget.',
-    description: `Skriv inn format og avlsutt med TAB eller Enter. Vi anbefaler at du bruker de samme formatbeskrivelsene som du finner i lenken nedenfor. (Obs: Du må selv kopiere over formatet fra listen.)
-Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Distribusjon-format' target='_blank'><span>Distribusjon: format</span><i class="fa fa-external-link fdk-fa-right"></i></a>
+    description: `Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Distribusjon-format' target='_blank'><span>Distribusjon: format</span><i class="fa fa-external-link fdk-fa-right"></i></a>
 Lenke til IANAs liste over offisielle medietyper: <a style="font-weight: bold;" target='_blank' href='http://www.iana.org/assignments/media-types/media-types.xhtml'>Media Types<i class="fa fa-external-link fdk-fa-right"/></a>`
   },
   Distribution_accessURL: {

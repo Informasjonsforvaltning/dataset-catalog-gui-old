@@ -72,12 +72,12 @@ const OverviewPage: FC<Props> = ({
               {authService.hasOrganizationReadPermission(id) &&
                 !hasAcceptedTerms(id) && (
                   <SC.Banner variant={Variant.WARNING}>
+                    Alle virksomheter må godta bruksvilkår før de kan registrere
+                    data i Felles datakatalog. Les mer om bruksvilkårene og
+                    aksepter her: {' '}
                     <Link href={`/terms-and-conditions/${id}`} external>
                       Bruksvilkår
-                    </Link>{' '}
-                    for denne organisasjonen er ikke godkjent. Du har ikke
-                    tilgang til katalogene før du eller en annen bemyndiget
-                    person i din virksomhet har akseptert vilkårene.
+                    </Link>
                   </SC.Banner>
                 )}
               <CardGroup>
