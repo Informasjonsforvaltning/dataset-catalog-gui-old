@@ -9,7 +9,7 @@ on:
 jobs:
   build-and-deploy-production:
     name: Deploy to prod on merge to main branch
-    uses: Informasjonsforvaltning/workflows/.github/workflows/build-deploy.yaml@chore/hos/build-deploy
+    uses: Informasjonsforvaltning/workflows/.github/workflows/build-deploy.yaml@main
     with:
       app_name: dataset-catalog-gui
       caller_sha: ${{ github.sha }}
