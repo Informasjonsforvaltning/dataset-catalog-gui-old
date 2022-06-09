@@ -84,7 +84,9 @@ const DatasetsPage: FC<Props> = ({
     !authService.hasSystemAdminPermission() &&
     !authService.hasOrganizationWritePermission(catalogId);
 
-  const createNewDataset = () => createDataset(catalogId);
+  const createNewDataset = () => createDataset(catalogId, null);
+
+  const createNewSeries = () => createDataset(catalogId, 'SERIES');
 
   return (
     <>
@@ -119,6 +121,14 @@ const DatasetsPage: FC<Props> = ({
           >
             <AddIcon />
             <Translation id='datasets.list.btnNewDataset' />
+          </SC.CreateButton>
+          <SC.CreateButton
+            type='button'
+            disabled={isReadOnly}
+            onClick={createNewSeries}
+          >
+            <AddIcon />
+            <Translation id='datasets.list.btnNewSeries' />
           </SC.CreateButton>
           <SC.SearchBox role='search'>
             <SC.SearchField

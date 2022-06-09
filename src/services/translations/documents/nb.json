@@ -31,7 +31,8 @@
     "API-descriptions": "API-beskrivelser",
     "Register a new API-description": "Registrer ny API-beskrivelse",
     "Datasets": "Datasettkatalog",
-    "datasetRegistration": "Registrer ny datasettbeskrivelse"
+    "datasetRegistration": "Registrer ny datasettbeskrivelse",
+    "seriesRegistration": "Registrer ny datasettserie"
   },
   "administrativeUnit": {
     "name": "Stedsnavn",
@@ -409,6 +410,7 @@
   "datasets": {
     "list": {
       "btnNewDataset": "Legg til ny datasettbeskrivelse",
+      "btnNewSeries": "Legg til ny datasettserie",
       "btnImportDataset": "Importer datasett"
     },
     "import": {

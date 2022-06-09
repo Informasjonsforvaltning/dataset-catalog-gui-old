@@ -27,6 +27,7 @@ const CreateButton = styled.button`
   display: flex;
   font-size: ${theme.fontSize('FS14')};
   padding: ${theme.spacing('S10')} ${theme.spacing('S12')};
+  margin-right: ${theme.spacing('S10')};
 
   &:disabled {
     opacity: 0.25;
@@ -47,7 +48,6 @@ const SearchBox = styled.div`
   flex: 1 1 0;
   flex-flow: row nowrap;
   position: relative;
-  margin-left: ${theme.spacing('S10')};
   background-color: ${theme.colour(Colour.NEUTRAL, 'N0')};
   align-items: center;
 

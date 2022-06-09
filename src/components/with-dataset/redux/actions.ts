@@ -40,11 +40,15 @@ export function getDatasetFailed(message: string) {
   };
 }
 
-export function createDatasetRequested(catalogId: string) {
+export function createDatasetRequested(
+  catalogId: string,
+  specializedType: string | null
+) {
   return {
     type: CREATE_DATASET_REQUESTED,
     payload: {
-      catalogId
+      catalogId,
+      specializedType
     }
   };
 }

@@ -220,9 +220,13 @@ const DatasetRegistrationPage: FC<Props> = ({
             <div className='d-flex align-items-center mb-5'>
               <h1 className='dataset-regitration-form-title pb-0 mb-0 mr-3'>
                 {translationsService.translate(datasetItem?.title) ||
-                  translationsService.translate(
-                    'breadcrumbs.datasetRegistration'
-                  )}
+                  (datasetItem?.specializedType === 'SERIES'
+                    ? translationsService.translate(
+                        'breadcrumbs.seriesRegistration'
+                      )
+                    : translationsService.translate(
+                        'breadcrumbs.datasetRegistration'
+                      ))}
               </h1>
               <RegistrationStatus
                 registrationStatus={datasetItem.registrationStatus as any}

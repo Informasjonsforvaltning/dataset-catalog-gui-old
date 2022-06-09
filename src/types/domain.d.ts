@@ -40,6 +40,7 @@ export interface Catalog {
 export interface Dataset {
   id: string;
   catalogId: string;
+  specializedType: string;
   lastModified: Date;
   registrationStatus: RegistrationStatus;
   concepts: Concept[];

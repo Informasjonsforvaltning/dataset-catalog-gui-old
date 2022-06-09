@@ -108,6 +108,16 @@ const DatasetPage: FC<Props> = ({
       replace(`/catalogs/${catalogId}/datasets`, { confirmDelete: true })
     );
 
+  const getBreadcrumbTitle = () => {
+    if (Object.values(dataset?.title ?? {}).some(Boolean)) {
+      return <Translation object={dataset?.title} />;
+    }
+    if (dataset?.specializedType === 'SERIES') {
+      return <Translation id='breadcrumbs.seriesRegistration' />;
+    }
+    return <Translation id='breadcrumbs.datasetRegistration' />;
+  };
+
   const isReadOnly =
     !authService.hasSystemAdminPermission() &&
     !authService.hasOrganizationWritePermission(catalogId);
@@ -130,12 +140,7 @@ const DatasetPage: FC<Props> = ({
         </Breadcrumb>
         <Breadcrumb active>
           {isLoadingDataset && <Skeleton width={200} />}
-          {!isLoadingDataset &&
-            (Object.values(dataset?.title ?? {}).some(Boolean) ? (
-              <Translation object={dataset?.title} />
-            ) : (
-              <Translation id='breadcrumbs.datasetRegistration' />
-            ))}
+          {!isLoadingDataset && getBreadcrumbTitle()}
         </Breadcrumb>
       </Breadcrumbs>
       <SC.Page>

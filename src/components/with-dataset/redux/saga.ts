@@ -52,7 +52,7 @@ function* getDatasetRequested({
 }
 
 function* createDatasetRequested({
-  payload: { catalogId }
+  payload: { catalogId, specializedType }
 }: ReturnType<typeof actions.createDatasetRequested>) {
   try {
     const authorization: string = yield call([
@@ -60,14 +60,17 @@ function* createDatasetRequested({
       AuthService.getAuthorizationHeader
     ]);
 
+    const body = { specializedType };
+
     const { data }: AxiosResponse = yield call(
       axios.post,
       `${FDK_REGISTRATION_BASE_URI}/catalogs/${catalogId}/datasets`,
-      {},
+      JSON.stringify(body),
       {
         headers: {
           authorization,
           accept: 'application/json',
+          'Content-Type': 'application/json',
           'cache-control': 'no-cache'
         }
       }
