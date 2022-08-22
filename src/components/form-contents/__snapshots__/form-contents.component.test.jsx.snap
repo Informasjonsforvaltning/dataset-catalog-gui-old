@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`should render FormContentsComponent, { renderS correctly 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
-`;
