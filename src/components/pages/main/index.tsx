@@ -9,6 +9,8 @@ import {
   useAppContextUpdate,
 } from "../../../context/main-context";
 
+import AuthProvider from "../../../authentication/providers/auth";
+
 const Main: FC = () => {
   const theme = useAppContext();
   const toggleTheme = useAppContextUpdate();
@@ -39,9 +41,11 @@ const Main: FC = () => {
 
   return (
     <>
-      <Header />
-      {justKidding}
-      <Footer />
+      <AuthProvider>
+        <Header />
+        {justKidding}
+        <Footer />
+      </AuthProvider>
     </>
   );
 };

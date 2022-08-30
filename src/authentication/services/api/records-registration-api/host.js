@@ -1,0 +1,25 @@
+import axios from "axios";
+
+import env from "../../../../utils/constants/env";
+
+import AuthService from "../../../services/auth";
+
+const { RECORDS_OF_PROCESSING_ACTIVITIES_BASE_URI } = env;
+
+export const getRecords = async (orgnr) =>
+  axios
+    .get(
+      `${RECORDS_OF_PROCESSING_ACTIVITIES_BASE_URI}/api/organizations/${orgnr}/records`,
+      {
+        params: { limit: 1000 },
+        headers: {
+          Authorization: await AuthService.getAuthorizationHeader(),
+          Accept: "application/json",
+        },
+      }
+    )
+    .then(({ data }) => data)
+    .catch(() => {});
+
+export const getRecordsCount = (orgnr) =>
+  getRecords(orgnr).then((data) => data && data.hits && data.hits.length);

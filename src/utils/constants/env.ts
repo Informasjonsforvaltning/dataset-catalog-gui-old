@@ -1,6 +1,6 @@
-import { validateEnv } from "../env-validator";
+import { validateEnv } from "../../utils/env-validator";
 
-import { Namespace } from "../constants/enums";
+import { Namespace } from "../../utils/constants/enums";
 
 export default validateEnv(
   (window as any).env ?? {
