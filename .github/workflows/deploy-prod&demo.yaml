@@ -3,7 +3,7 @@ name: Deploy to production & demo
 on:
   push:
     branches:
-      - main
+      - deploy-old-app
   workflow_dispatch:
 
 jobs:
