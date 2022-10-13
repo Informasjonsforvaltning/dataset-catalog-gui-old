@@ -11,6 +11,11 @@ interface Props {
   className?: string;
 }
 
-const Icon: FC<Props> = ({ name, className }) => <SC.Icon className={className} name={name as SvgIconTypes} />;
+const Icon: FC<Props> = ({ name, className }) => {
+  return <SC.Icon
+    className={className}
+    name={name as SvgIconTypes}
+  />
+};
 
 export default Icon;

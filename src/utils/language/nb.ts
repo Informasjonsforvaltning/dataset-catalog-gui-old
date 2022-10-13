@@ -23,5 +23,12 @@ export const nb = {
   dcatKeywords: {
     mandatory: 'Obligatorisk',
     recommended: 'Anbefalt',
-  }
+  },
+
+  sectionTitle: {
+    titleAndDescription: 'Tittel og beskrivelse',
+    conceptAndSearchTerms: 'Begrep og søkeord',
+  },
+
+  sectionErrorMessage: "Ett eller flere obligatoriske felt er ikke fylt ut"
 };
