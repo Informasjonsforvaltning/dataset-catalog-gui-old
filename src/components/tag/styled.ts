@@ -7,6 +7,7 @@ const Tag = styled.span`
   border-radius: ${theme.spacing('S48')};
   display: flex;
   align-items: center;
+  gap: ${theme.spacing('S4')};
   width: fit-content;
 
   svg {
@@ -15,13 +16,12 @@ const Tag = styled.span`
   }
 `;
 
-const TagText = styled.label`
+const TagText = styled.span`
   height: ${theme.spacing('S16')};
   font-style: normal;
   font-weight: ${theme.fontWeight('FW400')};
   font-size: ${theme.fontSize('FS16')};
   line-height: ${theme.spacing('S16')};
-  margin-left: ${theme.spacing('S4')};
   white-space: nowrap;
 `;
 

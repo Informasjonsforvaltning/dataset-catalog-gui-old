@@ -19,4 +19,9 @@ export const nb = {
   tagExPublished: 'EksPublisert',
   tagNonEditable: 'Ikke redigerbar',
   tagUnderReview: 'Til høring',
+
+  dcatKeywords: {
+    mandatory: 'Obligatorisk',
+    recommended: 'Anbefalt',
+  }
 };

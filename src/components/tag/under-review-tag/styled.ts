@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Colour, theme } from '@fellesdatakatalog/theme';
 
-import Tag from '../index';
+import Tag from '..';
 
 const UnderReviewTag = styled(Tag)`
   color: ${theme.colour(Colour.BLUE, 'B60')};

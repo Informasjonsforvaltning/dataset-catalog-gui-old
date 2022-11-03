@@ -2,7 +2,7 @@ import React, { FC, ReactElement } from 'react';
 import SC from './styled';
 
 type Props = {
-  icon: ReactElement;
+  icon?: ReactElement;
   text: string;
   className?: string;
 };
