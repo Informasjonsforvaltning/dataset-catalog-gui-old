@@ -7,6 +7,8 @@ import DraftTag from './draft-tag';
 import PublishedTag from './published-tag';
 import ExPublishedTag from './ex-published-tag';
 import ApprovedTag from './approved-tag';
+import MandatoryTag from './mandatory-tag'
+import RecommendedTag from './recommended-tag';
 
 export default {
   title: 'Tag',
@@ -24,3 +26,7 @@ export const Approved = () => <ApprovedTag />;
 export const NonEditable = () => <NonEditableTag />;
 
 export const UnderReview = () => <UnderReviewTag />;
+
+export const Mandatory = () => <MandatoryTag />;
+
+export const Recommended = () => <RecommendedTag />;
