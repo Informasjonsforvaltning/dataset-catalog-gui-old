@@ -8,9 +8,9 @@ const configuration: Configuration = merge(prodConfig, {
   plugins: [
     new BundleAnalyzerPlugin({
       openAnalyzer: true,
-      generateStatsFile: true
-    })
-  ]
+      generateStatsFile: true,
+    }),
+  ],
 });
 
 export default configuration;

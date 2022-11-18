@@ -15,7 +15,7 @@ const Breadcrumbs: FC = () => {
   if (params.datasetId && params.datasetId !== datasetId) setDatasetId(params.datasetId);
   const activeStyle = { textDecoration: 'none' };
 
-  let location = useLocation();
+  const location = useLocation();
   useEffect(() => {
     setDatasetId('');
   }, [location]);

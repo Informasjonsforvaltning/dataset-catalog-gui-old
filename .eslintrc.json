@@ -29,15 +29,7 @@
     "ecmaVersion": 2020,
     "sourceType": "module"
   },
-  "plugins": [
-    "@typescript-eslint",
-    "react",
-    "html",
-    "json",
-    "markdown",
-    "jsx-a11y",
-    "react-hooks"
-  ],
+  "plugins": ["@typescript-eslint", "react", "html", "json", "markdown", "jsx-a11y", "react-hooks"],
   "rules": {
     "import/no-extraneous-dependencies": [
       "error",
@@ -56,9 +48,7 @@
     "@typescript-eslint/no-empty-function": [
       "error",
       {
-        "allow": [
-          "arrowFunctions"
-        ]
+        "allow": ["arrowFunctions"]
       }
     ],
     "@typescript-eslint/explicit-module-boundary-types": "off",
@@ -104,41 +94,30 @@
         "jsx": "never",
         "ts": "never",
         "tsx": "never",
-        "" : "never"
+        "": "never"
       }
     ],
     "react/jsx-filename-extension": [
       "error",
       {
-        "extensions": [
-          ".jsx",
-          ".tsx"
-        ]
+        "extensions": [".jsx", ".tsx"]
       }
     ]
   },
   "overrides": [
     {
-      "files": [
-        "**/*.ts?(x)"
-      ],
+      "files": ["**/*.ts?(x)"],
       "rules": {
         "no-unused-expressions": "off"
       }
     },
     {
-      "files": [
-        "./test/**/*",
-        "**/__tests__/**/*.[jt]s?(x)"
-      ],
+      "files": ["./test/**/*", "**/__tests__/**/*.[jt]s?(x)"],
       "rules": {
         "no-console": [
           "error",
           {
-            "allow": [
-              "warn",
-              "error"
-            ]
+            "allow": ["warn", "error"]
           }
         ],
         "@typescript-eslint/no-non-null-assertion": "off"

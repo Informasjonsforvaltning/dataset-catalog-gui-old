@@ -4,10 +4,7 @@
     "target": "es6",
     "module": "esnext",
     "jsx": "react",
-    "lib": [
-      "esnext",
-      "dom"
-    ],
+    "lib": ["esnext", "dom"],
     "outDir": "./dist/",
     "allowJs": true,
     "sourceMap": true,
@@ -29,18 +26,9 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "moduleResolution": "node",
-    "types": [
-      "node"
-    ],
-    "typeRoots": [
-      "node_modules/@types",
-      "src/utils/types/*"
-    ]
+    "types": ["node"],
+    "typeRoots": ["node_modules/@types", "src/utils/types/*"]
   },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }

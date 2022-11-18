@@ -1,2 +1,11 @@
 node_modules
 dist
+.trunk
+
+.gitignore
+.dockerignore
+.eslintignore
+.huskyrc
+.lintstagedrc
+
+package-lock.json

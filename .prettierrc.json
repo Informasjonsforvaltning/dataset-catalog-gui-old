@@ -5,6 +5,5 @@
   "printWidth": 120,
   "requirePragma": false,
   "singleQuote": true,
-  "parser": "typescript",
   "semi": true
 }

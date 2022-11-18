@@ -1,0 +1,22 @@
+name: Run linting
+
+on:
+  push:
+    branches-ignore:
+      - main
+
+jobs:
+  lint:
+    strategy:
+      matrix:
+        node-version: [18.12.1]
+
+    name: Call reusable lint workflow on push
+    uses: Informasjonsforvaltning/workflows/.github/workflows/lint-node-npm.yaml@main
+    with:
+      node_version: ${{ matrix.node-version }}
+      eslint_version: 8.27.0
+      install_args: '--legacy-peer-deps'
+      lint_args: '--ext tsx,ts,jsx,js,json,html ./'
+    secrets:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -10,19 +10,19 @@ An application for managing datasets.
   - Node.js and npm to run locally on a host machine
   - Docker and Docker Compose to run locally in a container
 
-#### Running application locally on a host machine
+### Running application locally on a host machine
 
 - Install dependencies by running `npm install`
 - Run `npm start` to start local development server
 
-#### Running application in a Docker container
+### Running application in a Docker container
 
 - Build a Docker container using the following command:
   - `docker build -t dataset-catalog-gui .`
 - Run the container using the following comand:
   - `docker run -d -p 4301:8080 -e NAMESPACE -e FDK_BASE_URI -e SSO_HOST -e SKE_THEME_PROFILE -e FDK_REGISTRATION_BASE_URI -e ADMIN_GUI_BASE_URI -e ORGANIZATION_API_HOST -e SEARCH_FULLTEXT_HOST -e DATASERVICE_CATALOG_BASE_URI -e CONCEPT_REGISTRATION_HOST -e CONCEPT_REGISTRATION_API_HOST -e RECORDS_OF_PROCESSING_ACTIVITIES_BASE_URI dataset-catalog-gui`
 
-#### Running application using Docker Compose
+### Running application using Docker Compose
 
 - Run the application using the following command:
   - `docker-compose up -d`
@@ -50,7 +50,7 @@ An application for managing datasets.
 
 ## Contributing
 
-#### Branching Strategy
+### Branching Strategy
 
 Whenever a new change is to be implemented, follow these steps:
 
@@ -58,7 +58,7 @@ Whenever a new change is to be implemented, follow these steps:
 - Implement and commit changes
 - Create a pull request for code review
 
-#### Commits
+### Commits
 
 This repository uses conventional commmit format. In order to commit, follow these steps:
 
@@ -68,7 +68,9 @@ This repository uses conventional commmit format. In order to commit, follow the
 Do not use `--no-verify` flag when making commits.
 
 ## Running the storybook
+
 To get an overview of the react components used in this app, run:
+
 ```shell
 npm run storybook
 ```

@@ -11,6 +11,14 @@ import { ACTION_TYPE } from '../../context/actions';
 import Icon from '../../components/icon';
 import { Colour, theme } from '@fellesdatakatalog/theme';
 
+// fake delay
+const delayForDemo = async (promise: Promise<typeof import('./populated-table')>) => {
+  await new Promise(resolve => {
+    setTimeout(resolve, 1000);
+  });
+  return promise;
+};
+
 const Table = lazy(() => delayForDemo(import('./populated-table')));
 
 const DatasetsPage: FC = () => {
@@ -55,11 +63,3 @@ const DatasetsPage: FC = () => {
 };
 
 export default memo(DatasetsPage);
-
-// fake delay
-const delayForDemo = async (promise: Promise<typeof import('./populated-table')>) => {
-  await new Promise(resolve => {
-    setTimeout(resolve, 1000);
-  });
-  return promise;
-};

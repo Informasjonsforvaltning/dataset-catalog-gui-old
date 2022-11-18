@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createElement } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import TableRow from '.';
 
@@ -27,7 +27,7 @@ DatasetsTableRow1.args = {
   row: [
     { text: 'Enhetsregistret', width: colWidths.col_1 },
     { text: 'For 2 timer siden', width: colWidths.col_2 },
-    { tag: React.createElement(DraftTag), width: colWidths.col_3 },
+    { tag: createElement(DraftTag), width: colWidths.col_3 },
   ],
 };
 export const DatasetsTableRow2 = Template.bind({});
@@ -36,7 +36,7 @@ DatasetsTableRow2.args = {
     { text: 'Foretaksregistret', width: colWidths.col_1 },
 
     { text: 'I går kl 08:29', width: colWidths.col_2 },
-    { tag: React.createElement(PublishedTag), width: colWidths.col_3 },
+    { tag: createElement(PublishedTag), width: colWidths.col_3 },
   ],
 };
 export const DatasetsTableRow3 = Template.bind({});
@@ -44,7 +44,7 @@ DatasetsTableRow3.args = {
   row: [
     { text: 'Kommunalt rapporteringsregister', width: colWidths.col_1 },
     { text: 'For 1 time siden', width: colWidths.col_2 },
-    { tag: React.createElement(ExPublishedTag), width: colWidths.col_3 },
+    { tag: createElement(ExPublishedTag), width: colWidths.col_3 },
   ],
 };
 export const DatasetsTableRow4 = Template.bind({});
@@ -52,7 +52,7 @@ DatasetsTableRow4.args = {
   row: [
     { text: 'Kompensasjonsordningen for innreisekarantene', width: colWidths.col_1 },
     { text: '23.05.2021 kl 11.08', width: colWidths.col_2 },
-    { tag: React.createElement(ApprovedTag), width: colWidths.col_3 },
+    { tag: createElement(ApprovedTag), width: colWidths.col_3 },
   ],
 };
 export const DatasetsTableRow5 = Template.bind({});
@@ -60,7 +60,7 @@ DatasetsTableRow5.args = {
   row: [
     { text: 'Kompensasjonsordning for næringslivet - etter august 2020', width: colWidths.col_1 },
     { text: '23.01.2022 kl 13.10', width: colWidths.col_2 },
-    { tag: React.createElement(NonEditableTag), width: colWidths.col_3 },
+    { tag: createElement(NonEditableTag), width: colWidths.col_3 },
   ],
 };
 export const DatasetsTableRow6 = Template.bind({});
@@ -68,6 +68,6 @@ DatasetsTableRow6.args = {
   row: [
     { text: 'Regnskapsregistret', width: colWidths.col_1 },
     { text: 'I går kl 13:29', width: colWidths.col_2 },
-    { tag: React.createElement(UnderReviewTag), width: colWidths.col_3 },
+    { tag: createElement(UnderReviewTag), width: colWidths.col_3 },
   ],
 };

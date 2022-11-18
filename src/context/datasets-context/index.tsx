@@ -1,4 +1,4 @@
-import React, { FC, PropsWithChildren, useContext, useEffect, useReducer } from 'react';
+import React, { FC, PropsWithChildren, useContext, useEffect, useReducer, createContext } from 'react';
 
 import { getDatasets } from './api-front-back';
 import { reducer, STATE } from './reducer';
@@ -7,11 +7,11 @@ import { ACTION, ACTION_TYPE, STATUS } from '../actions';
 const initialState: STATE = { status: STATUS.IDLE, catalogId: '', datasets: [] };
 
 // Context
-const Context = React.createContext(initialState);
+const Context = createContext(initialState);
 Context.displayName = 'DatasetsContext';
 
 // Context updater
-const ContextDispatch = React.createContext<React.Dispatch<ACTION>>(() => {});
+const ContextDispatch = createContext<React.Dispatch<ACTION>>(() => {});
 Context.displayName = 'DatasetsContextDispatch';
 
 // custom hooks
