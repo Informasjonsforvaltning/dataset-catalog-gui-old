@@ -3,26 +3,17 @@
  */
 
 import React, { FC, PropsWithChildren, useContext, useEffect, useReducer, createContext } from 'react';
-import { Props as ColumnProps } from '../../components/table/table-row/row-cell';
-import { Props as RowProps } from '../../components/table/table-row';
 
 import { reducer, STATE } from './reducer';
 import { ACTION, ACTION_TYPE } from '../actions';
-import getDate from '../../utils/helpers/date-and-time-formatter';
-import getTag from '../../utils/helpers/tag-finder';
-import Table from '../../components/table';
-import Button from '../../components/inputs/button';
-import Icon from '../../components/icon';
-import { useDatasetsContext } from '../datasets-context';
-import { useLocation, useNavigate } from 'react-router-dom';
 
 const initialState: STATE = {
   datasets: [],
   rows: [],
-  headerColumns: [],
+  headerColumns: { cols: [] },
   searchTerm: '',
-  filter: ['', ''],
-  sort: ['', 'default'],
+  filter: { lastModiedBy: '', status: '' },
+  sort: { sortBy: '', sortOrder: 'default' },
 };
 
 // Context
@@ -56,47 +47,6 @@ const TableContext: FC<PropsWithChildren> = ({ children }) => {
   }; */
 
   /*   useEffect(asyncDispatch, [state.catalogId]); */
-  const datasetsState = useDatasetsContext();
-  const location = useLocation();
-  const navigate = useNavigate();
-
-  const handleRowClick = (id: string) => navigate(`${location.pathname}/${id}`);
-
-  const colWidths = {
-    col_1: '70%',
-    col_2: '16%',
-    col_3: '14%',
-  };
-
-  const cols = [
-    {
-      sortButton: (
-        <Button name='Title' type='transparent' iconPos='right' endIcon={<Icon name='listUnsortedStroke' />} />
-      ),
-      width: colWidths.col_1,
-    },
-    {
-      sortButton: (
-        <Button name='Sist endret' type='transparent' iconPos='right' endIcon={<Icon name='listUnsortedStroke' />} />
-      ),
-      width: colWidths.col_2,
-    },
-    {
-      sortButton: (
-        <Button name='Status' type='transparent' iconPos='right' endIcon={<Icon name='listUnsortedStroke' />} />
-      ),
-      width: colWidths.col_3,
-    },
-  ];
-
-  const rows: RowProps<ColumnProps>[] = datasetsState.datasets.map(dataset => ({
-    row: [
-      { text: dataset.title?.nb, width: colWidths.col_1 },
-      { text: getDate(dataset._lastModified), width: colWidths.col_2 },
-      { tag: getTag(dataset.registrationStatus), width: colWidths.col_3 },
-    ],
-    onRowClick: () => handleRowClick(dataset.id),
-  }));
 
   return (
     <Context.Provider value={state}>
