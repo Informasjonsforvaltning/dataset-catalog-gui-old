@@ -2,18 +2,18 @@
  * Dependency: datsets-context
  */
 
-import React, { FC, PropsWithChildren, useContext, useEffect, useReducer, createContext } from 'react';
+import React, { FC, PropsWithChildren, useContext, useReducer, createContext } from 'react';
 
 import { reducer, STATE } from './reducer';
-import { ACTION, ACTION_TYPE } from '../actions';
+import { ACTION } from '../actions';
 
 const initialState: STATE = {
   datasets: [],
+  datasetsView: [],
   rows: [],
   headerColumns: { cols: [] },
-  searchTerm: '',
-  filter: { lastModiedBy: '', status: '' },
-  sort: { sortBy: '', sortOrder: 'default' },
+  filter: { lastModified: undefined, status: undefined },
+  sort: { sortBy: 'title', sortOrder: 'ascending' },
 };
 
 // Context

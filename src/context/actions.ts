@@ -1,5 +1,5 @@
 import { Dataset } from '../utils/types';
-import { RegistrationStatus } from '../utils/types/enums';
+import { FILTER_TYPE, SORT_TYPE } from './table-context/reducer';
 
 enum STATUS {
   IDLE = 'idle',
@@ -17,6 +17,7 @@ enum ACTION_TYPE {
   ADD_DATASET,
   GET_DATASET,
   GET_DATASETS,
+  SORT_DATASETS,
   REMOVE_DATASET,
   ADD_CATALOG_ID,
   FILTER_DATASETS,
@@ -36,7 +37,13 @@ type ACTION =
   | { type: ACTION_TYPE.ADD_DATASET; payload: { dataset: Dataset } }
   | { type: ACTION_TYPE.GET_DATASET; payload: { datasetId: string } }
   | { type: ACTION_TYPE.REMOVE_DATASET; payload: { catalogId: string } }
-  | { type: ACTION_TYPE.SEARCH_IN_DATASETS; payload: { searchTerm: string } }
-  | { type: ACTION_TYPE.FILTER_DATASETS; payload: { lastModifiedBy: string; status: RegistrationStatus } };
+  | {
+      type: ACTION_TYPE.FILTER_DATASETS;
+      payload: FILTER_TYPE;
+    }
+  | {
+      type: ACTION_TYPE.SORT_DATASETS;
+      payload: SORT_TYPE;
+    };
 
 export { ACTION, ACTION_TYPE, STATUS };
