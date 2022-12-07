@@ -2,10 +2,11 @@
  * Dependency: datsets-context
  */
 
-import React, { FC, PropsWithChildren, useContext, useReducer, createContext } from 'react';
+import React, { FC, PropsWithChildren, useContext, useReducer, createContext, useEffect } from 'react';
 
 import { reducer, STATE } from './reducer';
-import { ACTION } from '../actions';
+import { ACTION, ACTION_TYPE } from '../actions';
+import { useDatasetsContext } from '../datasets-context';
 
 const initialState: STATE = {
   datasets: [],
@@ -30,23 +31,7 @@ const useSearchDispatch = () => useContext(ContextDispatch);
 
 const TableContext: FC<PropsWithChildren> = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-
-  // initialize datasets
-  /*   const asyncDispatch = () => {
-    if (state.catalogId) {
-      dispatch({ type: ACTION_TYPE.LOADING });
-      getDatasets(state.catalogId)
-        .then(datasets => {
-          dispatch({ type: ACTION_TYPE.FINISHED, payload: datasets });
-        })
-        .catch(err => {
-          dispatch({ type: ACTION_TYPE.ERROR });
-          console.error('DatasetsContext failed on getDatasets()!', err);
-        });
-    }
-  }; */
-
-  /*   useEffect(asyncDispatch, [state.catalogId]); */
+  useEffect(() => dispatch({ type: ACTION_TYPE.GET_TABLE_DATA }), useDatasetsContext().datasets);
 
   return (
     <Context.Provider value={state}>

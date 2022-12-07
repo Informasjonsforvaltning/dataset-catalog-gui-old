@@ -17,6 +17,7 @@ enum ACTION_TYPE {
   ADD_DATASET,
   GET_DATASET,
   GET_DATASETS,
+  GET_TABLE_DATA,
   SORT_DATASETS,
   REMOVE_DATASET,
   ADD_CATALOG_ID,
@@ -31,6 +32,7 @@ type ACTION =
   | { type: ACTION_TYPE.LOADING }
   | { type: ACTION_TYPE.ADD_ROWS }
   | { type: ACTION_TYPE.GET_DATASETS }
+  | { type: ACTION_TYPE.GET_TABLE_DATA }
   | { type: ACTION_TYPE.ADD_HEADER_COLUMNS }
   | { type: ACTION_TYPE.FINISHED; payload: Dataset[] }
   | { type: ACTION_TYPE.ADD_CATALOG_ID; payload: string }

@@ -30,7 +30,7 @@ type STATE = {
 
 const reducer = produce((state: STATE, action: ACTION) => {
   switch (action.type) {
-    case ACTION_TYPE.GET_DATASETS:
+    case ACTION_TYPE.GET_TABLE_DATA:
       state.datasets = getDatasets();
       state.datasetsView = state.datasets.slice();
       return state;
@@ -42,9 +42,7 @@ const reducer = produce((state: STATE, action: ACTION) => {
       return state;
     case ACTION_TYPE.FILTER_DATASETS:
       state.datasetsView = getFilteredDatasets(state.datasets, state.filter);
-      if (state.sort) {
-        state.datasetsView = sortDatasetsView(state.datasetsView, state.sort);
-      }
+      if (state.sort) state.datasetsView = sortDatasetsView(state.datasetsView, state.sort);
       return state;
     case ACTION_TYPE.SORT_DATASETS:
       if (action.payload.sortBy && action.payload.sortBy !== state.sort.sortBy) {
@@ -113,7 +111,7 @@ const getRows = (datasets: Dataset[]) =>
 
 const getDatasets = () => {
   const { datasets } = useDatasetsContext();
-  return datasets;
+  return datasets ?? [];
 };
 
 const getFilteredDatasets = (datasets: Dataset[], filter?: FILTER_TYPE, searchTerm?: string) => {
