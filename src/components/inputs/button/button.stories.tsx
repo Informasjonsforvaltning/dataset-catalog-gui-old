@@ -28,7 +28,7 @@ HostButton.args = {
   type: 'filled',
   name: 'Høst spesifikasjon fra katalog',
   bg: theme.colour(Colour.BLUE, 'B30'),
-  color: theme.colour(Colour.BLUE, 'B60'),
+  btnColor: theme.colour(Colour.BLUE, 'B60'),
   startIcon: <Icon name='arrowDownStroke' />,
 };
 
@@ -37,7 +37,7 @@ LastModifiedSearchButton.args = {
   type: 'filled',
   name: 'Sist endret av',
   bg: theme.colour(Colour.BLUE, 'B30'),
-  color: theme.colour(Colour.BLUE, 'B60'),
+  btnColor: theme.colour(Colour.BLUE, 'B60'),
   endIcon: <Icon name='chevronDownStroke' />,
 };
 
@@ -46,7 +46,7 @@ StatusSearchButton.args = {
   type: 'filled',
   name: 'Status',
   bg: theme.colour(Colour.BLUE, 'B30'),
-  color: theme.colour(Colour.BLUE, 'B60'),
+  btnColor: theme.colour(Colour.BLUE, 'B60'),
   endIcon: <Icon name='chevronDownStroke' />,
 };
 
@@ -54,7 +54,7 @@ export const DeleteButton = Template.bind({});
 DeleteButton.args = {
   type: 'link',
   name: 'Slett',
-  color: theme.colour(Colour.RED, 'R60'),
+  btnColor: theme.colour(Colour.RED, 'R60'),
   startIcon: <Icon name='circleMinusStroke' />,
 };
 

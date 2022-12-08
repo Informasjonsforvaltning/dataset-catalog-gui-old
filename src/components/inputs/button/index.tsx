@@ -12,7 +12,7 @@ interface ButtonProps {
   iconPos?: IconPoseType;
   startIcon?: JSX.Element;
   endIcon?: JSX.Element;
-  color?: (prop: any) => string;
+  btnColor?: (prop: any) => string;
   bg?: (prop: any) => string;
 }
 
@@ -21,7 +21,7 @@ const Button: FC<ButtonProps> = ({
   endIcon,
   type = 'default',
   name = 'Button',
-  color = type === 'link' || type === 'transparent'
+  btnColor = type === 'link' || type === 'transparent'
     ? theme.colour(Colour.BLUE, 'B60')
     : theme.colour(Colour.NEUTRAL, 'N0'),
   bg = theme.colour(Colour.BLUE, 'B60'),
@@ -29,7 +29,7 @@ const Button: FC<ButtonProps> = ({
   const Component = getStyledComponent(type!);
 
   return (
-    <Component color={color} bg={bg} iconPos={startIcon ? 'left' : endIcon ? 'right' : undefined}>
+    <Component btnColor={btnColor} bg={bg} iconPos={startIcon ? 'left' : endIcon ? 'right' : undefined}>
       {startIcon}
       <Text>{name}</Text>
       {endIcon}

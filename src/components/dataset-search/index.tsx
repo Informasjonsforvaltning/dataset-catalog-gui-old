@@ -15,14 +15,14 @@ const Search: FC = () => {
         name={localization.button.lastModifiedSearch}
         endIcon={<Icon name='chevronDownStroke' />}
         bg={theme.colour(Colour.BLUE, 'B30')}
-        color={theme.colour(Colour.BLUE, 'B60')}
+        btnColor={theme.colour(Colour.BLUE, 'B60')}
       />
       <Button
         type='filled'
         name={localization.button.statusSearch}
         endIcon={<Icon name='chevronDownStroke' />}
         bg={theme.colour(Colour.BLUE, 'B30')}
-        color={theme.colour(Colour.BLUE, 'B60')}
+        btnColor={theme.colour(Colour.BLUE, 'B60')}
       />
     </SC.Search>
   );

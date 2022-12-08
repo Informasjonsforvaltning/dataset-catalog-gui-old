@@ -1,3 +1,4 @@
+import { ThemeProfile } from '@fellesdatakatalog/theme';
 import { Dataset } from '../utils/types';
 import { FILTER_TYPE, SORT_TYPE } from './table-context/reducer';
 
@@ -18,6 +19,7 @@ enum ACTION_TYPE {
   GET_DATASET,
   GET_DATASETS,
   GET_TABLE_DATA,
+  CHANGE_THEME,
   SORT_DATASETS,
   REMOVE_DATASET,
   ADD_CATALOG_ID,
@@ -32,8 +34,9 @@ type ACTION =
   | { type: ACTION_TYPE.LOADING }
   | { type: ACTION_TYPE.ADD_ROWS }
   | { type: ACTION_TYPE.GET_DATASETS }
-  | { type: ACTION_TYPE.GET_TABLE_DATA }
+  | { type: ACTION_TYPE.GET_TABLE_DATA; payload: { datasets: Dataset[] } }
   | { type: ACTION_TYPE.ADD_HEADER_COLUMNS }
+  | { type: ACTION_TYPE.CHANGE_THEME; payload: { theme: ThemeProfile } }
   | { type: ACTION_TYPE.FINISHED; payload: Dataset[] }
   | { type: ACTION_TYPE.ADD_CATALOG_ID; payload: string }
   | { type: ACTION_TYPE.ADD_DATASET; payload: { dataset: Dataset } }
