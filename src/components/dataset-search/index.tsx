@@ -11,14 +11,14 @@ const Search: FC = () => {
     <SC.Search>
       <InputField ariaLabel={localization.searchForDataset} />
       <Button
-        type='filled'
+        btnType='filled'
         name={localization.button.lastModifiedSearch}
         endIcon={<Icon name='chevronDownStroke' />}
         bg={theme.colour(Colour.BLUE, 'B30')}
         btnColor={theme.colour(Colour.BLUE, 'B60')}
       />
       <Button
-        type='filled'
+        btnType='filled'
         name={localization.button.statusSearch}
         endIcon={<Icon name='chevronDownStroke' />}
         bg={theme.colour(Colour.BLUE, 'B30')}

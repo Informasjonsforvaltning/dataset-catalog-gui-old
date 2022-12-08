@@ -1,4 +1,3 @@
-import React from 'react';
 import { produce } from 'immer';
 
 import { Dataset } from '../../utils/types';
@@ -6,17 +5,13 @@ import { ACTION, ACTION_TYPE } from '../actions';
 import { Props as ColumnProps } from '../../components/table/table-row/row-cell';
 import { Props as RowProps } from '../../components/table/table-row';
 import { CellType } from '../../components/table/table-header';
-import getDate from '../../utils/helpers/date-and-time-formatter';
-import getTag from '../../utils/helpers/tag-finder';
-import { useLocation, useNavigate } from 'react-router-dom';
-import Icon from '../../components/icon';
-import Button from '../../components/inputs/button';
+
 import { RegistrationStatus } from '../../utils/types/enums';
 
 type SORT_ORDER = 'ascending' | 'descending';
 type FILTER_TYPE = { lastModified?: Date | undefined; status?: RegistrationStatus | undefined; searchTerm?: string };
 type SORT_BY_TYPE = 'title' | 'last-modified' | 'status';
-type SORT_TYPE = { sortBy: SORT_BY_TYPE; sortOrder: SORT_ORDER };
+type SORT_TYPE = { sortBy: SORT_BY_TYPE; sortOrder?: SORT_ORDER };
 
 type STATE = {
   datasets: Dataset[];
@@ -33,11 +28,11 @@ const reducer = produce((state: STATE, action: ACTION) => {
       state.datasets = action.payload.datasets;
       state.datasetsView = state.datasets.slice();
       return state;
-    case ACTION_TYPE.ADD_HEADER_COLUMNS:
-      state.headerColumns = getHeaderColumns(state.sort.sortBy ?? 'title');
+    case ACTION_TYPE.ADD_TABLE_HEADER:
+      state.headerColumns = action.payload.headerColumns;
       return state;
-    case ACTION_TYPE.ADD_ROWS:
-      state.rows = getRows(state.datasets);
+    case ACTION_TYPE.ADD_TABLE_ROWS:
+      state.rows = action.payload.rows;
       return state;
     case ACTION_TYPE.FILTER_DATASETS:
       state.datasetsView = getFilteredDatasets(state.datasets, state.filter);
@@ -57,54 +52,6 @@ const reducer = produce((state: STATE, action: ACTION) => {
       return state;
   }
 });
-
-const colWidths = {
-  col_1: '70%',
-  col_2: '16%',
-  col_3: '14%',
-};
-
-const handleRowClick = (id: string) => {
-  const location = useLocation();
-  const navigate = useNavigate();
-  navigate(`${location.pathname}/${id}`);
-};
-
-const getCorrectIcon = (sortBy: string) => {
-  switch (sortBy) {
-    case 'ascending':
-      return <Icon name='listAscendingStroke' />;
-    case 'descending':
-      return <Icon name='listDescendingStroke' />;
-    default:
-      return <Icon name='listUnsortedStroke' />;
-  }
-};
-
-const getHeaderColumns = (sortBy: string) => [
-  {
-    sortButton: <Button name='Title' type='transparent' iconPos='right' endIcon={getCorrectIcon(sortBy)} />,
-    width: colWidths.col_1,
-  },
-  {
-    sortButton: <Button name='Sist endret' type='transparent' iconPos='right' endIcon={getCorrectIcon(sortBy)} />,
-    width: colWidths.col_2,
-  },
-  {
-    sortButton: <Button name='Status' type='transparent' iconPos='right' endIcon={getCorrectIcon(sortBy)} />,
-    width: colWidths.col_3,
-  },
-];
-
-const getRows = (datasets: Dataset[]) =>
-  datasets.map(dataset => ({
-    row: [
-      { text: dataset.title?.nb, width: colWidths.col_1 },
-      { text: getDate(dataset._lastModified), width: colWidths.col_2 },
-      { tag: getTag(dataset.registrationStatus), width: colWidths.col_3 },
-    ],
-    onRowClick: () => handleRowClick(dataset.id),
-  }));
 
 const getFilteredDatasets = (datasets: Dataset[], filter?: FILTER_TYPE, searchTerm?: string) => {
   let datasetsView = datasets;
@@ -133,31 +80,35 @@ const sortDatasetsView = (datasets: Dataset[], sort: SORT_TYPE) => {
     case 'last-modified':
       datasets.sort((datasetA, datasetB) => {
         if (sort.sortOrder === 'ascending') {
-          return ascendSort(datasetA._lastModified.getTime(), datasetB._lastModified.getTime());
+          return ascendSort(datasetA._lastModified, datasetB._lastModified);
         } else {
-          return descendSort(datasetA._lastModified.getTime(), datasetB._lastModified.getTime());
+          return descendSort(datasetA._lastModified, datasetB._lastModified);
         }
       });
       break;
     default:
       datasets.sort((datasetA, datasetB) => {
         if (sort.sortOrder === 'ascending') {
-          return ascendSort(datasetA.title.nb, datasetB.title.nb);
+          return ascendSort(datasetA.title?.nb ?? 'Empty', datasetB.title?.nb ?? 'Empty');
         } else {
-          return descendSort(datasetA.title.nb, datasetB.title.nb);
+          return descendSort(datasetA.title?.nb ?? 'Empty', datasetB.title?.nb ?? 'Empty');
         }
       });
   }
   return datasets;
 };
 
-const ascendSort = (A: string | number, B: string | number): number => {
+const ascendSort = (A: string | Date, B: string | Date): number => {
+  if (typeof A === typeof Date) {
+    A = A.toString();
+    B = B.toString();
+  }
   if (A < B) return -1;
   if (A > B) return 1;
   return 0;
 };
 
-const descendSort = (A: string | number, B: string | number): number => {
+const descendSort = (A: string | Date, B: string | Date): number => {
   if (A > B) return -1;
   if (A < B) return 1;
   return 0;

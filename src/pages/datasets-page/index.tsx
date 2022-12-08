@@ -1,5 +1,5 @@
 import React, { FC, lazy, Suspense, useEffect } from 'react';
-import { Outlet, useParams } from 'react-router-dom';
+import { Outlet, useLocation, useParams } from 'react-router-dom';
 
 import SC from './styled';
 import { localization } from '../../utils/language/localization';
@@ -10,12 +10,20 @@ import Spinner from '../../components/spinner';
 import Icon from '../../components/icon';
 import { Colour, theme } from '@fellesdatakatalog/theme';
 import { ACTION_TYPE } from '../../context/actions';
+import { useGlobalDispatch } from '../../context/global-context';
 
 const Table = lazy(() => delayForDemo(import('./populated-table')));
 
 const DatasetsPage: FC = () => {
   const datasetsContext = useDatasetsContext();
   const pageSubtitle = datasetsContext.datasets[0]?.publisher.name ?? '';
+
+  const location = useLocation();
+  const globalDispatch = useGlobalDispatch();
+  useEffect(
+    () => globalDispatch({ type: ACTION_TYPE.ADD_LOCATION, payload: { location: location.pathname } }),
+    [location]
+  );
 
   const { catalogId } = useParams();
   const datasetsDispatch = useDatasetsDispatch();
@@ -33,14 +41,14 @@ const DatasetsPage: FC = () => {
         <SC.SubTitle>{pageSubtitle}</SC.SubTitle>
         <SC.AddDiv>
           <Button
-            type='filled'
+            btnType='filled'
             bg={theme.colour(Colour.BLUE, 'B60')}
             btnColor={theme.colour(Colour.NEUTRAL, 'N0')}
             name={localization.button.addDataset}
             startIcon={<Icon name='circlePlusStroke' />}
           />
           <SC.HostButton
-            type='filled'
+            btnType='filled'
             btnColor={theme.colour(Colour.BLUE, 'B60')}
             bg={theme.colour(Colour.BLUE, 'B30')}
             name={localization.button.hostDataset}
