@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render ExternalInformationModels correctly 1`] = `
+<div>
+  <button
+    className="fdk-btn-no-border"
+    onClick={[Function]}
+    type="button"
+  >
+    <CirclePlusInlineIcon />
+  </button>
+</div>
+`;

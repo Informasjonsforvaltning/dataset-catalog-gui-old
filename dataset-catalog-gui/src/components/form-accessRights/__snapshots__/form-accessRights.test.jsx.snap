@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render FormAccessRights correctly 1`] = `
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
+`;
+
+exports[`should render FormAccessRights correctly with syncErrors 1`] = `
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
+`;
+
+exports[`should render renderLegalBasis correctly 1`] = `
+<div>
+  <div
+    className="d-flex flex-column mb-5"
+    key="0"
+  >
+    <Memo(MultilingualField)
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "compare": null,
+          "type": [Function],
+        }
+      }
+      name="[object Object].prefLabel"
+      showLabel={true}
+    />
+    <div
+      className="mt-2"
+    >
+      <Field
+        component={
+          Object {
+            "$$typeof": Symbol(react.memo),
+            "compare": null,
+            "type": [Function],
+          }
+        }
+        name="[object Object].uri"
+        showLabel={true}
+      />
+    </div>
+    <div
+      className="d-flex align-items-end"
+    >
+      <button
+        className="fdk-btn-no-border"
+        onClick={[Function]}
+        title="Remove legal basis"
+        type="button"
+      >
+        <CircleMinusIcon />
+      </button>
+    </div>
+  </div>
+  <button
+    className="fdk-btn-no-border"
+    onClick={[Function]}
+    type="button"
+  >
+    <CirclePlusInlineIcon />
+    <Memo()
+      id="schema.common.add"
+    />
+  </button>
+</div>
+`;

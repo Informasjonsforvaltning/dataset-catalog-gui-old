@@ -1,0 +1,155 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render ListItem correctly "DRAFT" item 1`] = `
+<div
+  className="fdk-list-item d-flex"
+>
+  <Link
+    className="w-100"
+    to="/catalogs/123/datasets/1"
+  >
+    <div
+      className="d-flex justify-content-between"
+    >
+      <span
+        className="w-50 fdk-text-size-small"
+      >
+        Test item
+      </span>
+      <div
+        className="d-flex justify-content-end w-50"
+      >
+        <span
+          className="d-flex justify-content-left w-25"
+        >
+          04/30/2021
+        </span>
+        <div
+          className="d-flex justify-content-left w-25"
+        >
+          <Memo(RegistrationStatus)
+            registrationStatus="DRAFT"
+          />
+        </div>
+      </div>
+    </div>
+  </Link>
+</div>
+`;
+
+exports[`should render ListItem correctly "PUBLISH" item 1`] = `
+<div
+  className="fdk-list-item d-flex"
+>
+  <Link
+    className="w-100"
+    to="/catalogs/123/datasets/1"
+  >
+    <div
+      className="d-flex justify-content-between"
+    >
+      <span
+        className="w-50 fdk-text-size-small"
+      >
+        Test item
+      </span>
+      <div
+        className="d-flex justify-content-end w-50"
+      >
+        <span
+          className="d-flex justify-content-left w-25"
+        >
+          04/30/2021
+        </span>
+        <div
+          className="d-flex justify-content-left w-25"
+        >
+          <Memo(RegistrationStatus)
+            registrationStatus="PUBLISH"
+          />
+        </div>
+      </div>
+    </div>
+  </Link>
+</div>
+`;
+
+exports[`should render ListItem correctly when missing title 1`] = `
+<div
+  className="fdk-list-item d-flex"
+>
+  <Link
+    className="w-100"
+    to="/catalogs/123/datasets/1"
+  >
+    <div
+      className="d-flex justify-content-between"
+    >
+      <span
+        className="w-50 fdk-text-size-small fdk-color-neutral-darkest"
+      >
+        <Memo()
+          id="listItems.missingTitle"
+        />
+      </span>
+      <div
+        className="d-flex justify-content-end w-50"
+      >
+        <span
+          className="d-flex justify-content-left w-25"
+        >
+          04/30/2021
+        </span>
+        <div
+          className="d-flex justify-content-left w-25"
+        >
+          <Memo(RegistrationStatus)
+            registrationStatus="DRAFT"
+          />
+        </div>
+      </div>
+    </div>
+  </Link>
+</div>
+`;
+
+exports[`should render ListItem correctly with lastModified date 1`] = `
+<div
+  className="fdk-list-item d-flex"
+>
+  <Link
+    className="w-100"
+    to="/catalogs/123/datasets/1"
+  >
+    <div
+      className="d-flex justify-content-between"
+    >
+      <span
+        className="w-50 fdk-text-size-small fdk-color-neutral-darkest"
+      >
+        <Memo()
+          id="listItems.missingTitle"
+        />
+      </span>
+      <div
+        className="d-flex justify-content-end w-50"
+      >
+        <span
+          className="d-flex justify-content-left w-25"
+        >
+          11/30/2020
+        </span>
+        <div
+          className="d-flex justify-content-left w-25"
+        >
+          <Memo(RegistrationStatus)
+            registrationStatus="DRAFT"
+          />
+        </div>
+      </div>
+    </div>
+  </Link>
+</div>
+`;
+
+exports[`should render ListItem correctly with no props 1`] = `""`;

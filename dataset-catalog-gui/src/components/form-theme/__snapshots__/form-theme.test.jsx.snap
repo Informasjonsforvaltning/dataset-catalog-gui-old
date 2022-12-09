@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render FormThemes correctly 1`] = `
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
+`;
+
+exports[`should render FormThemes correctly with theme 1`] = `
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
+`;

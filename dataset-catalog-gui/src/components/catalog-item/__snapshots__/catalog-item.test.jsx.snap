@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render CatalogItem correctly with itemsCount set to 10 1`] = `
+<div
+  className="catalog-items col-md-4 pl-0 pr-0 mb-4"
+>
+  <div
+    className="catalog-item"
+  >
+    <div
+      className="catalog-item__body d-flex flex-column align-items-center disabled"
+    >
+      <Styled(SvgIconCatalogDatasetLg) />
+      <styled.h3>
+        <Memo()
+          id="catalogs.datasets"
+        />
+      </styled.h3>
+      <span
+        className="fdk-text-size-small fdk-color-neutral-dark"
+      >
+        10
+         
+        <Memo()
+          id="catalogs.type.datasets"
+        />
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`should render CatalogItem correctly with missing itemsCount 1`] = `
+<div
+  className="catalog-items col-md-4 pl-0 pr-0 mb-4"
+>
+  <div
+    className="catalog-item"
+  >
+    <div
+      className="catalog-item__body d-flex flex-column align-items-center disabled h-100"
+    >
+      <Styled(SvgIconCatalogDatasetLg) />
+      <styled.h3>
+        <Memo()
+          id="catalogs.datasets"
+        />
+      </styled.h3>
+      <span
+        className="fdk-text-size-small fdk-color-neutral-dark"
+      >
+        <Memo()
+          id="none"
+        />
+         
+        <Memo()
+          id="catalogs.type.datasets"
+        />
+      </span>
+    </div>
+  </div>
+</div>
+`;

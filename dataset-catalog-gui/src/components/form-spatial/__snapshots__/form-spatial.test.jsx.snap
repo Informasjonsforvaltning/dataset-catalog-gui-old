@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render FormSpatial correctly 1`] = `
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
+`;
+
+exports[`should render FormSpatial correctly with initialValues 1`] = `
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
+`;

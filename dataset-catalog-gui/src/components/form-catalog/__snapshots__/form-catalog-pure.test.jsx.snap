@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render FormCatalogPure correctly 1`] = `
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
+`;

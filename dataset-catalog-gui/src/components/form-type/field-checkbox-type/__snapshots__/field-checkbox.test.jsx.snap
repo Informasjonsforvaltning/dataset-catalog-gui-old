@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render CheckboxFieldType correctly 1`] = `
+<div>
+  <label
+    className="form-check fdk-form-checkbox"
+    htmlFor="Data"
+    key="0"
+  >
+    <input
+      checked={false}
+      id="Data"
+      name="types"
+      onChange={[Function]}
+      style={
+        Object {
+          "height": "18px",
+          "width": "18px",
+        }
+      }
+      type="checkbox"
+      value="Data"
+    />
+    <span
+      className="form-check-label fdk-form-check-label mr-3"
+    />
+    <span>
+      Data
+    </span>
+  </label>
+  <label
+    className="form-check fdk-form-checkbox"
+    htmlFor="Kodelister"
+    key="1"
+  >
+    <input
+      checked={false}
+      id="Kodelister"
+      name="types"
+      onChange={[Function]}
+      style={
+        Object {
+          "height": "18px",
+          "width": "18px",
+        }
+      }
+      type="checkbox"
+      value="Kodelister"
+    />
+    <span
+      className="form-check-label fdk-form-check-label mr-3"
+    />
+    <span>
+      Kodelister
+    </span>
+  </label>
+  <label
+    className="form-check fdk-form-checkbox"
+    htmlFor="Tesauri"
+    key="2"
+  >
+    <input
+      checked={false}
+      id="Tesauri"
+      name="types"
+      onChange={[Function]}
+      style={
+        Object {
+          "height": "18px",
+          "width": "18px",
+        }
+      }
+      type="checkbox"
+      value="Tesauri"
+    />
+    <span
+      className="form-check-label fdk-form-check-label mr-3"
+    />
+    <span>
+      Tesauri
+    </span>
+  </label>
+  <label
+    className="form-check fdk-form-checkbox"
+    htmlFor="Taksonomi"
+    key="3"
+  >
+    <input
+      checked={false}
+      id="Taksonomi"
+      name="types"
+      onChange={[Function]}
+      style={
+        Object {
+          "height": "18px",
+          "width": "18px",
+        }
+      }
+      type="checkbox"
+      value="Taksonomi"
+    />
+    <span
+      className="form-check-label fdk-form-check-label mr-3"
+    />
+    <span>
+      Taksonomi
+    </span>
+  </label>
+  <label
+    className="form-check fdk-form-checkbox"
+    htmlFor="Testdata"
+    key="4"
+  >
+    <input
+      checked={false}
+      id="Testdata"
+      name="types"
+      onChange={[Function]}
+      style={
+        Object {
+          "height": "18px",
+          "width": "18px",
+        }
+      }
+      type="checkbox"
+      value="Testdata"
+    />
+    <span
+      className="form-check-label fdk-form-check-label mr-3"
+    />
+    <span>
+      Testdata
+    </span>
+  </label>
+</div>
+`;

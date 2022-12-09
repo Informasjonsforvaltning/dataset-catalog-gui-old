@@ -1,0 +1,44 @@
+@import '../../../node_modules/designsystemet/fdk-designsystem-bootstrap4/scss/colors.scss';
+
+.fdk-reg-helptext {
+  background-color: $color-primary-lighter;
+  border-radius: 5px;
+  font-size: 1.4rem;
+
+  h3 {
+    font-size: 2rem;
+    font-weight: 600;
+  }
+
+  strong {
+    font-size: 1.8rem;
+  }
+  .fdk-reg-helptext-more {
+    text-decoration: underline;
+    white-space: nowrap;
+  }
+}
+
+.fdk-obligatorisk {
+  font-size: 1.4rem;
+  line-height: 1.6em;
+  font-weight: 500;
+  color: #ffffff;
+  background-color: #005484;
+  padding: .1em .6em;
+  border-radius: 10rem;
+  position: relative;
+  top: -2px;
+}
+
+.fdk-anbefalt {
+  font-size: 1.4rem;
+  line-height: 1.6em;
+  font-weight: 500;
+  color: #004A73;
+  background-color: #CCE1ED;
+  padding: .1em .6em;
+  border-radius: 10rem;
+  position: relative;
+  top: -2px;
+}
