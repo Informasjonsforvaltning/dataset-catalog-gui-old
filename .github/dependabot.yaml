@@ -10,7 +10,14 @@ updates:
 
   # Maintain dependencies for npm
   - package-ecosystem: "npm"
-    directory: "/"
+    directory: "/dataset-catalog-gui"
     schedule:
       interval: "weekly"
       day: "sunday"
+
+  # Maintain dependencies for npm
+  - package-ecosystem: "npm"
+    directory: "/dataset-catalog-gui-v2"
+    schedule:
+      interval: "weekly"
+      day: "sunday"    
