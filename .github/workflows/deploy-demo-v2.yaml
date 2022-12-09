@@ -14,6 +14,7 @@ jobs:
     name: Call reusable workflow when pull request is created
     if: github.event.pull_request.draft == false
     uses: Informasjonsforvaltning/workflows/.github/workflows/build-deploy.yaml@main
+    working-directory: ./dataset-catalog-gui-v2
     with:
       app_name: new-dataset-catalog-gui
       caller_sha: ${{ github.sha }}
@@ -31,6 +32,7 @@ jobs:
     name: Build and test dev image on PR from dependabot
     if: ${{ github.actor == 'dependabot[bot]' && github.event_name == 'pull_request' }}
     uses: Informasjonsforvaltning/workflows/.github/workflows/build.yaml@main
+    working-directory: ./dataset-catalog-gui-v2
     with:
       caller_sha: ${{ github.sha }}
       repo: ${{ github.repository }}
