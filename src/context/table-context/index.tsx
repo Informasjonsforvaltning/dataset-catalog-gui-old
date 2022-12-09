@@ -16,7 +16,6 @@ import { NavigateFunction } from 'react-router-dom';
 
 const initialState: STATE = {
   datasets: [],
-  datasetsView: [],
   rows: [],
   headerColumns: [],
   filter: { lastModified: undefined, status: undefined },
@@ -36,13 +35,14 @@ const useTableContext = () => useContext(Context);
 const useTableDispatch = () => useContext(ContextDispatch);
 
 const TableContext: FC<PropsWithChildren> = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
   const datasetsContext = useDatasetsContext();
   const globalContext = useGlobalContext();
 
+  const [state, dispatch] = useReducer(reducer, initialState);
+
   useEffect(() => {
     if (datasetsContext?.datasets) {
-      dispatch({ type: ACTION_TYPE.GET_TABLE_DATA, payload: { datasets: datasetsContext.datasets } });
+      dispatch({ type: ACTION_TYPE.GET_TABLE_DATA, payload: { datasets: datasetsContext.datasets.slice() } });
       dispatch({
         type: ACTION_TYPE.ADD_TABLE_HEADER,
         payload: { headerColumns: getHeaderColumns(state.sort.sortBy ?? 'title', dispatch) },
@@ -52,7 +52,7 @@ const TableContext: FC<PropsWithChildren> = ({ children }) => {
         payload: { rows: getRows(state.datasets, globalContext.location, globalContext.navigate) ?? [] },
       });
     }
-  }, [datasetsContext.datasets, state.datasets]);
+  }, [datasetsContext.datasets]);
 
   return (
     <Context.Provider value={state}>

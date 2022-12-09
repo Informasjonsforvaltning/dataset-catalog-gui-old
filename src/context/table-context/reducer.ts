@@ -15,7 +15,6 @@ type SORT_TYPE = { sortBy: SORT_BY_TYPE; sortOrder?: SORT_ORDER };
 
 type STATE = {
   datasets: Dataset[];
-  datasetsView: Dataset[];
   headerColumns: CellType[];
   rows: RowProps<ColumnProps>[];
   filter: FILTER_TYPE;
@@ -26,7 +25,7 @@ const reducer = produce((state: STATE, action: ACTION) => {
   switch (action.type) {
     case ACTION_TYPE.GET_TABLE_DATA:
       state.datasets = action.payload.datasets;
-      state.datasetsView = state.datasets.slice();
+      console.log(state.datasets);
       return state;
     case ACTION_TYPE.ADD_TABLE_HEADER:
       state.headerColumns = action.payload.headerColumns;
@@ -35,8 +34,8 @@ const reducer = produce((state: STATE, action: ACTION) => {
       state.rows = action.payload.rows;
       return state;
     case ACTION_TYPE.FILTER_DATASETS:
-      state.datasetsView = getFilteredDatasets(state.datasets, state.filter);
-      if (state.sort) state.datasetsView = sortDatasetsView(state.datasetsView, state.sort);
+      state.datasets = getFilteredDatasets(state.datasets, state.filter);
+      if (state.sort) state.datasets = sortDatasetsView(state.datasets, state.sort);
       return state;
     case ACTION_TYPE.SORT_DATASETS:
       if (action.payload.sortBy && action.payload.sortBy !== state.sort.sortBy) {
@@ -46,7 +45,7 @@ const reducer = produce((state: STATE, action: ACTION) => {
         if (state.sort.sortOrder === 'ascending') state.sort.sortOrder = 'descending';
         else state.sort.sortOrder === 'descending';
       }
-      state.datasetsView = sortDatasetsView(state.datasetsView, state.sort);
+      state.datasets = sortDatasetsView(state.datasets, state.sort);
       return state;
     default:
       return state;
@@ -69,13 +68,15 @@ const getFilteredDatasets = (datasets: Dataset[], filter?: FILTER_TYPE, searchTe
 const sortDatasetsView = (datasets: Dataset[], sort: SORT_TYPE) => {
   switch (sort.sortBy) {
     case 'status':
-      datasets.sort((datasetA, datasetB) => {
+      console.log(datasets);
+      const a = datasets.sort((datasetA, datasetB) => {
         if (sort.sortOrder === 'ascending') {
           return ascendSort(datasetA.registrationStatus, datasetB.registrationStatus);
         } else {
           return descendSort(datasetA.registrationStatus, datasetB.registrationStatus);
         }
       });
+      console.log(a);
       break;
     case 'last-modified':
       datasets.sort((datasetA, datasetB) => {
