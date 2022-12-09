@@ -1,0 +1,17 @@
+dist
+coverage
+node_modules
+
+npm-debug.log
+
+.DS_Store
+.dockerignore
+.gitignore
+.huskyrc
+.lintstagedrc
+commitlint.config.js
+
+Dockerfile
+docker-compose.yml
+
+README.md
