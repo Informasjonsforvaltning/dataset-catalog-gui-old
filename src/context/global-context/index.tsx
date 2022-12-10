@@ -14,7 +14,7 @@ const getThemeProfile = () =>
     ? ThemeProfile.SKE
     : ThemeProfile.FDK;
 
-const initialState: STATE = { theme: getThemeProfile(), location: '' };
+const initialState: STATE = { theme: getThemeProfile() };
 
 // Context
 const Context = React.createContext(initialState);

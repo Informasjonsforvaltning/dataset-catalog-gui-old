@@ -17,15 +17,17 @@ type STATE = {
   datasets: Dataset[];
   headerColumns: CellType[];
   rows: RowProps<ColumnProps>[];
-  filter: FILTER_TYPE;
+  filter?: FILTER_TYPE;
   sort: SORT_TYPE;
 };
 
 const reducer = produce((state: STATE, action: ACTION) => {
   switch (action.type) {
-    case ACTION_TYPE.GET_TABLE_DATA:
+    case ACTION_TYPE.INIT_TABLE:
       state.datasets = action.payload.datasets;
-      console.log(state.datasets);
+      return state;
+    case ACTION_TYPE.UPDATE_TABLE:
+      state.datasets = action.payload.datasets;
       return state;
     case ACTION_TYPE.ADD_TABLE_HEADER:
       state.headerColumns = action.payload.headerColumns;
@@ -35,17 +37,17 @@ const reducer = produce((state: STATE, action: ACTION) => {
       return state;
     case ACTION_TYPE.FILTER_DATASETS:
       state.datasets = getFilteredDatasets(state.datasets, state.filter);
-      if (state.sort) state.datasets = sortDatasetsView(state.datasets, state.sort);
+      if (state.sort) state.datasets = sortDatasetsView(state);
       return state;
     case ACTION_TYPE.SORT_DATASETS:
-      if (action.payload.sortBy && action.payload.sortBy !== state.sort.sortBy) {
+      if (action.payload.sortBy !== state.sort.sortBy) {
         state.sort.sortBy = action.payload.sortBy;
         state.sort.sortOrder = 'ascending';
       } else {
         if (state.sort.sortOrder === 'ascending') state.sort.sortOrder = 'descending';
         else state.sort.sortOrder === 'descending';
       }
-      state.datasets = sortDatasetsView(state.datasets, state.sort);
+      state.datasets = sortDatasetsView(state);
       return state;
     default:
       return state;
@@ -65,38 +67,31 @@ const getFilteredDatasets = (datasets: Dataset[], filter?: FILTER_TYPE, searchTe
   return datasetsView;
 };
 
-const sortDatasetsView = (datasets: Dataset[], sort: SORT_TYPE) => {
-  switch (sort.sortBy) {
+const sortDatasetsView = (state: STATE) => {
+  let sortedDatasets = [...state.datasets];
+  switch (state.sort.sortBy) {
     case 'status':
-      console.log(datasets);
-      const a = datasets.sort((datasetA, datasetB) => {
-        if (sort.sortOrder === 'ascending') {
+      console.log('status clicked');
+      sortedDatasets.sort((datasetA, datasetB) => {
+        if (state.sort.sortOrder === 'ascending')
           return ascendSort(datasetA.registrationStatus, datasetB.registrationStatus);
-        } else {
-          return descendSort(datasetA.registrationStatus, datasetB.registrationStatus);
-        }
+        return descendSort(datasetA.registrationStatus, datasetB.registrationStatus);
       });
-      console.log(a);
       break;
     case 'last-modified':
-      datasets.sort((datasetA, datasetB) => {
-        if (sort.sortOrder === 'ascending') {
-          return ascendSort(datasetA._lastModified, datasetB._lastModified);
-        } else {
-          return descendSort(datasetA._lastModified, datasetB._lastModified);
-        }
+      sortedDatasets.sort((datasetA, datasetB) => {
+        if (state.sort.sortOrder === 'ascending') return ascendSort(datasetA._lastModified, datasetB._lastModified);
+        return descendSort(datasetA._lastModified, datasetB._lastModified);
       });
       break;
     default:
-      datasets.sort((datasetA, datasetB) => {
-        if (sort.sortOrder === 'ascending') {
+      sortedDatasets.sort((datasetA, datasetB) => {
+        if (state.sort.sortOrder === 'ascending')
           return ascendSort(datasetA.title?.nb ?? 'Empty', datasetB.title?.nb ?? 'Empty');
-        } else {
-          return descendSort(datasetA.title?.nb ?? 'Empty', datasetB.title?.nb ?? 'Empty');
-        }
+        return descendSort(datasetA.title?.nb ?? 'Empty', datasetB.title?.nb ?? 'Empty');
       });
   }
-  return datasets;
+  return sortedDatasets;
 };
 
 const ascendSort = (A: string | Date, B: string | Date): number => {
