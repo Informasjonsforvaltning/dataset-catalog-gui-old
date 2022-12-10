@@ -8,7 +8,7 @@ import { CellType } from '../../components/table/table-header';
 
 import { RegistrationStatus } from '../../utils/types/enums';
 
-type SORT_ORDER = 'ascending' | 'descending';
+type SORT_ORDER = 'ascending' | 'descending' | 'unsorted';
 type FILTER_TYPE = { lastModified?: Date | undefined; status?: RegistrationStatus | undefined; searchTerm?: string };
 type SORT_BY_TYPE = 'title' | 'last-modified' | 'status';
 type SORT_TYPE = { sortBy: SORT_BY_TYPE; sortOrder?: SORT_ORDER };
@@ -43,10 +43,7 @@ const reducer = produce((state: STATE, action: ACTION) => {
       if (action.payload.sortBy !== state.sort.sortBy) {
         state.sort.sortBy = action.payload.sortBy;
         state.sort.sortOrder = 'ascending';
-      } else {
-        if (state.sort.sortOrder === 'ascending') state.sort.sortOrder = 'descending';
-        else state.sort.sortOrder === 'descending';
-      }
+      } else state.sort.sortOrder = state.sort.sortOrder === 'ascending' ? 'descending' : 'ascending';
       state.datasets = sortDatasetsView(state);
       return state;
     default:
@@ -68,30 +65,29 @@ const getFilteredDatasets = (datasets: Dataset[], filter?: FILTER_TYPE, searchTe
 };
 
 const sortDatasetsView = (state: STATE) => {
-  let sortedDatasets = [...state.datasets];
   switch (state.sort.sortBy) {
     case 'status':
       console.log('status clicked');
-      sortedDatasets.sort((datasetA, datasetB) => {
+      state.datasets.sort((datasetA, datasetB) => {
         if (state.sort.sortOrder === 'ascending')
           return ascendSort(datasetA.registrationStatus, datasetB.registrationStatus);
         return descendSort(datasetA.registrationStatus, datasetB.registrationStatus);
       });
       break;
     case 'last-modified':
-      sortedDatasets.sort((datasetA, datasetB) => {
+      state.datasets.sort((datasetA, datasetB) => {
         if (state.sort.sortOrder === 'ascending') return ascendSort(datasetA._lastModified, datasetB._lastModified);
         return descendSort(datasetA._lastModified, datasetB._lastModified);
       });
       break;
     default:
-      sortedDatasets.sort((datasetA, datasetB) => {
+      state.datasets.sort((datasetA, datasetB) => {
         if (state.sort.sortOrder === 'ascending')
           return ascendSort(datasetA.title?.nb ?? 'Empty', datasetB.title?.nb ?? 'Empty');
         return descendSort(datasetA.title?.nb ?? 'Empty', datasetB.title?.nb ?? 'Empty');
       });
   }
-  return sortedDatasets;
+  return state.datasets;
 };
 
 const ascendSort = (A: string | Date, B: string | Date): number => {
@@ -110,4 +106,4 @@ const descendSort = (A: string | Date, B: string | Date): number => {
   return 0;
 };
 
-export { STATE, SORT_TYPE, FILTER_TYPE, reducer };
+export { STATE, SORT_TYPE, SORT_BY_TYPE, FILTER_TYPE, reducer };

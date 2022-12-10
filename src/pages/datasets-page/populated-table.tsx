@@ -12,6 +12,7 @@ import { useTableContext, useTableDispatch } from '../../context/table-context';
 import { Dataset } from '../../utils/types';
 import { Props as ColumnProps } from '../../components/table/table-row/row-cell';
 import { Props as RowProps } from '../../components/table/table-row';
+import { SORT_BY_TYPE, SORT_TYPE } from '../../context/table-context/reducer';
 
 const PopulatedTable = () => {
   const tableContext = useTableContext();
@@ -22,7 +23,7 @@ const PopulatedTable = () => {
   const tableUpdate = () => (
     tableDispatch({
       type: ACTION_TYPE.ADD_TABLE_HEADER,
-      payload: { headerColumns: getHeaderColumns(tableContext.sort.sortBy ?? 'title', tableDispatch) },
+      payload: { headerColumns: getHeaderColumns(tableContext.sort, tableDispatch) },
     }),
     tableDispatch({
       type: ACTION_TYPE.ADD_TABLE_ROWS,
@@ -30,7 +31,7 @@ const PopulatedTable = () => {
     })
   );
 
-  useEffect(tableUpdate, []);
+  useEffect(tableUpdate, [tableContext.sort, tableContext.filter]);
 
   return <Table rows={tableContext.rows} cols={tableContext.headerColumns} />;
 };
@@ -41,18 +42,12 @@ const colWidths = {
   col_3: '14%',
 };
 
-const getCorrectIcon = (sortBy: string) => {
-  switch (sortBy) {
-    case 'ascending':
-      return <Icon name='listAscendingStroke' />;
-    case 'descending':
-      return <Icon name='listDescendingStroke' />;
-    default:
-      return <Icon name='listUnsortedStroke' />;
-  }
+const getCorrectIcon = (sort: SORT_TYPE, columnName: SORT_BY_TYPE): JSX.Element => {
+  if (sort.sortBy !== columnName) return <Icon name='listUnsortedStroke' />;
+  return sort.sortOrder === 'ascending' ? <Icon name='listAscendingStroke' /> : <Icon name='listDescendingStroke' />;
 };
 
-const getHeaderColumns = (sortBy: string, tableDispatcher: React.Dispatch<ACTION>): CellType[] => {
+const getHeaderColumns = (sort: SORT_TYPE, tableDispatcher: React.Dispatch<ACTION>): CellType[] => {
   return [
     {
       sortButton: (
@@ -60,7 +55,7 @@ const getHeaderColumns = (sortBy: string, tableDispatcher: React.Dispatch<ACTION
           name='Title'
           btnType='transparent'
           iconPos='right'
-          endIcon={getCorrectIcon(sortBy)}
+          endIcon={getCorrectIcon(sort, 'title')}
           onClick={() => tableDispatcher({ type: ACTION_TYPE.SORT_DATASETS, payload: { sortBy: 'title' } })}
         />
       ),
@@ -72,7 +67,7 @@ const getHeaderColumns = (sortBy: string, tableDispatcher: React.Dispatch<ACTION
           name='Sist endret'
           btnType='transparent'
           iconPos='right'
-          endIcon={getCorrectIcon(sortBy)}
+          endIcon={getCorrectIcon(sort, 'last-modified')}
           onClick={() => tableDispatcher({ type: ACTION_TYPE.SORT_DATASETS, payload: { sortBy: 'last-modified' } })}
         />
       ),
@@ -84,7 +79,7 @@ const getHeaderColumns = (sortBy: string, tableDispatcher: React.Dispatch<ACTION
           name='Status'
           btnType='transparent'
           iconPos='right'
-          endIcon={getCorrectIcon(sortBy)}
+          endIcon={getCorrectIcon(sort, 'status')}
           onClick={() => tableDispatcher({ type: ACTION_TYPE.SORT_DATASETS, payload: { sortBy: 'status' } })}
         />
       ),
