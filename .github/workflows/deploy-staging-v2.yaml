@@ -6,6 +6,7 @@ on:
     branches:
       - main
     paths:
+      - '.github/**'
       - 'dataset-catalog-gui-v2/**'
   
 defaults:
