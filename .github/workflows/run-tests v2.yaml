@@ -4,6 +4,12 @@ on:
   push:
     branches-ignore:
       - main
+    paths:
+      - 'dataset-catalog-gui-v2/**'
+
+defaults:
+  run:
+    working-directory: ./dataset-catalog-gui-v2
 
 jobs:
   build:
