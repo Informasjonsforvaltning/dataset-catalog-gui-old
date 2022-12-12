@@ -16,8 +16,7 @@ jobs:
   build-and-deploy-staging:
     name: Call reusable workflow when pull request is created
     if: github.event.pull_request.draft == false
-    uses: Informasjonsforvaltning/workflows/.github/workflows/build-deploy.yaml@main
-    working-directory: ./dataset-catalog-gui-v2
+    uses: Informasjonsforvaltning/workflows/.github/workflows/build-deploy.yaml@main    
     with:
       app_name: new-dataset-catalog-gui
       caller_sha: ${{ github.sha }}
