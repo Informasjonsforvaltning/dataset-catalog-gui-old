@@ -1,4 +1,4 @@
-# Dataset Catalog GUI
+# Dataset Catalog GUI - OLD (deprecated)
 
 ## Description
 
