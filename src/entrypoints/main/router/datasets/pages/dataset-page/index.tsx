@@ -1,8 +1,7 @@
 import React, { memo, FC, useEffect } from 'react';
 import { compose } from 'redux';
-import { Link as RouteLink, useParams, useHistory } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
-import Link from '@fellesdatakatalog/link';
 import Breadcrumbs, { Breadcrumb } from '@fellesdatakatalog/breadcrumbs';
 
 import env from '../../../../../../env';
@@ -102,9 +101,11 @@ const DatasetPage: FC<Props> = ({
           </a>
         </Breadcrumb>
         <Breadcrumb>
-          <Link to={`/catalogs/${catalogId}/datasets`} as={RouteLink}>
+          <a
+            href={`${FDK_REGISTRATION_BASE_URI}/catalogs/${catalogId}/datasets`}
+          >
             <Translation id='Datasettkatalog' />
-          </Link>
+          </a>
         </Breadcrumb>
         <Breadcrumb active>
           {isLoadingDataset && <Skeleton width={200} />}
