@@ -10,7 +10,7 @@ const configuration: Configuration = {
   },
   output: {
     path: resolve(__dirname, '..', 'dist'),
-    publicPath: '/catalogs/',
+    publicPath: '/catalogs-v1/',
     clean: true
   },
   resolve: {
@@ -89,7 +89,7 @@ const configuration: Configuration = {
       template: './src/entrypoints/main/index.html',
       filename: 'index.html',
       favicon: './src/images/favicon.ico',
-      base: '/catalogs/',
+      base: '/dataset-catalogs/',
       chunks: ['main']
     }),
     new MiniCssExtractPlugin({
