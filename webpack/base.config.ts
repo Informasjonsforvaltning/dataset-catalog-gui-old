@@ -10,7 +10,7 @@ const configuration: Configuration = {
   },
   output: {
     path: resolve(__dirname, '..', 'dist'),
-    publicPath: '/catalogs-v1/',
+    publicPath: '/dataset-catalogs/',
     clean: true
   },
   resolve: {
@@ -56,9 +56,9 @@ const configuration: Configuration = {
             loader: 'babel-loader'
           },
           {
-            loader: 'react-svg-loader',
+            loader: '@svgr/webpack',
             options: {
-              jsx: true
+              typescript: true
             }
           }
         ],

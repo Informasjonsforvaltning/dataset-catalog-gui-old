@@ -1,11 +1,16 @@
-import React, { ComponentType, createContext, PureComponent } from 'react';
+import React, {
+  ComponentType,
+  createContext,
+  PropsWithChildren,
+  PureComponent
+} from 'react';
 
 import { authService } from '../../services/auth/auth-service';
 import { Auth } from '../../lib/auth/auth';
 
 const AuthContext = createContext<any>(null);
 
-interface Props {}
+interface Props extends PropsWithChildren {}
 
 interface State {
   service: Auth;

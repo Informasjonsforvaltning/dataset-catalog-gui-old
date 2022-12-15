@@ -3,10 +3,8 @@ import { compose } from 'redux';
 
 import SC from './styled';
 
-interface Props {}
+interface Props extends PropsWithChildren {}
 
-const Root: FC<PropsWithChildren<Props>> = ({ children }) => (
-  <SC.Root>{children}</SC.Root>
-);
+const Root: FC<Props> = ({ children }) => <SC.Root>{children}</SC.Root>;
 
-export default compose<FC>(memo)(Root);
+export default compose<FC<Props>>(memo)(Root);

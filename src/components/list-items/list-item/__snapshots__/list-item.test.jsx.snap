@@ -6,7 +6,7 @@ exports[`should render ListItem correctly "DRAFT" item 1`] = `
 >
   <Link
     className="w-100"
-    to="/catalogs/123/datasets/1"
+    to="/dataset-catalogs/123/datasets/1"
   >
     <div
       className="d-flex justify-content-between"
@@ -43,7 +43,7 @@ exports[`should render ListItem correctly "PUBLISH" item 1`] = `
 >
   <Link
     className="w-100"
-    to="/catalogs/123/datasets/1"
+    to="/dataset-catalogs/123/datasets/1"
   >
     <div
       className="d-flex justify-content-between"
@@ -80,7 +80,7 @@ exports[`should render ListItem correctly when missing title 1`] = `
 >
   <Link
     className="w-100"
-    to="/catalogs/123/datasets/1"
+    to="/dataset-catalogs/123/datasets/1"
   >
     <div
       className="d-flex justify-content-between"
@@ -119,7 +119,7 @@ exports[`should render ListItem correctly with lastModified date 1`] = `
 >
   <Link
     className="w-100"
-    to="/catalogs/123/datasets/1"
+    to="/dataset-catalogs/123/datasets/1"
   >
     <div
       className="d-flex justify-content-between"

@@ -1987,19 +1987,19 @@ Her er dagens ekstra tekst",
       },
     ]
   }
-  prefixPath="/catalogs/123/datasets"
+  prefixPath="/dataset-catalogs/123/datasets"
 />
 `;
 
 exports[`should render DatasetItemsList correctly with missing datasetItems 1`] = `
 <Memo()
-  prefixPath="/catalogs/123/datasets"
+  prefixPath="/dataset-catalogs/123/datasets"
 />
 `;
 
 exports[`should render DatasetItemsList correctly with missing items 1`] = `
 <Memo()
   items={null}
-  prefixPath="/catalogs/123/datasets"
+  prefixPath="/dataset-catalogs/123/datasets"
 />
 `;
