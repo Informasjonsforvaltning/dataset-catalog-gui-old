@@ -13,7 +13,7 @@ import {
   TriangleExclamationIcon
 } from '../../fdk-icons/icons';
 
-interface ExternalProps {
+interface Props extends PropsWithChildren {
   title: string;
   backgroundBlue?: boolean;
   values?: string | null;
@@ -23,9 +23,7 @@ interface ExternalProps {
   syncErrors?: any;
 }
 
-interface Props extends ExternalProps {}
-
-const FormTemplate: FC<PropsWithChildren<Props>> = ({
+const FormTemplate: FC<Props> = ({
   title,
   backgroundBlue,
   values,
@@ -95,4 +93,4 @@ const FormTemplate: FC<PropsWithChildren<Props>> = ({
   );
 };
 
-export default compose<FC<ExternalProps>>(memo)(FormTemplate);
+export default compose<FC<Props>>(memo)(FormTemplate);

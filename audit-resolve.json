@@ -559,8 +559,8 @@
     },
     "1067480|rdflib>xmldom": {
       "decision": "ignore",
-      "madeAt": 1662970887621,
-      "expiresAt": 1665562875093
+      "madeAt": 1671102621040,
+      "expiresAt": 1673694609165
     },
     "1067654|react-svg-loader>react-svg-core>svgo>css-select>nth-check": {
       "decision": "ignore",
@@ -741,6 +741,11 @@
       "decision": "ignore",
       "madeAt": 1662723126715,
       "expiresAt": 1665315104266
+    },
+    "1084901|rdflib>xmldom": {
+      "decision": "ignore",
+      "madeAt": 1671102621040,
+      "expiresAt": 1673694609165
     }
   },
   "rules": {},

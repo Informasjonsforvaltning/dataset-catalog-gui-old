@@ -27,10 +27,18 @@ const configuration: Configuration = mergeWithCustomize<Configuration>({
     host: '0.0.0.0',
     port: 4301,
     hot: true,
-    onBeforeSetupMiddleware: devServer =>
-      devServer.app.get('/dataset-catalogs/config.js', (_, res) =>
+    setupMiddlewares: (middlewares, devServer) => {
+      if (!devServer) {
+        throw new Error('webpack-dev-server is not defined');
+      }
+
+      // onBeforeSetupMiddleware
+      devServer?.app?.get('/dataset-catalogs/config.js', (_, res) =>
         res.status(204).send()
-      ),
+      );
+
+      return middlewares;
+    },
     historyApiFallback: {
       rewrites: [
         { from: /^\/auth/, to: '/dataset-catalogs/auth.html' },
@@ -76,9 +84,9 @@ const configuration: Configuration = mergeWithCustomize<Configuration>({
             loader: 'babel-loader'
           },
           {
-            loader: 'react-svg-loader',
+            loader: '@svgr/webpack',
             options: {
-              jsx: true
+              typescript: true
             }
           }
         ],

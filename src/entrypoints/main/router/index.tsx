@@ -1,4 +1,4 @@
-import React, { memo, FC, Suspense, lazy } from 'react';
+import React, { memo, FC, Suspense, lazy, PropsWithChildren } from 'react';
 import { compose } from 'redux';
 import {
   BrowserRouter,
@@ -25,7 +25,7 @@ interface Props {
 }
 
 const Router: FC<Props> = ({ history }) => {
-  const AppRouter: FC = ({ children }) =>
+  const AppRouter: FC<PropsWithChildren> = ({ children }) =>
     history ? (
       <BaseRouter history={history}>{children}</BaseRouter>
     ) : (

@@ -2,13 +2,11 @@ import React, { memo, FC, PropsWithChildren } from 'react';
 import { compose } from 'redux';
 import cx from 'classnames';
 
-interface ExternalProps {
+interface Props extends PropsWithChildren {
   type: 'success' | 'warning' | 'danger' | 'info';
 }
 
-interface Props extends ExternalProps {}
-
-const AlertMessage: FC<PropsWithChildren<Props>> = ({ type, children }) => {
+const AlertMessage: FC<Props> = ({ type, children }) => {
   const alertClassnames = cx('d-flex', 'alert', 'pt-3', 'pb-3', 'mt-3', {
     'alert-success': type === 'success',
     'alert-warning': type === 'warning',
@@ -29,4 +27,4 @@ const AlertMessage: FC<PropsWithChildren<Props>> = ({ type, children }) => {
   ) : null;
 };
 
-export default compose<FC<ExternalProps>>(memo)(AlertMessage);
+export default compose<FC<Props>>(memo)(AlertMessage);
