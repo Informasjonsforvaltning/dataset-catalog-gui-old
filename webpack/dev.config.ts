@@ -28,13 +28,13 @@ const configuration: Configuration = mergeWithCustomize<Configuration>({
     port: 4301,
     hot: true,
     onBeforeSetupMiddleware: devServer =>
-      devServer.app.get('/catalogs/config.js', (_, res) =>
+      devServer.app.get('/dataset-catalogs/config.js', (_, res) =>
         res.status(204).send()
       ),
     historyApiFallback: {
       rewrites: [
-        { from: /^\/auth/, to: '/catalogs/auth.html' },
-        { from: /./, to: '/catalogs/index.html' }
+        { from: /^\/auth/, to: '/dataset-catalogs/auth.html' },
+        { from: /./, to: '/dataset-catalogs/index.html' }
       ]
     }
   },

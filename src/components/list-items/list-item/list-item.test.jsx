@@ -21,7 +21,7 @@ test('should render ListItem correctly "DRAFT" item', () => {
   wrapper.setProps({
     title: 'Test item',
     status: 'DRAFT',
-    path: '/catalogs/123/datasets/1'
+    path: '/dataset-catalogs/123/datasets/1'
   });
   expect(wrapper).toMatchSnapshot();
 });
@@ -30,7 +30,7 @@ test('should render ListItem correctly "PUBLISH" item', () => {
   wrapper.setProps({
     title: 'Test item',
     status: 'PUBLISH',
-    path: '/catalogs/123/datasets/1'
+    path: '/dataset-catalogs/123/datasets/1'
   });
   expect(wrapper).toMatchSnapshot();
 });
@@ -38,7 +38,7 @@ test('should render ListItem correctly "PUBLISH" item', () => {
 test('should render ListItem correctly when missing title', () => {
   wrapper.setProps({
     status: 'DRAFT',
-    path: '/catalogs/123/datasets/1'
+    path: '/dataset-catalogs/123/datasets/1'
   });
   expect(wrapper).toMatchSnapshot();
 });
@@ -47,7 +47,7 @@ test('should render ListItem correctly with lastModified date', () => {
   wrapper.setProps({
     status: 'DRAFT',
     lastModified: '2020-11-30T10:31:06.681',
-    path: '/catalogs/123/datasets/1'
+    path: '/dataset-catalogs/123/datasets/1'
   });
   expect(wrapper).toMatchSnapshot();
 });

@@ -44,7 +44,7 @@ const Router: FC<Props> = ({ history }) => {
         <Suspense fallback={null}>
           <Switch>
             <Route
-              path='/catalogs/:catalogId/datasets'
+              path='/dataset-catalogs/:catalogId/datasets'
               component={routes.datasets}
             />
             <Route exact path='/catalogs' component={redirectToRoot} />
