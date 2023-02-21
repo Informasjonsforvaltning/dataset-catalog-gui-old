@@ -12,6 +12,9 @@ import {
   Props as TranslationsProps
 } from '../../providers/translations';
 import withDatasets, { Props as DatasetsProps } from '../with-datasets';
+import withDatasetSeries, {
+  Props as DatasetSeriesProps
+} from '../with-dataset-series';
 
 import Translation from '../translation';
 import FormTemplate from '../form-template/form-template.component';
@@ -24,7 +27,7 @@ import { ConnectedFormThemes } from '../form-theme/connected-form-theme.componen
 import { ConnectedFormType } from '../form-type/connected-form-type.component';
 import { FormConcept } from '../form-concept/form-concept.component';
 import { ConnectedFormAccessRights } from '../form-accessRights/connected-form-accessRights.component';
-import { ConnectedFormReference } from '../form-reference/connected-form-reference.component';
+import { ConnectedFormReference } from '../form-reference/connected-form-reference.component'; // Denne
 import { FormInformationModel } from '../form-informationmodel/form-informationmodel.component';
 import { ConnectedFormContactPoint } from '../form-contactPoint/connected-form-contactPoint.component';
 import { ConnectedFormContents } from '../form-contents/connected-form-contents.component';
@@ -52,6 +55,7 @@ import {
 import RegistrationStatus from '../registration-status/registration-status.component';
 
 import { selectorForDatasetsInCatalog } from '../../entrypoints/main/redux/modules/datasets';
+import { selectorForDatasetSeriesInCatalog } from '../../entrypoints/main/redux/modules/datasetSeries';
 import { selectorForDatasetFormStatus } from '../../entrypoints/main/redux/modules/dataset-form-status';
 import {
   setInputLanguages as setInputLanguagesAction,
@@ -89,9 +93,14 @@ interface ExtenralProps {
   handleDeleteDataset: () => void;
 }
 
-interface Props extends ExtenralProps, TranslationsProps, DatasetsProps {
+interface Props
+  extends ExtenralProps,
+    TranslationsProps,
+    DatasetsProps,
+    DatasetSeriesProps {
   form: any;
   referenceDatasetsItems: any[];
+  referenceDatasetSeriesItems: any[];
   datasetFormStatus: {
     isSaving: boolean;
     error: any;
@@ -105,13 +114,16 @@ interface Props extends ExtenralProps, TranslationsProps, DatasetsProps {
 const DatasetRegistrationPage: FC<Props> = ({
   form,
   datasetSuggestions,
+  datasetSeriesSuggestions,
   datasetsActions: { searchDatasetsRequested: searchDatasets },
+  datasetSeriesActions: { searchDatasetSeriesRequested: searchDatasetSeries },
   themesItems,
   provenanceItems,
   frequencyItems,
   datasetItem,
   referenceTypesItems,
   referenceDatasetsItems,
+  referenceDatasetSeriesItems,
   openLicenseItems,
   mediaTypes,
   datasetFormStatus,
@@ -192,6 +204,10 @@ const DatasetRegistrationPage: FC<Props> = ({
         RegStatusEnum.APPROVE,
         RegStatusEnum.PUBLISH
       ]);
+      searchDatasetSeries(query, SearchType.DATASET, [catalogId], true, [
+        RegStatusEnum.APPROVE,
+        RegStatusEnum.PUBLISH
+      ]);
     }
   };
 
@@ -204,6 +220,10 @@ const DatasetRegistrationPage: FC<Props> = ({
 
   useEffect(() => executeSearch(''), []);
 
+  // useEffect(() => bruker action fra withDatasetSeries med request dataset series på samme måte som datasetItem ^ if datasetItem && (...)
+  // bør sjekke om den har datasetSeries finnes eller står som loading, vist en av de true, ikke kjør, vist true, start ny requested action.
+  // kan være useeffect vet at den ikke må vente på loading.
+
   return (
     <div className='row mb-2 mb-md-5'>
       {datasetItem &&
@@ -212,7 +232,9 @@ const DatasetRegistrationPage: FC<Props> = ({
         frequencyItems &&
         referenceTypesItems &&
         referenceDatasetsItems &&
+        referenceDatasetSeriesItems &&
         datasetSuggestions &&
+        datasetSeriesSuggestions &&
         openLicenseItems &&
         losItems && (
           <div className='col-12'>
@@ -451,6 +473,7 @@ const DatasetRegistrationPage: FC<Props> = ({
                 datasetItem={datasetItem as any}
                 referenceTypesItems={referenceTypesItems}
                 referenceDatasetsItems={datasetSuggestions}
+                referenceDatasetSeriesItems={datasetSeriesSuggestions}
                 catalogId={catalogId}
                 datasetId={datasetId}
                 languages={languages}
@@ -564,23 +587,28 @@ const mapStateToProps = (state: any, { catalogId, datasetId }: any) => {
   const referenceDatasetsItems = Object.values(
     selectorForDatasetsInCatalog(catalogId)(state)
   );
+  const referenceDatasetSeriesItems = Object.values(
+    selectorForDatasetSeriesInCatalog(catalogId)(state)
+  );
 
   return {
     form,
     datasetFormStatus,
     referenceDatasetsItems,
+    referenceDatasetSeriesItems,
     languages
   };
 };
 
 const mapDispatchToProps = {
-  setInputLanguages: setInputLanguagesAction,
-  toggleInputLanguage: toggleInputLanguageAction
+  setInputLanguages: setInputLanguagesAction, // action
+  toggleInputLanguage: toggleInputLanguageAction // action
 };
 
 export default compose<FC<ExtenralProps>>(
   memo,
   withTranslations,
+  withDatasetSeries,
   withDatasets,
   connect(mapStateToProps, mapDispatchToProps)
-)(DatasetRegistrationPage);
+)(DatasetRegistrationPage); // Gjør de funksjonene der, også blir det sendt inn i DatasetRegistrationPage som props ? OBS! Rekkefølgen her har noe å si
