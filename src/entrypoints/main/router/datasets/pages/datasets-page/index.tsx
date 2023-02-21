@@ -21,6 +21,9 @@ import withCatalog, {
 import withDatasets, {
   Props as DatasetsProps
 } from '../../../../../../components/with-datasets';
+import withDatasetSeries, {
+  Props as DatasetSeriesProps
+} from '../../../../../../components/with-dataset-series';
 import withDataset, {
   Props as DatasetProps
 } from '../../../../../../components/with-dataset';
@@ -44,17 +47,27 @@ interface LocationState {
   confirmDelete?: boolean;
 }
 
-interface Props extends CatalogProps, DatasetsProps, DatasetProps {}
+interface Props
+  extends CatalogProps,
+    DatasetsProps,
+    DatasetSeriesProps,
+    DatasetProps {}
 
 const DatasetsPage: FC<Props> = ({
   datasetCatalog,
   datasets,
   datasetSuggestions,
+  datasetSeries,
+  datasetSeriesSuggestions,
   createdDataset,
   catalogActions: { getDatasetCatalogRequested: getDatasetCatalog },
   datasetsActions: {
     listDatasetsRequested: listDatasets,
     searchDatasetsRequested: searchDatasets
+  },
+  datasetSeriesActions: {
+    listDatasetSeriesRequested: listDatasetSeries,
+    searchDatasetSeriesRequested: searchDatasetSeries
   },
   datasetActions: { createDatasetRequested: createDataset }
 }) => {
@@ -68,6 +81,7 @@ const DatasetsPage: FC<Props> = ({
   useEffect(() => {
     getDatasetCatalog(catalogId);
     listDatasets(catalogId, 1000);
+    listDatasetSeries(catalogId, 1000);
   }, []);
 
   useEffect(() => {
@@ -79,6 +93,10 @@ const DatasetsPage: FC<Props> = ({
   useEffect(() => {
     searchDatasets(searchQuery, SearchType.DATASET, [catalogId]);
   }, [searchQuery]);
+
+  useEffect(() => {
+    searchDatasetSeries(searchQuery, SearchType.DATASET, [catalogId]);
+  });
 
   const isReadOnly =
     !authService.hasSystemAdminPermission() &&
@@ -134,6 +152,10 @@ const DatasetsPage: FC<Props> = ({
           catalogId={catalogId}
           datasets={searchQuery ? datasetSuggestions : datasets}
         />
+        <DatasetItemsList
+          catalogId={catalogId}
+          datasets={searchQuery ? datasetSeriesSuggestions : datasetSeries}
+        />
       </SC.Page>
     </>
   );
@@ -144,5 +166,6 @@ export default compose<FC>(
   withAuth,
   withCatalog,
   withDatasets,
+  withDatasetSeries,
   withDataset
 )(DatasetsPage);
