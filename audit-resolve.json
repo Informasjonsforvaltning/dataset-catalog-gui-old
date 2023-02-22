@@ -746,6 +746,16 @@
       "decision": "ignore",
       "madeAt": 1671102621040,
       "expiresAt": 1673694609165
+    },
+    "1089556|rdflib>xmldom": {
+      "decision": "ignore",
+      "madeAt": 1677055665581,
+      "expiresAt": 1679647653275
+    },
+    "1090179|rdflib>xmldom": {
+      "decision": "ignore",
+      "madeAt": 1677055665581,
+      "expiresAt": 1679647653275
     }
   },
   "rules": {},
