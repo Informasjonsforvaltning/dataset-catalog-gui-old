@@ -12,7 +12,7 @@ export default validateEnv(
       'https://registrering.staging.fellesdatakatalog.digdir.no',
     ADMIN_GUI_BASE_URI: 'https://admin.staging.fellesdatakatalog.digdir.no',
     ORGANIZATION_API_HOST:
-      'https://organization-catalogue.staging.fellesdatakatalog.digdir.no',
+      'https://organization-catalog.staging.fellesdatakatalog.digdir.no',
     SEARCH_FULLTEXT_HOST: 'https://search.staging.fellesdatakatalog.digdir.no',
     DATASERVICE_CATALOG_BASE_URI:
       'https://dataservice-catalog.staging.fellesdatakatalog.digdir.no',
