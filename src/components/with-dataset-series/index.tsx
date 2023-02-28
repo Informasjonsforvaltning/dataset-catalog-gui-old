@@ -8,10 +8,8 @@ import type { Dataset } from '../../types';
 
 export interface Props {
   datasetSeries: Dataset[];
-  datasetSeriesSuggestions: Dataset[];
   datasetSeriesActions: typeof actions;
   isLoadingDatasetSeries: boolean;
-  isLoadingDatasetSeriesSuggestions: boolean;
 }
 
 const withDatasetSeries = (Component: ComponentType<any>) => {
@@ -20,13 +18,8 @@ const withDatasetSeries = (Component: ComponentType<any>) => {
   const mapStateToProps = (state: any) => ({
     datasetSeries:
       state.DatasetSeriesReducer.get('datasetSeries')?.toJS() ?? [],
-    datasetSeriesSuggestions:
-      state.DatasetSeriesReducer.get('datasetSeriesSuggestions')?.toJS() ?? [],
     isLoadingDatasetSeries: state.DatasetSeriesReducer.get(
       'isLoadingDatasetSeries'
-    ),
-    isLoadingDatasetSeriesSuggestions: state.DatasetSeriesReducer.get(
-      'isLoadingDatasetSeriesSuggestions'
     )
   });
 

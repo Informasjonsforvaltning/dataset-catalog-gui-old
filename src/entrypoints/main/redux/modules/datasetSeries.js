@@ -18,7 +18,7 @@ function shouldFetch(metaState) {
   );
 }
 
-export const fetchDatasetsIfNeeded = catalogId => (dispatch, getState) =>
+export const fetchDatasetSeriesIfNeeded = catalogId => (dispatch, getState) =>
   shouldFetch(_.get(getState(), ['datasets', catalogId, 'meta'])) &&
   dispatch(
     reduxFsaThunk(() => registrationApiGet(datasetListAllPath(catalogId)), {
@@ -28,9 +28,9 @@ export const fetchDatasetsIfNeeded = catalogId => (dispatch, getState) =>
     })
   );
 
-export const datasetSuccessAction = dataset => ({
+export const datasetSuccessAction = datasetSeries => ({
   type: DATASET_SUCCESS,
-  payload: dataset
+  payload: datasetSeries
 });
 
 const initialState = {};
@@ -50,7 +50,7 @@ export function datasetSeriesReducer(state = initialState, action) {
     case DATASET_SERIES_SUCCESS: {
       const objFromArray = _.get(
         action.payload,
-        ['_embedded', 'datasets'],
+        ['_embedded', 'datasetSeries'],
         []
       ).reduce((accumulator, current) => {
         accumulator[current.id] = current;
@@ -81,7 +81,7 @@ export function datasetSeriesReducer(state = initialState, action) {
     case DATASET_SUCCESS: {
       const dataset = action.payload;
       const { catalogId, id } = dataset;
-      const items = _.get(state, [catalogId, 'items']); // Skulle det vært noe annet enn items her?
+      const items = _.get(state, [catalogId, 'items']);
       return {
         ...state,
         [catalogId]: {
@@ -97,11 +97,9 @@ export function datasetSeriesReducer(state = initialState, action) {
   }
 }
 
-export const getDatasetSeriesItemByDatasetiId = (datasets, catalogId, id) =>
-  _.get(datasets, [catalogId, 'items', id]);
-
-export const selectorForDatasetSeriesInCatalog = catalogId => datasetsState =>
-  _.get(datasetsState, [catalogId, 'items', 'datasets'], []); // Skulle det vært noe annet enn items og datasets her?
+export const selectorForDatasetSeriesInCatalog =
+  catalogId => datasetSeriesState =>
+    _.get(datasetSeriesState, [catalogId, 'items', 'datasetSeries'], []);
 
 export const selectorForDataset = (catalogId, datasetId) =>
   compose(

@@ -27,7 +27,7 @@ import { ConnectedFormThemes } from '../form-theme/connected-form-theme.componen
 import { ConnectedFormType } from '../form-type/connected-form-type.component';
 import { FormConcept } from '../form-concept/form-concept.component';
 import { ConnectedFormAccessRights } from '../form-accessRights/connected-form-accessRights.component';
-import { ConnectedFormReference } from '../form-reference/connected-form-reference.component'; // Denne
+import { ConnectedFormReference } from '../form-reference/connected-form-reference.component';
 import { FormInformationModel } from '../form-informationmodel/form-informationmodel.component';
 import { ConnectedFormContactPoint } from '../form-contactPoint/connected-form-contactPoint.component';
 import { ConnectedFormContents } from '../form-contents/connected-form-contents.component';
@@ -114,9 +114,9 @@ interface Props
 const DatasetRegistrationPage: FC<Props> = ({
   form,
   datasetSuggestions,
-  datasetSeriesSuggestions,
+  datasetSeries,
   datasetsActions: { searchDatasetsRequested: searchDatasets },
-  datasetSeriesActions: { searchDatasetSeriesRequested: searchDatasetSeries },
+  datasetSeriesActions: { listDatasetSeriesRequested: listDatasetSeries },
   themesItems,
   provenanceItems,
   frequencyItems,
@@ -204,10 +204,12 @@ const DatasetRegistrationPage: FC<Props> = ({
         RegStatusEnum.APPROVE,
         RegStatusEnum.PUBLISH
       ]);
-      searchDatasetSeries(query, SearchType.DATASET, [catalogId], true, [
-        RegStatusEnum.APPROVE,
-        RegStatusEnum.PUBLISH
-      ]);
+    }
+  };
+
+  const executeList = () => {
+    if (catalogId) {
+      listDatasetSeries(catalogId);
     }
   };
 
@@ -219,10 +221,7 @@ const DatasetRegistrationPage: FC<Props> = ({
   }, [datasetItem]);
 
   useEffect(() => executeSearch(''), []);
-
-  // useEffect(() => bruker action fra withDatasetSeries med request dataset series på samme måte som datasetItem ^ if datasetItem && (...)
-  // bør sjekke om den har datasetSeries finnes eller står som loading, vist en av de true, ikke kjør, vist true, start ny requested action.
-  // kan være useeffect vet at den ikke må vente på loading.
+  useEffect(() => executeList(), []);
 
   return (
     <div className='row mb-2 mb-md-5'>
@@ -234,7 +233,7 @@ const DatasetRegistrationPage: FC<Props> = ({
         referenceDatasetsItems &&
         referenceDatasetSeriesItems &&
         datasetSuggestions &&
-        datasetSeriesSuggestions &&
+        datasetSeries &&
         openLicenseItems &&
         losItems && (
           <div className='col-12'>
@@ -473,7 +472,7 @@ const DatasetRegistrationPage: FC<Props> = ({
                 datasetItem={datasetItem as any}
                 referenceTypesItems={referenceTypesItems}
                 referenceDatasetsItems={datasetSuggestions}
-                referenceDatasetSeriesItems={datasetSeriesSuggestions}
+                referenceDatasetSeriesItems={datasetSeries}
                 catalogId={catalogId}
                 datasetId={datasetId}
                 languages={languages}
@@ -601,8 +600,8 @@ const mapStateToProps = (state: any, { catalogId, datasetId }: any) => {
 };
 
 const mapDispatchToProps = {
-  setInputLanguages: setInputLanguagesAction, // action
-  toggleInputLanguage: toggleInputLanguageAction // action
+  setInputLanguages: setInputLanguagesAction,
+  toggleInputLanguage: toggleInputLanguageAction
 };
 
 export default compose<FC<ExtenralProps>>(
@@ -611,4 +610,4 @@ export default compose<FC<ExtenralProps>>(
   withDatasetSeries,
   withDatasets,
   connect(mapStateToProps, mapDispatchToProps)
-)(DatasetRegistrationPage); // Gjør de funksjonene der, også blir det sendt inn i DatasetRegistrationPage som props ? OBS! Rekkefølgen her har noe å si
+)(DatasetRegistrationPage);

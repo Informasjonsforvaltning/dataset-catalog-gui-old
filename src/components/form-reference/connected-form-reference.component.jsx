@@ -14,7 +14,7 @@ const mapStateToProps = (
         }
       ],
       relations = [{ uri: null, prefLabel: {} }],
-      inSeries = []
+      inSeries = null
     }
   }
 ) => ({
