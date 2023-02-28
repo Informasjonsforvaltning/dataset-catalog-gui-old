@@ -57,18 +57,13 @@ const DatasetsPage: FC<Props> = ({
   datasetCatalog,
   datasets,
   datasetSuggestions,
-  datasetSeries,
-  datasetSeriesSuggestions,
   createdDataset,
   catalogActions: { getDatasetCatalogRequested: getDatasetCatalog },
   datasetsActions: {
     listDatasetsRequested: listDatasets,
     searchDatasetsRequested: searchDatasets
   },
-  datasetSeriesActions: {
-    listDatasetSeriesRequested: listDatasetSeries,
-    searchDatasetSeriesRequested: searchDatasetSeries
-  },
+  datasetSeriesActions: { listDatasetSeriesRequested: listDatasetSeries },
   datasetActions: { createDatasetRequested: createDataset }
 }) => {
   const { catalogId } = useParams<RouteParams>();
@@ -93,10 +88,6 @@ const DatasetsPage: FC<Props> = ({
   useEffect(() => {
     searchDatasets(searchQuery, SearchType.DATASET, [catalogId]);
   }, [searchQuery]);
-
-  useEffect(() => {
-    searchDatasetSeries(searchQuery, SearchType.DATASET, [catalogId]);
-  });
 
   const isReadOnly =
     !authService.hasSystemAdminPermission() &&
@@ -151,10 +142,6 @@ const DatasetsPage: FC<Props> = ({
         <DatasetItemsList
           catalogId={catalogId}
           datasets={searchQuery ? datasetSuggestions : datasets}
-        />
-        <DatasetItemsList
-          catalogId={catalogId}
-          datasets={searchQuery ? datasetSeriesSuggestions : datasetSeries}
         />
       </SC.Page>
     </>

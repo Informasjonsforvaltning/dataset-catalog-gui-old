@@ -277,13 +277,17 @@
     "reference": {
       "helptext": {
         "reference": "Relasjoner til datasett",
+        "refereceDatasetSeries": "Relasjoner til datasettserier",
+        "relatedTo": "Relatert til ",
         "relatedResources": "Relaterte ressurser",
         "internal": "Internt",
         "external": "Eksternt",
         "publish": "Publisert",
-        "approve": "Godkjent"
+        "approve": "Godkjent",
+        "datasetSeriesSearchPlaceholder": "Søk på datasett serie"
       },
       "addReferenceLabel": "Legg til relaterte datasett",
+      "addReferenceDatasetSeries": "Legg til relatert datasettserie",
       "addRelationLabel": "Legg til ny ressurs",
       "removeRelationLabel": "Slett ressurs"
     },
