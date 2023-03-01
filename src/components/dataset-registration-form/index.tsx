@@ -207,7 +207,7 @@ const DatasetRegistrationPage: FC<Props> = ({
     }
   };
 
-  const executeList = () => {
+  const getDatasetSeriesList = () => {
     if (catalogId) {
       listDatasetSeries(catalogId);
     }
