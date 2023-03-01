@@ -2,10 +2,10 @@ FROM node:14.21.2 AS build
 WORKDIR /app
 COPY package.json package-lock.json ./
 COPY audit-resolve.json ./
-RUN npm install -g npm-audit-resolver
+RUN npm install -g npm-audit-resolver@next
 RUN npm set progress=false && \
   npm config set depth 0 && \
-  npm ci
+  npm ci --legacy-peer-deps
 RUN check-audit --production --audit-level=moderate
 COPY babel.config.js tsconfig.json tsconfig.test.json tsconfig.webpack.json jest.config.js ./
 COPY webpack ./webpack
