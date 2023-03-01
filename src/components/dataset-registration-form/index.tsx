@@ -221,7 +221,7 @@ const DatasetRegistrationPage: FC<Props> = ({
   }, [datasetItem]);
 
   useEffect(() => executeSearch(''), []);
-  useEffect(() => executeList(), []);
+  useEffect(() => getDatasetSeriesList(), []);
 
   return (
     <div className='row mb-2 mb-md-5'>
