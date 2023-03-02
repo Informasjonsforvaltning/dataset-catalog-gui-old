@@ -60,6 +60,17 @@ const renderReadOnly = ({
   );
 };
 
+const getCombinedLabel = (item: string | any) =>
+  typeof item.title === 'object'
+    ? [
+        item.title[Language.EN],
+        item.title[Language.NN],
+        item.title[Language.NB]
+      ]
+        .filter(Boolean)
+        .join(', ')
+    : item.title;
+
 const renderReferenceFields = ({
   item,
   index,
@@ -311,7 +322,10 @@ const FormReference: FC<Props> = ({
           name='inSeries'
           labelKey='title'
           component={SelectIdField}
-          items={referenceDatasetSeriesItems}
+          items={referenceDatasetSeriesItems.map(item => ({
+            id: item.id,
+            title: getCombinedLabel(item)
+          }))}
           placeholder={translationsService.translate(
             'schema.reference.helptext.datasetSeriesSearchPlaceholder'
           )}

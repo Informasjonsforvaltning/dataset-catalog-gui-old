@@ -32,7 +32,7 @@ const SelectIdField: FC<Props> = ({
   input: { value, onChange },
   meta: { touched, error, warning },
   items = [],
-  labelKey = 'prefLabel',
+  labelKey = 'title',
   valueKey = 'id',
   placeholder,
   onInputChange,
@@ -44,8 +44,7 @@ const SelectIdField: FC<Props> = ({
     ignoreAccents: true,
     trim: true,
     matchFromStart: false,
-    stringify: (option: any) =>
-      translationsService.translate(option.data[labelKey])
+    stringify: (option: any) => option.data[labelKey]
   };
 
   const getLabel = (option: any) =>
@@ -117,7 +116,6 @@ const SelectIdField: FC<Props> = ({
 
   return (
     <div className='pl-2 mt-3'>
-      {console.log('isReadOnly:', isReadOnly)}
       {!isReadOnly && (
         <Select
           id='frequency-select'
