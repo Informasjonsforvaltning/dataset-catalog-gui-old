@@ -5,6 +5,7 @@ import kartverketSaga from '../../../components/with-kartverket/redux/saga';
 import catalogSaga from '../../../components/with-catalog/redux/saga';
 import catalogsSaga from '../../../components/with-catalogs/redux/saga';
 import datasetsSaga from '../../../components/with-datasets/redux/saga';
+import datasetSeriesSaga from '../../../components/with-dataset-series/redux/saga';
 import datasetSaga from '../../../components/with-dataset/redux/saga';
 import organizationSaga from '../../../components/with-organization/redux/saga';
 import referenceDataSaga from '../../../components/with-reference-data/redux/saga';
@@ -16,6 +17,7 @@ export default function* saga() {
     catalogSaga(),
     catalogsSaga(),
     datasetsSaga(),
+    datasetSeriesSaga(),
     datasetSaga(),
     organizationSaga(),
     referenceDataSaga()

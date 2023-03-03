@@ -13,13 +13,15 @@ const mapStateToProps = (
           source: { uri: null, prefLabel: {} }
         }
       ],
-      relations = [{ uri: null, prefLabel: {} }]
+      relations = [{ uri: null, prefLabel: {} }],
+      inSeries = null
     }
   }
 ) => ({
   initialValues: {
     references,
-    relations
+    relations,
+    inSeries
   },
   syncErrors: getFormSyncErrors('reference')(state)
 });

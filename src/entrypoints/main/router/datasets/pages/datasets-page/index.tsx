@@ -21,6 +21,9 @@ import withCatalog, {
 import withDatasets, {
   Props as DatasetsProps
 } from '../../../../../../components/with-datasets';
+import withDatasetSeries, {
+  Props as DatasetSeriesProps
+} from '../../../../../../components/with-dataset-series';
 import withDataset, {
   Props as DatasetProps
 } from '../../../../../../components/with-dataset';
@@ -44,7 +47,11 @@ interface LocationState {
   confirmDelete?: boolean;
 }
 
-interface Props extends CatalogProps, DatasetsProps, DatasetProps {}
+interface Props
+  extends CatalogProps,
+    DatasetsProps,
+    DatasetSeriesProps,
+    DatasetProps {}
 
 const DatasetsPage: FC<Props> = ({
   datasetCatalog,
@@ -56,6 +63,7 @@ const DatasetsPage: FC<Props> = ({
     listDatasetsRequested: listDatasets,
     searchDatasetsRequested: searchDatasets
   },
+  datasetSeriesActions: { listDatasetSeriesRequested: listDatasetSeries },
   datasetActions: { createDatasetRequested: createDataset }
 }) => {
   const { catalogId } = useParams<RouteParams>();
@@ -68,6 +76,7 @@ const DatasetsPage: FC<Props> = ({
   useEffect(() => {
     getDatasetCatalog(catalogId);
     listDatasets(catalogId, 1000);
+    listDatasetSeries(catalogId, 1000);
   }, []);
 
   useEffect(() => {
@@ -144,5 +153,6 @@ export default compose<FC>(
   withAuth,
   withCatalog,
   withDatasets,
+  withDatasetSeries,
   withDataset
 )(DatasetsPage);

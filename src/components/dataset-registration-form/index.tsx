@@ -12,6 +12,9 @@ import {
   Props as TranslationsProps
 } from '../../providers/translations';
 import withDatasets, { Props as DatasetsProps } from '../with-datasets';
+import withDatasetSeries, {
+  Props as DatasetSeriesProps
+} from '../with-dataset-series';
 
 import Translation from '../translation';
 import FormTemplate from '../form-template/form-template.component';
@@ -52,6 +55,7 @@ import {
 import RegistrationStatus from '../registration-status/registration-status.component';
 
 import { selectorForDatasetsInCatalog } from '../../entrypoints/main/redux/modules/datasets';
+import { selectorForDatasetSeriesInCatalog } from '../../entrypoints/main/redux/modules/datasetSeries';
 import { selectorForDatasetFormStatus } from '../../entrypoints/main/redux/modules/dataset-form-status';
 import {
   setInputLanguages as setInputLanguagesAction,
@@ -89,9 +93,14 @@ interface ExtenralProps {
   handleDeleteDataset: () => void;
 }
 
-interface Props extends ExtenralProps, TranslationsProps, DatasetsProps {
+interface Props
+  extends ExtenralProps,
+    TranslationsProps,
+    DatasetsProps,
+    DatasetSeriesProps {
   form: any;
   referenceDatasetsItems: any[];
+  referenceDatasetSeriesItems: any[];
   datasetFormStatus: {
     isSaving: boolean;
     error: any;
@@ -105,13 +114,16 @@ interface Props extends ExtenralProps, TranslationsProps, DatasetsProps {
 const DatasetRegistrationPage: FC<Props> = ({
   form,
   datasetSuggestions,
+  datasetSeries,
   datasetsActions: { searchDatasetsRequested: searchDatasets },
+  datasetSeriesActions: { listDatasetSeriesRequested: listDatasetSeries },
   themesItems,
   provenanceItems,
   frequencyItems,
   datasetItem,
   referenceTypesItems,
   referenceDatasetsItems,
+  referenceDatasetSeriesItems,
   openLicenseItems,
   mediaTypes,
   datasetFormStatus,
@@ -195,6 +207,12 @@ const DatasetRegistrationPage: FC<Props> = ({
     }
   };
 
+  const getDatasetSeriesList = () => {
+    if (catalogId) {
+      listDatasetSeries(catalogId);
+    }
+  };
+
   useEffect(() => {
     if (datasetItem && !languagesDetermined) {
       setInputLanguages(getUsedLanguages());
@@ -203,6 +221,7 @@ const DatasetRegistrationPage: FC<Props> = ({
   }, [datasetItem]);
 
   useEffect(() => executeSearch(''), []);
+  useEffect(() => getDatasetSeriesList(), []);
 
   return (
     <div className='row mb-2 mb-md-5'>
@@ -212,7 +231,9 @@ const DatasetRegistrationPage: FC<Props> = ({
         frequencyItems &&
         referenceTypesItems &&
         referenceDatasetsItems &&
+        referenceDatasetSeriesItems &&
         datasetSuggestions &&
+        datasetSeries &&
         openLicenseItems &&
         losItems && (
           <div className='col-12'>
@@ -451,6 +472,7 @@ const DatasetRegistrationPage: FC<Props> = ({
                 datasetItem={datasetItem as any}
                 referenceTypesItems={referenceTypesItems}
                 referenceDatasetsItems={datasetSuggestions}
+                referenceDatasetSeriesItems={datasetSeries}
                 catalogId={catalogId}
                 datasetId={datasetId}
                 languages={languages}
@@ -564,11 +586,15 @@ const mapStateToProps = (state: any, { catalogId, datasetId }: any) => {
   const referenceDatasetsItems = Object.values(
     selectorForDatasetsInCatalog(catalogId)(state)
   );
+  const referenceDatasetSeriesItems = Object.values(
+    selectorForDatasetSeriesInCatalog(catalogId)(state)
+  );
 
   return {
     form,
     datasetFormStatus,
     referenceDatasetsItems,
+    referenceDatasetSeriesItems,
     languages
   };
 };
@@ -581,6 +607,7 @@ const mapDispatchToProps = {
 export default compose<FC<ExtenralProps>>(
   memo,
   withTranslations,
+  withDatasetSeries,
   withDatasets,
   connect(mapStateToProps, mapDispatchToProps)
 )(DatasetRegistrationPage);

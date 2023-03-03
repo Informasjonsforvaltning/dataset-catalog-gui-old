@@ -3,6 +3,7 @@ import { reducer as formReducer } from 'redux-form';
 
 import catalog from './modules/catalog';
 import { datasetsReducer } from './modules/datasets';
+import { datasetSeriesReducer } from './modules/datasetSeries';
 import catalogs from './modules/catalogs';
 import { apiFormStatusReducer } from './modules/api-form-status';
 import inputLanguage from '../../../components/language-picker/redux/reducer';
@@ -13,6 +14,7 @@ import KartverketReducer from '../../../components/with-kartverket/redux/reducer
 import CatalogReducer from '../../../components/with-catalog/redux/reducer';
 import CatalogsReducer from '../../../components/with-catalogs/redux/reducer';
 import DatasetsReducer from '../../../components/with-datasets/redux/reducer';
+import DatasetSeriesReducer from '../../../components/with-dataset-series/redux/reducer';
 import DatasetReducer from '../../../components/with-dataset/redux/reducer';
 import OrganizationReducer from '../../../components/with-organization/redux/reducer';
 import ReferenceDataReducer from '../../../components/with-reference-data/redux/reducer';
@@ -21,6 +23,7 @@ export default combineReducers({
   form: formReducer,
   catalog,
   datasets: datasetsReducer,
+  datasetSeries: datasetSeriesReducer,
   catalogs,
   apiFormStatus: apiFormStatusReducer,
   datasetFormStatus,
@@ -30,6 +33,7 @@ export default combineReducers({
   CatalogReducer,
   CatalogsReducer,
   DatasetsReducer,
+  DatasetSeriesReducer,
   DatasetReducer,
   OrganizationReducer,
   ReferenceDataReducer

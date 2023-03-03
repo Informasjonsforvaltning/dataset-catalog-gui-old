@@ -11,6 +11,7 @@ import {
 import Translation from '../translation';
 import Helptext from '../helptext/helptext.component';
 import SelectField from '../fields/field-select/field-select.component';
+import SelectIdField from '../fields/field-id-select/field-id-select.component';
 import MultilingualField from '../multilingual-field/multilingual-field.component';
 import InputField from '../fields/field-input/field-input.component';
 import InputFieldReadonly from '../fields/field-input-readonly/field-input-readonly.component';
@@ -31,6 +32,7 @@ interface ExternalProps {
   onInputChange: () => void;
   referenceTypesItems: any[];
   referenceDatasetsItems: any[];
+  referenceDatasetSeriesItems: any[];
   languages: any[];
 }
 
@@ -45,7 +47,6 @@ const renderReadOnly = ({
   const referenceTypeText = translationsService.translate(
     referenceType && referenceType.prefLabel
   );
-
   const uri = input.value && input.value.source && input.value.source.uri;
 
   const dataset = referenceDatasetsItems.find((i: any) => i.uri === uri);
@@ -58,6 +59,17 @@ const renderReadOnly = ({
     </div>
   );
 };
+
+const getCombinedLabel = (item: string | any) =>
+  typeof item.title === 'object'
+    ? [
+        item.title[Language.EN],
+        item.title[Language.NN],
+        item.title[Language.NB]
+      ]
+        .filter(Boolean)
+        .join(', ')
+    : item.title;
 
 const renderReferenceFields = ({
   item,
@@ -259,6 +271,7 @@ const FormReference: FC<Props> = ({
   onInputChange,
   referenceTypesItems,
   referenceDatasetsItems,
+  referenceDatasetSeriesItems,
   translationsService
 }) => {
   const deleteFieldAtIndex = (fields: any, index: number) => {
@@ -296,6 +309,30 @@ const FormReference: FC<Props> = ({
           translationsService={translationsService}
         />
       </div>
+
+      <div className='form-group'>
+        <Helptext
+          title={translationsService.translate(
+            'schema.reference.helptext.refereceDatasetSeries'
+          )}
+          term='Dataset_relation'
+          recommended
+        />
+        <Field
+          name='inSeries'
+          labelKey='title'
+          component={SelectIdField}
+          items={referenceDatasetSeriesItems.map(item => ({
+            id: item.id,
+            title: getCombinedLabel(item)
+          }))}
+          placeholder={translationsService.translate(
+            'schema.reference.helptext.datasetSeriesSearchPlaceholder'
+          )}
+          isReadOnly={isReadOnly}
+        />
+      </div>
+
       <div className='form-group'>
         <Helptext
           title={translationsService.translate(
