@@ -90,7 +90,7 @@
     "path-browserify": "^1.0.1",
     "process": "^0.11.10",
     "qs": "^6.10.3",
-    "rdflib": "2.2.9",
+    "rdflib": "2.2.15",
     "react": "^18.2.0",
     "react-autocomplete": "^1.8.1",
     "react-autosuggest": "^10.1.0",
