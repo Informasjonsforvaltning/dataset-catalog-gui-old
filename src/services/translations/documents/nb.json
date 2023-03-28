@@ -284,7 +284,9 @@
         "external": "Eksternt",
         "publish": "Publisert",
         "approve": "Godkjent",
-        "datasetSeriesSearchPlaceholder": "Søk på datasett serie"
+        "datasetSeriesSearchPlaceholder": "Søk på datasett serie",
+        "datasetSearchPlaceholder": "Søk på datasett"
+
       },
       "addReferenceLabel": "Legg til relaterte datasett",
       "addReferenceDatasetSeries": "Legg til relatert datasettserie",

@@ -73,6 +73,7 @@ import {
   RegistrationStatus as RegStatusEnum
 } from '../../types/enums';
 import { distributionTypes } from '../form-distribution/distribution-types';
+import { ConnectedFormSeriesReference } from '../form-series-reference/connected-form-series-reference.component';
 
 // check the validation state of all rendered forms
 const isAllowedToPublish = () => true;
@@ -544,6 +545,30 @@ const DatasetRegistrationPage: FC<Props> = ({
                     languages={languages}
                     mediaTypes={mediaTypes}
                     isReadOnly={isReadOnly}
+                  />
+                </FormTemplate>
+              </>
+            )}
+            {datasetItem.specializedType === 'SERIES' && (
+              <>
+                <FormTemplate
+                  title={translationsService.translate(
+                    'datasets.formTemplates.reference'
+                  )}
+                  values={referenceValues(reference.values)}
+                  showInitially={expandAll}
+                  recommended
+                >
+                  <ConnectedFormSeriesReference
+                    datasetItem={datasetItem as any}
+                    referenceTypesItems={referenceTypesItems}
+                    referenceDatasetsItems={datasetSuggestions}
+                    referenceDatasetSeriesItems={datasetSeries}
+                    catalogId={catalogId}
+                    datasetId={datasetId}
+                    languages={languages}
+                    isReadOnly={isReadOnly}
+                    onInputChange={executeSearch}
                   />
                 </FormTemplate>
               </>
