@@ -330,6 +330,7 @@
         "accessURL": "Tilgangslenke",
         "downloadURL": "Nedlastingslenke",
         "format": "Format",
+        "mediaType": "Media type",
         "accessService": "Tilgangstjeneste",
         "license": "Lisens",
         "description": "Beskrivelse",
@@ -342,8 +343,11 @@
       "accessURLLabel": "Tilgangslenke",
       "downloadURLLabel": "Nedlastingslenke",
       "formatLabel": "Format",
-      "formatPlaceholder": "Søk på og velg fra registrerte mediatyper",
-      "formatPlaceholderAlt": "Oppgi evt. annen mediatype",
+      "formatPlaceholder": "Søk på og velg fra registrerte filtyper",
+      "formatPlaceholderAlt": "Oppgi evt. annen filetype",
+      "mediaTypeLabel": "Media type",
+      "mediaTypePlaceholder": "Søk på og velg fra registrerte media typer",
+      "mediaTypePlaceholderAlt": "Oppgi evt. annen media type",
       "descriptionLabel": "Beskrivelse"
     },
     "sample": {

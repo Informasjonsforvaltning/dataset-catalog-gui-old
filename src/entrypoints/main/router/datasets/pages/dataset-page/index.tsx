@@ -57,6 +57,7 @@ const DatasetPage: FC<Props> = ({
     ReferenceDataCode.REFERENCE_TYPES,
     ReferenceDataCode.LOS,
     ReferenceDataCode.THEMES,
+    ReferenceDataCode.FILE_TYPES,
     ReferenceDataCode.MEDIA_TYPES
   ];
 
@@ -138,6 +139,7 @@ const DatasetPage: FC<Props> = ({
           referenceTypesItems={
             referenceData[ReferenceDataCode.REFERENCE_TYPES]?.referenceTypes
           }
+          fileTypes={referenceData[ReferenceDataCode.FILE_TYPES]?.fileTypes}
           mediaTypes={referenceData[ReferenceDataCode.MEDIA_TYPES]?.mediaTypes}
           handleDeleteDataset={handleDeleteDataset}
         />

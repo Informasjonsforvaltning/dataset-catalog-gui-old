@@ -327,6 +327,10 @@ Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Data
 Velg Feed dersom det er en distribusjon hvor endringer hentes gjennom f.eks. RSS, Atom eller andre meldingsformidlinger.`
   },
   Distribution_format: {
+    abstract: 'Velg format(er) for distribusjonen.',
+    description: `Listen kommer fra EU publication office sin liste over offisielle filtyper: <a href='http://publications.europa.eu/resource/authority/file-type'>File type</a>. Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Distribusjon-format' target='_blank'><span>Distribusjon: format</span></a>`
+  },
+  Distribution_mediaType: {
     abstract:
       'Velg format(er) fra IANAs liste over offisielle medietyper. Dersom formatet ikke finnes i listen kan du angi eget.',
     description: `Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Distribusjon-format' target='_blank'><span>Distribusjon: format</span></a>
