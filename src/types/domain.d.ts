@@ -4,6 +4,11 @@ import type {
   ReferenceDataCode
 } from './enums';
 
+export interface FileType {
+  code: string;
+  uri: string;
+}
+
 export interface MediaType {
   name: string;
   uri: string;
@@ -178,6 +183,7 @@ export interface Distribution {
   conformsTo: SkosConcept[];
   page: SkosConcept[];
   format: string[];
+  mediaType: string[];
   accessService: DataDistributionService[];
 }
 

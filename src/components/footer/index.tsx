@@ -8,6 +8,8 @@ import env from '../../env';
 import { withAuth } from '../../providers/auth';
 import { authService } from '../../services/auth/auth-service';
 
+import './footer.scss';
+
 const { SKE_THEME_PROFILE } = env;
 
 const Footer = () => {
@@ -22,7 +24,11 @@ const Footer = () => {
     ? ThemeProfile.SKE
     : ThemeProfile.FDK;
 
-  return <FooterBase themeProfile={themeProfile} />;
+  return (
+    <div className='footer'>
+      <FooterBase themeProfile={themeProfile} />
+    </div>
+  );
 };
 
 export default compose<FC>(memo, withAuth)(Footer);

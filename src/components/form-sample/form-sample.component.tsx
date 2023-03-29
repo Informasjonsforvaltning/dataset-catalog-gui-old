@@ -24,6 +24,11 @@ import {
   CirclePlusInlineIcon,
   CrossIcon
 } from '../../fdk-icons/icons';
+import { FileType, MediaType } from '../../types';
+import {
+  FormatsRenderProps,
+  MediaTypesRenderProps
+} from '../form-distribution/form-distribution-pure';
 
 interface ExternalProps {
   dispatch: (arg: any) => void;
@@ -31,7 +36,8 @@ interface ExternalProps {
   datasetId: string;
   datasetItem: any;
   languages: any[];
-  mediaTypes: any[];
+  fileTypes: FileType[];
+  mediaTypes: MediaType[];
   isReadOnly: boolean;
 }
 
@@ -39,9 +45,9 @@ interface Props extends ExternalProps, TranslationsProps {}
 
 const Formats = ({
   input: { value: inputValue, onChange },
-  mediaTypes = [],
+  fileTypes = [],
   translationsService
-}: any) => {
+}: FormatsRenderProps) => {
   const [filterText, setFilterText] = useState('');
   return (
     <>
@@ -49,10 +55,151 @@ const Formats = ({
         wrapperProps={{ style: { width: '100%' } }}
         getItemValue={({ uri }) => uri}
         items={
-          mediaTypes.filter(({ uri, name }: any) => {
-            const match = inputValue?.find(
-              (mediaType: any) => uri === mediaType
-            );
+          fileTypes.filter(({ uri, code }) => {
+            const match = inputValue?.find((fileType: any) => uri === fileType);
+            return !match && code.toLowerCase().includes(filterText);
+          }) || []
+        }
+        renderInput={props => (
+          <div className='input-group'>
+            <input
+              type='text'
+              className='form-control'
+              {...props}
+              placeholder={translationsService.translate(
+                'schema.distribution.formatPlaceholder'
+              )}
+            />
+            <span className='input-group-btn input-group-append'>
+              <button
+                type='button'
+                className='btn btn-default input-group-text'
+                onClick={() => setFilterText('')}
+              >
+                <CrossIcon />
+              </button>
+            </span>
+          </div>
+        )}
+        renderItem={({ uri, name }, isHighlighted) => {
+          const itemClass = cx('px-2', {
+            'fdk-bg-color-neutral-lightest': isHighlighted
+          });
+          return (
+            <div key={uri} className={itemClass}>
+              {name}
+            </div>
+          );
+        }}
+        renderMenu={(items, value, style) => (
+          <div
+            key={value}
+            className='fdk-autocomplete-menu'
+            style={{ ...style }}
+          >
+            {items.slice(0, 50)}
+          </div>
+        )}
+        value={filterText}
+        onChange={e => {
+          e.preventDefault();
+          setFilterText(e.target.value);
+        }}
+        onSelect={val => {
+          setFilterText('');
+          onChange([
+            ...inputValue
+              .filter((value: any) =>
+                fileTypes?.find(({ uri }) => uri === value)
+              )
+              .filter(Boolean),
+            val,
+            ...inputValue
+              .filter(
+                (value: any) => !fileTypes?.find(({ uri }) => uri === value)
+              )
+              .filter(Boolean)
+          ]);
+        }}
+        menuStyle={{ zIndex: 1000 }}
+      />
+      <div className='d-flex flex-wrap my-2'>
+        {inputValue.filter(Boolean).map((value: any, index: number) => (
+          <div key={`filter-${index}-${value}`}>
+            <div
+              role='button'
+              tabIndex={0}
+              className='mr-2 mb-1 fdk-badge badge badge-secondary fdk-text-size-15'
+              onClick={e => {
+                e.preventDefault();
+                delete inputValue[index];
+                onChange(inputValue.filter(Boolean));
+              }}
+              onKeyPress={e => {
+                e.preventDefault();
+                delete inputValue[index];
+                onChange(inputValue.filter(Boolean));
+              }}
+            >
+              <span className='fdk-filter-pill'>
+                {fileTypes?.find(({ uri }) => uri === value)?.code ?? value}
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </>
+  );
+};
+
+const renderFormat = ({
+  input,
+  fileTypes,
+  translationsService
+}: FormatsRenderProps) => (
+  <FieldArray
+    name={input.name}
+    component={Formats}
+    input={input}
+    fileTypes={fileTypes}
+    translationsService={translationsService}
+  />
+);
+
+const renderFomatsReadOnly = ({
+  input: { value },
+  fileTypes = []
+}: FormatsRenderProps) => (
+  <div className='pl-3'>
+    {value
+      .map(
+        (item: any) => fileTypes?.find(({ uri }) => uri === item)?.code ?? item
+      )
+      .join(', ')}
+  </div>
+);
+
+const MediaTypes = ({
+  input: { value: inputValue, onChange },
+  mediaTypes = [],
+  translationsService
+}: {
+  input: any;
+  mediaTypes: MediaType[];
+  translationsService: any;
+}) => {
+  const [filterText, setFilterText] = useState('');
+
+  return (
+    <>
+      <Autocomplete
+        wrapperProps={{ style: { width: '100%' } }}
+        getItemValue={({ uri }) => uri}
+        items={
+          mediaTypes.filter(({ uri, name }) => {
+            const match =
+              Array.isArray(inputValue) &&
+              inputValue.find((mediaType: any) => uri === mediaType);
             return !match && name.toLowerCase().includes(filterText);
           }) || []
         }
@@ -106,14 +253,13 @@ const Formats = ({
           onChange([
             ...inputValue
               .filter((value: any) =>
-                mediaTypes.find(({ uri }: any) => uri === value)
+                mediaTypes?.find(({ uri }) => uri === value)
               )
               .filter(Boolean),
             val,
             ...inputValue
               .filter(
-                (value: any) =>
-                  !mediaTypes.find(({ uri }: any) => uri === value)
+                (value: any) => !mediaTypes?.find(({ uri }) => uri === value)
               )
               .filter(Boolean)
           ]);
@@ -139,8 +285,7 @@ const Formats = ({
               }}
             >
               <span className='fdk-filter-pill'>
-                {mediaTypes.find(({ uri }: any) => uri === value)?.name ??
-                  value}
+                {mediaTypes?.find(({ uri }) => uri === value)?.name ?? value}
               </span>
             </div>
           </div>
@@ -150,22 +295,28 @@ const Formats = ({
   );
 };
 
-const renderFormat = ({ input, mediaTypes, translationsService }: any) => (
+const renderMediaType = ({
+  input,
+  mediaTypes,
+  translationsService
+}: MediaTypesRenderProps) => (
   <FieldArray
     name={input.name}
-    component={Formats}
+    component={MediaTypes}
     input={input}
     mediaTypes={mediaTypes}
     translationsService={translationsService}
   />
 );
 
-const renderFomatsReadOnly = ({ input: { value }, mediaTypes = [] }: any) => (
+const renderMediaTypesReadOnly = ({
+  input: { value },
+  mediaTypes = []
+}: MediaTypesRenderProps) => (
   <div className='pl-3'>
     {value
       .map(
-        (item: any) =>
-          mediaTypes.find(({ uri }: any) => uri === item)?.name ?? item
+        (item: any) => mediaTypes?.find(({ uri }) => uri === item)?.name ?? item
       )
       .join(', ')}
   </div>
@@ -176,6 +327,7 @@ const renderSamples = ({
   onDeleteFieldAtIndex,
   languages,
   isReadOnly,
+  fileTypes,
   mediaTypes,
   translationsService
 }: any) => (
@@ -239,6 +391,24 @@ const renderSamples = ({
             type='text'
             component={isReadOnly ? renderFomatsReadOnly : renderFormat}
             label={translationsService.translate('schema.sample.formatLabel')}
+            fileTypes={fileTypes}
+            translationsService={translationsService}
+          />
+        </div>
+        <div className='form-group mb-0'>
+          <Helptext
+            title={translationsService.translate(
+              'schema.sample.helptext.mediaType'
+            )}
+            term='Distribution_mediaType'
+          />
+          <Field
+            name={`${sample}.mediaType`}
+            type='text'
+            component={isReadOnly ? renderMediaTypesReadOnly : renderMediaType}
+            label={translationsService.translate(
+              'schema.sample.mediaTypeLabel'
+            )}
             mediaTypes={mediaTypes}
             translationsService={translationsService}
           />
@@ -273,6 +443,7 @@ const renderSamples = ({
             conformsTo: [],
             page: [licenseType],
             format: [],
+            mediaType: [],
             type: ''
           })
         }
@@ -291,6 +462,7 @@ const FormSample: FC<Props> = ({
   datasetItem,
   languages,
   isReadOnly,
+  fileTypes,
   mediaTypes,
   translationsService
 }) => {
@@ -316,6 +488,7 @@ const FormSample: FC<Props> = ({
         onDeleteFieldAtIndex={deleteFieldAtIndex}
         languages={languages}
         isReadOnly={isReadOnly}
+        fileTypes={fileTypes}
         mediaTypes={mediaTypes}
         translationsService={translationsService}
       />

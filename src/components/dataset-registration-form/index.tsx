@@ -67,7 +67,7 @@ import ExpandSVG from '../../images/icon-expand-text-sm.svg';
 
 import './dataset-registration-page.scss';
 
-import type { MediaType } from '../../types';
+import type { FileType, MediaType } from '../../types';
 import {
   SearchType,
   RegistrationStatus as RegStatusEnum
@@ -78,7 +78,7 @@ import { ConnectedFormSeriesReference } from '../form-series-reference/connected
 // check the validation state of all rendered forms
 const isAllowedToPublish = () => true;
 
-interface ExtenralProps {
+interface ExternalProps {
   catalogId: string;
   datasetId: string;
   datasetItem: any;
@@ -90,12 +90,13 @@ interface ExtenralProps {
   openLicenseItems?: any[];
   provenanceItems?: any[];
   referenceTypesItems?: any[];
+  fileTypes?: FileType[];
   mediaTypes?: MediaType[];
   handleDeleteDataset: () => void;
 }
 
 interface Props
-  extends ExtenralProps,
+  extends ExternalProps,
     TranslationsProps,
     DatasetsProps,
     DatasetSeriesProps {
@@ -126,6 +127,7 @@ const DatasetRegistrationPage: FC<Props> = ({
   referenceDatasetsItems,
   referenceDatasetSeriesItems,
   openLicenseItems,
+  fileTypes,
   mediaTypes,
   datasetFormStatus,
   catalogId,
@@ -521,6 +523,7 @@ const DatasetRegistrationPage: FC<Props> = ({
                     }}
                     datasetItem={datasetItem}
                     openLicenseItems={openLicenseItems}
+                    fileTypes={fileTypes}
                     mediaTypes={mediaTypes}
                     catalogId={catalogId}
                     datasetId={datasetId}
@@ -543,6 +546,7 @@ const DatasetRegistrationPage: FC<Props> = ({
                     catalogId={catalogId}
                     datasetId={datasetId}
                     languages={languages}
+                    fileTypes={fileTypes}
                     mediaTypes={mediaTypes}
                     isReadOnly={isReadOnly}
                   />
@@ -621,7 +625,7 @@ const mapDispatchToProps = {
   toggleInputLanguage: toggleInputLanguageAction
 };
 
-export default compose<FC<ExtenralProps>>(
+export default compose<FC<ExternalProps>>(
   memo,
   withTranslations,
   withDatasetSeries,

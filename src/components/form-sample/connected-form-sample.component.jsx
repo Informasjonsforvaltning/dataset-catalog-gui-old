@@ -15,6 +15,7 @@ export const sampleTypes = values => {
       conformsTo: item.conformsTo ? item.conformsTo : [],
       page: item.page && item.page.length > 0 ? item.page : [{}],
       format: item.format ? item.format : [],
+      mediaType: item.mediaType ? item.mediaType : [],
       type: item.type ? item.type : ''
     }));
   } else {
