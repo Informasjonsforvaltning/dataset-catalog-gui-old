@@ -550,28 +550,26 @@ const DatasetRegistrationPage: FC<Props> = ({
               </>
             )}
             {datasetItem.specializedType === 'SERIES' && (
-              <>
-                <FormTemplate
-                  title={translationsService.translate(
-                    'datasets.formTemplates.reference'
-                  )}
-                  values={referenceValues(reference.values)}
-                  showInitially={expandAll}
-                  recommended
-                >
-                  <ConnectedFormSeriesReference
-                    datasetItem={datasetItem as any}
-                    referenceTypesItems={referenceTypesItems}
-                    referenceDatasetsItems={datasetSuggestions}
-                    referenceDatasetSeriesItems={datasetSeries}
-                    catalogId={catalogId}
-                    datasetId={datasetId}
-                    languages={languages}
-                    isReadOnly={isReadOnly}
-                    onInputChange={executeSearch}
-                  />
-                </FormTemplate>
-              </>
+              <FormTemplate
+                title={translationsService.translate(
+                  'datasets.formTemplates.reference'
+                )}
+                values={referenceValues(reference.values)}
+                showInitially={expandAll}
+                recommended
+              >
+                <ConnectedFormSeriesReference
+                  datasetItem={datasetItem as any}
+                  referenceTypesItems={referenceTypesItems}
+                  referenceDatasetsItems={datasetSuggestions}
+                  referenceDatasetSeriesItems={datasetSeries}
+                  catalogId={catalogId}
+                  datasetId={datasetId}
+                  languages={languages}
+                  isReadOnly={isReadOnly}
+                  onInputChange={executeSearch}
+                />
+              </FormTemplate>
             )}
             {!isReadOnly && (
               <FormPublish
