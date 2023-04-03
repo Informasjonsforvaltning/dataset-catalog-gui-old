@@ -1,6 +1,7 @@
 import React, { memo, FC, useState } from 'react';
 import { compose } from 'redux';
 import Select, { components, createFilter } from 'react-select';
+import SC from './styled';
 
 import {
   withTranslations,
@@ -125,14 +126,18 @@ const FormSeriesReference: FC<Props> = ({
       dispatch(thunk);
     };
     return (
-      <button
-        className='fdk-btn-no-border'
-        type='button'
-        title='Remove reference'
-        onClick={() => moveUp()}
-      >
-        <ChevronUpIcon />
-      </button>
+      <SC.Border>
+        <button
+          className='fdk-btn-no-border'
+          type='button'
+          title={translationsService.translate(
+            'schema.reference.helptext.moveReferenceUp'
+          )}
+          onClick={() => moveUp()}
+        >
+          <ChevronUpIcon />
+        </button>
+      </SC.Border>
     );
   };
 
@@ -153,44 +158,57 @@ const FormSeriesReference: FC<Props> = ({
       dispatch(thunk);
     };
     return (
-      <button
-        className='fdk-btn-no-border'
-        type='button'
-        title='Remove reference'
-        onClick={() => moveDown()}
-      >
-        <ChevronDownIcon />
-      </button>
+      <SC.Border>
+        <button
+          className='fdk-btn-no-border'
+          type='button'
+          title={translationsService.translate(
+            'schema.reference.helptext.moveReferenceDown'
+          )}
+          onClick={() => moveDown()}
+        >
+          <ChevronDownIcon />
+        </button>
+      </SC.Border>
     );
   };
-
   const getField = (id: string) => {
     const item = getItem(id);
     const { length } = Object.keys(relatedDatasetsMap);
     const index = relatedDatasetsMap[id];
     return (
-      <div>
-        <>
-          <p>
+      <SC.FieldBox>
+        {!isReadOnly && (
+          <SC.MoveButtons>
+            {index > 0 && moveDownButton(id, index)}
+            {index < length - 1 && moveUpButton(id, index)}
+          </SC.MoveButtons>
+        )}
+
+        <SC.Border>
+          <SC.FieldText>
             {item?.title
               ? translationsService.translate(getItem(id).title)
               : id}
-          </p>
+          </SC.FieldText>
+        </SC.Border>
 
-          {!isReadOnly && index < length - 1 && moveUpButton(id, index)}
-          {!isReadOnly && index > 0 && moveDownButton(id, index)}
-          {!isReadOnly && (
-            <button
-              className='fdk-btn-no-border'
-              type='button'
-              title='Remove reference'
-              onClick={() => deleteReferenceById(id)}
-            >
+        {!isReadOnly && (
+          <button
+            className='fdk-btn-no-border'
+            type='button'
+            title={translationsService.translate(
+              'schema.reference.helptext.removeReference'
+            )}
+            onClick={() => deleteReferenceById(id)}
+          >
+            <SC.DeleteButtonText>
               <CircleMinusInlineIcon />
-            </button>
-          )}
-        </>
-      </div>
+              {translationsService.translate('formStatus.delete')}
+            </SC.DeleteButtonText>
+          </button>
+        )}
+      </SC.FieldBox>
     );
   };
 
@@ -237,9 +255,10 @@ const FormSeriesReference: FC<Props> = ({
             term='Dataset_relation'
             recommended
           />
-
-          {datasetItem.seriesDatasetOrder &&
-            keysSortedByValue(datasetItem).map(id => getField(id))}
+          <div>
+            {datasetItem.seriesDatasetOrder &&
+              keysSortedByValue(datasetItem).map(id => getField(id))}
+          </div>
 
           {!isReadOnly && (
             <>
