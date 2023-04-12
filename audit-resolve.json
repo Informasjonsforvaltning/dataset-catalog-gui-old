@@ -759,13 +759,23 @@
     },
     "1089556|rdflib>xmldom": {
       "decision": "ignore",
-      "madeAt": 1675857456270,
-      "expiresAt": 1678449428167
+      "madeAt": 1681296366683,
+      "expiresAt": 1683888357341
     },
     "1090179|rdflib>xmldom": {
       "decision": "ignore",
       "madeAt": 1675857456270,
       "expiresAt": 1678449428167
+    },
+    "1091573|rdflib>xmldom": {
+      "decision": "ignore",
+      "madeAt": 1681296366683,
+      "expiresAt": 1683888357341
+    },
+    "1091459|node-sass>request": {
+      "decision": "ignore",
+      "madeAt": 1681296374084,
+      "expiresAt": 1683888357341
     }
   },
   "rules": {},
