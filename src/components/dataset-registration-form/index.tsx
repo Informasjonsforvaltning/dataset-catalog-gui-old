@@ -518,6 +518,7 @@ const DatasetRegistrationPage: FC<Props> = ({
                     initialValues={{
                       distribution: distributionTypes(datasetItem.distribution)
                     }}
+                    datasetItem={datasetItem}
                     openLicenseItems={openLicenseItems}
                     mediaTypes={mediaTypes}
                     catalogId={catalogId}
