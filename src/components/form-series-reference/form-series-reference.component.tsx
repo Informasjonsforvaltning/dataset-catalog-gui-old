@@ -87,7 +87,7 @@ const FormSeriesReference: FC<Props> = ({
   const addReference = (id: string) => {
     if (id) {
       updateIndexes();
-      relatedDatasetsMap[id] = Object.keys(relatedDatasetsMap).length + 1;
+      relatedDatasetsMap[id] = Object.keys(relatedDatasetsMap).length;
       setMapState(relatedDatasetsMap);
       setDropDownState(false);
       const patch = { seriesDatasetOrder: relatedDatasetsMap };
