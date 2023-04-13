@@ -63,13 +63,13 @@ const renderReadOnly = ({
 const getCombinedLabel = (item: string | any) =>
   typeof item.title === 'object'
     ? [
-        item.title[Language.EN],
+        item.title[Language.NB],
         item.title[Language.NN],
-        item.title[Language.NB]
+        item.title[Language.EN]
       ]
         .filter(Boolean)
         .join(', ')
-    : item.title;
+    : ' ';
 
 const renderReferenceFields = ({
   item,
