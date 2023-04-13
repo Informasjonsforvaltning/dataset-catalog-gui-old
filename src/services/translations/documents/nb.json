@@ -285,7 +285,10 @@
         "publish": "Publisert",
         "approve": "Godkjent",
         "datasetSearchPlaceholder": "Søk på datasett",
-        "datasetSeriesSearchPlaceholder": "Søk på datasettserie"
+        "datasetSeriesSearchPlaceholder": "Søk på datasettserie",
+        "moveReferenceDown": "Flytt relasjon ned",
+        "moveReferenceUp": "Flytt relasjon opp",
+        "removeReference": "Fjern relasjon"
       },
       "addReferenceLabel": "Legg til relaterte datasett",
       "addReferenceDatasetSeries": "Legg til relatert datasettserie",
