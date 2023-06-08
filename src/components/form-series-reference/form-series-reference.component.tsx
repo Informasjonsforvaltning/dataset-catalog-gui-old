@@ -57,7 +57,7 @@ const FormSeriesReference: FC<Props> = ({
   isReadOnly
 }) => {
   const [relatedDatasetsMap, setMapState] = useState(
-    datasetItem.seriesDatasetOrder
+    datasetItem.seriesDatasetOrder || {}
   );
   const [showDropdown, setDropDownState] = useState(false);
 
