@@ -50,7 +50,7 @@ Datasettets URI bør benytte en av de globalt unike identifikatorene i dct:ident
     description: `Listen kommer fra EU publication office og tematisering blir blant annet benyttet for innrapportering til EU. Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-tema' target='_blank'><span>Datasett: tema</span></a>`
   },
   Dataset_content: {
-    abstract: `Søk etter begrep fra Felles begrepskatalog og velg fra nedtrekksliste.
+    abstract: `Søk etter begrep som er publisert i Felles begrepskatalog og velg fra nedtrekksliste.
 Her legger du inn de begrepene som brukes i datasettet. Begrepene brukes til å si noe om hva informasjonen i datasettet betyr. `,
     description: `Ved å henvise til gjennomarbeidede definisjoner som virksomheten selv er ansvarlig for å vedlikeholde, sikrer vi at det er tydelig hvordan et begrep brukt i datasettet skal forstås og at denne forståelsen til en hver tid er riktig og oppdatert. Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-begrep' target='_blank'><span>Datasett: begrep</span></a>`
   },
