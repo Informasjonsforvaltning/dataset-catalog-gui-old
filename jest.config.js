@@ -11,6 +11,7 @@ module.exports = {
   transform: {
     '^.+\\.svg$': 'jest-transformer-svg'
   },
+  transformIgnorePatterns: ['node_modules/(?!axios)'],
   moduleNameMapper: {
     '\\.(ttf|woff|woff2|css|less|scss)$': 'identity-obj-proxy'
   },
