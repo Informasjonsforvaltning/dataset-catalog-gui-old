@@ -776,6 +776,36 @@
       "decision": "ignore",
       "madeAt": 1681296374084,
       "expiresAt": 1683888357341
+    },
+    "1092330|cz-conventional-changelog>word-wrap": {
+      "decision": "ignore",
+      "madeAt": 1688124862255,
+      "expiresAt": 1690716852495
+    },
+    "1092330|commitizen>cz-conventional-changelog>word-wrap": {
+      "decision": "ignore",
+      "madeAt": 1688124862255,
+      "expiresAt": 1690716852495
+    },
+    "1092330|rdflib>solid-namespace>standard>eslint>optionator>word-wrap": {
+      "decision": "ignore",
+      "madeAt": 1688124862255,
+      "expiresAt": 1690716852495
+    },
+    "1092330|jest>@jest/core>jest-config>jest-environment-jsdom>jsdom>escodegen>optionator>word-wrap": {
+      "decision": "ignore",
+      "madeAt": 1688124862255,
+      "expiresAt": 1690716852495
+    },
+    "1092330|jest>jest-cli>@jest/core>jest-config>jest-environment-jsdom>jsdom>escodegen>optionator>word-wrap": {
+      "decision": "ignore",
+      "madeAt": 1688124862255,
+      "expiresAt": 1690716852495
+    },
+    "1092330|jest>jest-cli>@jest/core>jest-config>jest-runner>jest-environment-jsdom>jsdom>escodegen>optionator>word-wrap": {
+      "decision": "ignore",
+      "madeAt": 1688124862255,
+      "expiresAt": 1690716852495
     }
   },
   "rules": {},
