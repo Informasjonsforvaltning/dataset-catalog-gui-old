@@ -136,10 +136,10 @@ const SelectIdField: FC<Props> = ({
           isOptionSelected={(option: any) => option === getValue()}
         />
       )}
-      {isReadOnly && getValue().title && (
+      {isReadOnly && getValue() && (
         <p>
           {translationsService.translate('schema.reference.helptext.relatedTo')}{' '}
-          {translationsService.translate(getValue().title)}
+          {translationsService.translate(getValue())}
         </p>
       )}
 
