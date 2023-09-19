@@ -45,7 +45,7 @@ interface Props extends ExternalProps, TranslationsProps {}
 
 const Formats = ({
   input: { value: inputValue, onChange },
-  fileTypes = [],
+  fileTypes,
   translationsService
 }: FormatsRenderProps) => {
   const [filterText, setFilterText] = useState('');
@@ -81,13 +81,13 @@ const Formats = ({
             </span>
           </div>
         )}
-        renderItem={({ uri, name }, isHighlighted) => {
+        renderItem={({ uri, code }, isHighlighted) => {
           const itemClass = cx('px-2', {
             'fdk-bg-color-neutral-lightest': isHighlighted
           });
           return (
             <div key={uri} className={itemClass}>
-              {name}
+              {code}
             </div>
           );
         }}
@@ -388,7 +388,6 @@ const renderSamples = ({
           />
           <Field
             name={`${sample}.format`}
-            type='text'
             component={isReadOnly ? renderFomatsReadOnly : renderFormat}
             label={translationsService.translate('schema.sample.formatLabel')}
             fileTypes={fileTypes}
