@@ -355,6 +355,7 @@
         "downloadURL": "Nedlastingslenke",
         "accessURL": "Tilgangslenke",
         "format": "Format",
+        "mediaType": "Media type",
         "description": "Beskrivelse"
       },
       "deleteSampleLabel": "Slett eksempeldata",
@@ -362,6 +363,7 @@
       "downloadURLLabel": "Nedlastingslenke",
       "accessURLLabel": "Tilgangslenke",
       "formatLabel": "Format",
+      "mediaTypeLabel": "Media type",
       "descriptionLabel": "Beskrivelse"
     },
     "apiMeta": {
