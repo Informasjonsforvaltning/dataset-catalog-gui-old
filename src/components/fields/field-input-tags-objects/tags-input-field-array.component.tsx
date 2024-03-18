@@ -1,6 +1,6 @@
 import React, { memo, FC } from 'react';
 import { compose } from 'redux';
-import TagsInput from 'react-tagsinput';
+import TagsInput, { RenderTagProps } from 'react-tagsinput';
 import cx from 'classnames';
 import type { WrappedFieldProps } from 'redux-form';
 
@@ -36,6 +36,35 @@ const TagsInputFieldArray: FC<Props> = ({
       ).filter(Boolean)
     );
 
+  const renderTag = (props: RenderTagProps) => {
+    const {
+      tag,
+      key,
+      disabled,
+      onRemove,
+      classNameRemove,
+      getTagDisplayValue,
+      ...other
+    } = props;
+    return (
+      <span key={key} {...other}>
+        {getTagDisplayValue(tag)}
+        {!disabled && (
+          <button
+            type='button'
+            className='fa-solid fa-xmark'
+            onClick={() => onRemove(key)}
+            onKeyDown={e => {
+              if (e.key === 'Enter') {
+                onRemove(key);
+              }
+            }}
+          />
+        )}
+      </span>
+    );
+  };
+
   return (
     <div className={cx('pl-2', { 'multilingual-field': !!language })}>
       <label className='fdk-form-label w-100' htmlFor={name}>
@@ -49,6 +78,7 @@ const TagsInputFieldArray: FC<Props> = ({
           inputProps={{ placeholder: '' }}
           onChange={handleChange}
           addOnBlur
+          renderTag={renderTag}
         />
       </label>
     </div>
