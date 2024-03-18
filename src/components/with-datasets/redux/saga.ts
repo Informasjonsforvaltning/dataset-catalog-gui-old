@@ -14,7 +14,7 @@ import * as actions from './actions';
 import type { Dataset } from '../../../types';
 import { RegistrationStatus } from '../../../types/enums';
 
-const { FDK_REGISTRATION_BASE_URI, SEARCH_FULLTEXT_HOST } = env;
+const { FDK_REGISTRATION_BASE_URI, SEARCH_HOST } = env;
 
 function* listDatasetsRequested({
   payload: { catalogId, size }
@@ -69,15 +69,15 @@ function* searchDatasetsRequested({
       AuthService.getAuthorizationHeader
     ]);
 
-    const { registration, fulltext } = yield all({
+    const { registration, suggestions } = yield all({
       registration: call(
         axios.post,
         `${FDK_REGISTRATION_BASE_URI}/search`,
         { query, searchType, catalogIDs },
         { headers: { authorization } }
       ),
-      fulltext: includeExternalDatasets
-        ? call(axios.get, `${SEARCH_FULLTEXT_HOST}/suggestion/datasets`, {
+      suggestions: includeExternalDatasets
+        ? call(axios.get, `${SEARCH_HOST}/suggestions/datasets`, {
             headers: { authorization },
             params: { q: query }
           })
@@ -97,7 +97,7 @@ function* searchDatasetsRequested({
       ) ?? [];
 
     const externalDatasets =
-      fulltext?.data?.suggestions?.reduce(
+      suggestions?.data?.suggestions?.reduce(
         (previous: any, current: any) =>
           !internalDatasetUris.includes(current.uri)
             ? [
