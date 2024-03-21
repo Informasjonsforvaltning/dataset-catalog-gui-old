@@ -1,7 +1,7 @@
 import React, { memo, FC, useState } from 'react';
 import { compose } from 'redux';
 import Autosuggest from 'react-autosuggest';
-import TagsInput from 'react-tagsinput';
+import TagsInput, { RenderTagProps } from 'react-tagsinput';
 import type { WrappedFieldProps } from 'redux-form';
 
 import {
@@ -12,7 +12,7 @@ import {
 import {
   extractSuggestions,
   getConceptSuggestions
-} from '../../../services/api/fulltext-search/suggestions';
+} from '../../../services/api/search-api/suggestions';
 
 import Translation from '../../translation';
 
@@ -34,21 +34,22 @@ const ConceptTagsInputField: FC<Props> = ({ input, translationsService }) => {
   );
 
   const getSuggestionValue = (suggestion: any) =>
-    translationsService.translate(suggestion?.prefLabel);
+    translationsService.translate(suggestion?.title);
 
   const renderSuggestion = (suggestion: any) => (
     <div className='d-flex mb-3'>
       <span className='w-25'>
-        <Translation object={suggestion?.prefLabel} />
+        <Translation object={suggestion?.title} />
       </span>
       <div className='w-75 ml-5 d-flex'>
         <span className='w-50'>
-          <Translation object={suggestion?.definition?.text} />
+          <Translation object={suggestion?.description} />
         </span>
         <span className='w-50 ml-5'>
           <Translation
             object={
-              suggestion?.publisher?.prefLabel || suggestion?.publisher?.name
+              suggestion?.organization?.prefLabel ||
+              suggestion?.organization?.name
             }
           />
         </span>
@@ -126,7 +127,9 @@ const ConceptTagsInputField: FC<Props> = ({ input, translationsService }) => {
             ...props,
             onChange: handleOnChange
           }}
-          onSuggestionSelected={(_, { suggestion }) => addTag(suggestion)}
+          onSuggestionSelected={(_, { suggestion: { id, uri, title } }) =>
+            addTag({ id, uri, prefLabel: title })
+          }
           onSuggestionsClearRequested={onSuggestionsClearRequested}
           onSuggestionsFetchRequested={onSuggestionsFetchRequested}
         />
@@ -158,6 +161,35 @@ const ConceptTagsInputField: FC<Props> = ({ input, translationsService }) => {
     }
   };
 
+  const renderTag = (props: RenderTagProps) => {
+    const {
+      tag,
+      key,
+      disabled,
+      onRemove,
+      classNameRemove,
+      getTagDisplayValue,
+      ...other
+    } = props;
+    return (
+      <span key={key} {...other}>
+        {getTagDisplayValue(tag)}
+        {!disabled && (
+          <button
+            type='button'
+            className='fa-solid fa-xmark'
+            onClick={() => onRemove(key)}
+            onKeyDown={e => {
+              if (e.key === 'Enter') {
+                onRemove(key);
+              }
+            }}
+          />
+        )}
+      </span>
+    );
+  };
+
   return (
     <div className='pl-2'>
       <div className='d-flex align-items-center'>
@@ -167,6 +199,7 @@ const ConceptTagsInputField: FC<Props> = ({ input, translationsService }) => {
           inputProps={{ placeholder: '' }}
           onChange={handleChange}
           renderInput={autosuggestRenderInput}
+          renderTag={renderTag}
         />
       </div>
     </div>

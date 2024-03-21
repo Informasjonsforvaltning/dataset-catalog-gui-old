@@ -11,7 +11,7 @@ import {
 import {
   extractSuggestions,
   getDataserviceSuggestions
-} from '../../services/api/fulltext-search/suggestions';
+} from '../../services/api/search-api/suggestions';
 
 interface Props extends WrappedFieldProps, TranslationsProps {}
 

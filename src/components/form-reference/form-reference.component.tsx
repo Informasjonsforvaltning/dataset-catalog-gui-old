@@ -107,14 +107,16 @@ const renderReferenceFields = ({
             name={`${item}.source`}
             component={SelectField}
             items={referenceDatasetsItems.map(
-              ({ uri, title, publisher }: any) => ({
+              ({ uri, title, publisher, organization }: any) => ({
                 uri,
                 prefLabel: {
                   [Language.NB]: `${translationsService.translate(
                     title
                   )} (Eier: ${
                     translationsService.translate(publisher?.prefLabel) ||
-                    publisher?.name
+                    publisher?.name ||
+                    translationsService.translate(organization?.prefLabel) ||
+                    organization?.name
                   })`
                 }
               })

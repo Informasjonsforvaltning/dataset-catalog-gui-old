@@ -8,7 +8,7 @@ export interface EnvironmentVariables {
   FDK_REGISTRATION_BASE_URI: string;
   ADMIN_GUI_BASE_URI: string;
   ORGANIZATION_API_HOST: string;
-  SEARCH_FULLTEXT_HOST: string;
+  SEARCH_HOST: string;
   DATASERVICE_CATALOG_BASE_URI: string;
   CONCEPT_REGISTRATION_HOST: string;
   CONCEPT_REGISTRATION_API_HOST: string;

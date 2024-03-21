@@ -11,8 +11,8 @@ exports[`should render TagsInputFieldArray correctly 1`] = `
     <TagsInput
       addKeys={
         Array [
-          9,
-          13,
+          "Tab",
+          "Enter",
         ]
       }
       addOnBlur={true}
@@ -32,7 +32,7 @@ exports[`should render TagsInputFieldArray correctly 1`] = `
       preventSubmit={true}
       removeKeys={
         Array [
-          8,
+          "Backspace",
         ]
       }
       renderInput={[Function]}
@@ -45,6 +45,7 @@ exports[`should render TagsInputFieldArray correctly 1`] = `
           "classNameRemove": "react-tagsinput-remove",
         }
       }
+      validate={[Function]}
       validationRegex={/\\.\\*/}
       value={Array []}
     />

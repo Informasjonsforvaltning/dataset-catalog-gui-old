@@ -47,16 +47,11 @@
     margin-top: 5px;
     padding: 1px 5px;
   }
-
-  .react-tagsinput-remove {
+  .react-tagsinput-tag button {
     cursor: pointer;
     font-weight: bold;
-  }
-
-  .react-tagsinput-tag a::before {
-    font: normal normal normal 14px/1 FontAwesome;
-    content: "\f00d";
     margin-left: 5px;
+    border: none;
   }
 
   .react-tagsinput-input {

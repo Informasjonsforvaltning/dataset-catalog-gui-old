@@ -1,13 +1,13 @@
-import { searchFullTextApiGet } from './host';
+import { searchApiGet } from './host';
 
 export const extractSuggestions = (searchResponse: any) =>
   searchResponse.suggestions ?? [];
 
 export const getDataserviceSuggestions = (params: any) =>
-  searchFullTextApiGet('/suggestion/dataservices', params);
+  searchApiGet('/suggestions/dataservices', params);
 
 export const getConceptSuggestions = (params: any) =>
-  searchFullTextApiGet('/suggestion/concepts', params);
+  searchApiGet('/suggestions/concepts', params);
 
 export const getInformationModelSuggestions = (params: any) =>
-  searchFullTextApiGet('/suggestion/informationmodels', params);
+  searchApiGet('/suggestions/informationmodels', params);

@@ -12,7 +12,7 @@ import {
 import {
   extractSuggestions,
   getInformationModelSuggestions
-} from '../../../services/api/fulltext-search/suggestions';
+} from '../../../services/api/search-api/suggestions';
 
 import Translation from '../../translation';
 
@@ -89,13 +89,13 @@ const FdkInformationModelsSuggestionField: FC<Props> = ({
     setValue('');
   };
 
-  const renderSuggestion = ({ title, publisher }: any) => (
+  const renderSuggestion = ({ title, organization }: any) => (
     <div className='d-flex mb-3' {...insertTestId(TestIds.suggestion)}>
       <span className='w-50 first' {...insertTestId(TestIds.suggestionTitle)}>
         <Translation object={title} />
       </span>
       <span className='w-50 ml-5' {...insertTestId(TestIds.publisherName)}>
-        <Translation object={publisher.prefLabel || publisher.name} />
+        <Translation object={organization?.prefLabel || organization?.name} />
       </span>
     </div>
   );
