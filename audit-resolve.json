@@ -854,6 +854,76 @@
     "1095212|@svgr/webpack>@babel/preset-typescript>@babel/plugin-transform-typescript>@babel/helper-create-class-features-plugin>@babel/helper-replace-supers>@babel/traverse": {
       "decision": "fix",
       "madeAt": 1706526668192
+    },
+    "1096482|@commitlint/cli>@commitlint/lint>@commitlint/is-ignored>semver": {
+      "decision": "ignore",
+      "madeAt": 1721723181105,
+      "expiresAt": 1724315143148
+    },
+    "1097615|@graphql-codegen/cli>@graphql-tools/url-loader>@graphql-tools/executor-graphql-ws>ws": {
+      "decision": "ignore",
+      "madeAt": 1721723187228,
+      "expiresAt": 1724315143148
+    },
+    "1097615|@graphql-codegen/cli>@graphql-tools/prisma-loader>@graphql-tools/url-loader>@graphql-tools/executor-graphql-ws>ws": {
+      "decision": "ignore",
+      "madeAt": 1721723187228,
+      "expiresAt": 1724315143148
+    },
+    "1097615|@graphql-codegen/cli>@graphql-tools/url-loader>@graphql-tools/executor-legacy-ws>ws": {
+      "decision": "ignore",
+      "madeAt": 1721723187228,
+      "expiresAt": 1724315143148
+    },
+    "1097615|@graphql-codegen/cli>@graphql-tools/prisma-loader>@graphql-tools/url-loader>@graphql-tools/executor-legacy-ws>ws": {
+      "decision": "ignore",
+      "madeAt": 1721723187228,
+      "expiresAt": 1724315143148
+    },
+    "1097616|jest>@jest/core>jest-config>jest-environment-jsdom>jsdom>ws": {
+      "decision": "ignore",
+      "madeAt": 1721723191934,
+      "expiresAt": 1724315143148
+    },
+    "1097616|jest>jest-cli>@jest/core>jest-config>jest-environment-jsdom>jsdom>ws": {
+      "decision": "ignore",
+      "madeAt": 1721723191934,
+      "expiresAt": 1724315143148
+    },
+    "1097616|jest>jest-cli>@jest/core>jest-config>jest-runner>jest-environment-jsdom>jsdom>ws": {
+      "decision": "ignore",
+      "madeAt": 1721723191934,
+      "expiresAt": 1724315143148
+    },
+    "1097346|node-sass>make-fetch-happen>socks-proxy-agent>socks>ip": {
+      "decision": "ignore",
+      "madeAt": 1721723199990,
+      "expiresAt": 1724315143148
+    },
+    "1097346|node-sass>node-gyp>make-fetch-happen>socks-proxy-agent>socks>ip": {
+      "decision": "ignore",
+      "madeAt": 1721723199990,
+      "expiresAt": 1724315143148
+    },
+    "1097721|node-sass>make-fetch-happen>socks-proxy-agent>socks>ip": {
+      "decision": "ignore",
+      "madeAt": 1721723205925,
+      "expiresAt": 1724315143148
+    },
+    "1097721|node-sass>node-gyp>make-fetch-happen>socks-proxy-agent>socks>ip": {
+      "decision": "ignore",
+      "madeAt": 1721723205925,
+      "expiresAt": 1724315143148
+    },
+    "1097616|webpack-bundle-analyzer>ws": {
+      "decision": "ignore",
+      "madeAt": 1721723211006,
+      "expiresAt": 1724315143148
+    },
+    "1097679|@fellesdatakatalog/internal-footer>@skatteetaten/frontend-components>axios": {
+      "decision": "ignore",
+      "madeAt": 1721723215798,
+      "expiresAt": 1724315143148
     }
   },
   "rules": {},
