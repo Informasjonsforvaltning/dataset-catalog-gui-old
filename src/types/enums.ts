@@ -35,7 +35,6 @@ export enum ReferenceDataCode {
   FREQUENCY = 'eu/frequencies',
   OPEN_LICENCES = 'open-licenses',
   PROVENANCE = 'provenance-statements',
-  REFERENCE_TYPES = 'reference-types',
   FILE_TYPES = 'eu/file-types',
   MEDIA_TYPES = 'iana/media-types'
 }

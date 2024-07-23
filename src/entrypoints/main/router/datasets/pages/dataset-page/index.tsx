@@ -54,7 +54,6 @@ const DatasetPage: FC<Props> = ({
     ReferenceDataCode.FREQUENCY,
     ReferenceDataCode.OPEN_LICENCES,
     ReferenceDataCode.PROVENANCE,
-    ReferenceDataCode.REFERENCE_TYPES,
     ReferenceDataCode.LOS,
     ReferenceDataCode.THEMES,
     ReferenceDataCode.FILE_TYPES,
@@ -135,9 +134,6 @@ const DatasetPage: FC<Props> = ({
           }
           provenanceItems={
             referenceData[ReferenceDataCode.PROVENANCE]?.provenanceStatements
-          }
-          referenceTypesItems={
-            referenceData[ReferenceDataCode.REFERENCE_TYPES]?.referenceTypes
           }
           fileTypes={referenceData[ReferenceDataCode.FILE_TYPES]?.fileTypes}
           mediaTypes={referenceData[ReferenceDataCode.MEDIA_TYPES]?.mediaTypes}

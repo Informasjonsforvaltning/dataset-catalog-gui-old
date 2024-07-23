@@ -89,7 +89,6 @@ interface ExternalProps {
   frequencyItems?: any[];
   openLicenseItems?: any[];
   provenanceItems?: any[];
-  referenceTypesItems?: any[];
   fileTypes?: FileType[];
   mediaTypes?: MediaType[];
   handleDeleteDataset: () => void;
@@ -123,7 +122,6 @@ const DatasetRegistrationPage: FC<Props> = ({
   provenanceItems,
   frequencyItems,
   datasetItem,
-  referenceTypesItems,
   referenceDatasetsItems,
   referenceDatasetSeriesItems,
   openLicenseItems,
@@ -177,6 +175,81 @@ const DatasetRegistrationPage: FC<Props> = ({
     'informationModel',
     'distribution',
     'sample'
+  ];
+
+  const referenceTypesItems = [
+    {
+      code: 'hasVersion',
+      label: {
+        nb: 'Har versjon'
+      }
+    },
+    {
+      code: 'isPartOf',
+      label: {
+        nb: 'Er en del av'
+      }
+    },
+    {
+      code: 'hasPart',
+      label: {
+        nb: 'Har del'
+      }
+    },
+    {
+      code: 'isReferencedBy',
+      label: {
+        nb: 'Er referert av'
+      }
+    },
+    {
+      code: 'isReplacedBy',
+      label: {
+        nb: 'Er erstattet av'
+      }
+    },
+    {
+      code: 'isRequiredBy',
+      label: {
+        nb: 'Er påkrevd av'
+      }
+    },
+    {
+      code: 'isVersionOf',
+      label: {
+        nb: 'Er versjon av'
+      }
+    },
+    {
+      code: 'references',
+      label: {
+        nb: 'Refererer'
+      }
+    },
+    {
+      code: 'relation',
+      label: {
+        nb: 'Er relatert til'
+      }
+    },
+    {
+      code: 'replaces',
+      label: {
+        nb: 'Erstatter'
+      }
+    },
+    {
+      code: 'requires',
+      label: {
+        nb: 'Krever'
+      }
+    },
+    {
+      code: 'source',
+      label: {
+        nb: 'Er avledet fra'
+      }
+    }
   ];
 
   const omitDistributionLicenseField = (dataset: any) => {
