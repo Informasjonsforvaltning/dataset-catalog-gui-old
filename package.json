@@ -125,7 +125,7 @@
     "sanitize-html": "^2.12.1",
     "showdown": "^2.1.0",
     "styled-components": "^5.3.3",
-    "util": "^0.12.4",
+    "util": "^0.12.5",
     "yup": "^0.32.11"
   },
   "devDependencies": {
