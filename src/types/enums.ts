@@ -32,6 +32,7 @@ export enum AdministrativeUnitType {
 export enum ReferenceDataCode {
   LOS = 'los/themes-and-words',
   THEMES = 'eu/data-themes',
+  DATASET_TYPES = 'eu/dataset-types',
   FREQUENCY = 'eu/frequencies',
   OPEN_LICENCES = 'open-licenses',
   PROVENANCE = 'provenance-statements',

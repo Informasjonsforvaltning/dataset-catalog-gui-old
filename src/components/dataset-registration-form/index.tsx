@@ -86,6 +86,7 @@ interface ExternalProps {
   allowDelegatedRegistration: boolean;
   losItems?: any[];
   themesItems?: any[];
+  datasetTypesItems?: any[];
   frequencyItems?: any[];
   openLicenseItems?: any[];
   provenanceItems?: any[];
@@ -119,6 +120,7 @@ const DatasetRegistrationPage: FC<Props> = ({
   datasetsActions: { searchDatasetsRequested: searchDatasets },
   datasetSeriesActions: { listDatasetSeriesRequested: listDatasetSeries },
   themesItems,
+  datasetTypesItems,
   provenanceItems,
   frequencyItems,
   datasetItem,
@@ -303,6 +305,7 @@ const DatasetRegistrationPage: FC<Props> = ({
     <div className='row mb-2 mb-md-5'>
       {datasetItem &&
         themesItems &&
+        datasetTypesItems &&
         provenanceItems &&
         frequencyItems &&
         referenceTypesItems &&
@@ -434,7 +437,7 @@ const DatasetRegistrationPage: FC<Props> = ({
                   title={translationsService.translate(
                     'datasets.formTemplates.type'
                   )}
-                  values={typeValues(type.values)}
+                  values={typeValues(type.values, datasetTypesItems)}
                   syncErrors={type.syncErrors}
                   showInitially={expandAll}
                 >
@@ -444,6 +447,7 @@ const DatasetRegistrationPage: FC<Props> = ({
                     datasetId={datasetId}
                     isReadOnly={isReadOnly}
                     type={type}
+                    types={datasetTypesItems}
                   />
                 </FormTemplate>
                 <FormTemplate

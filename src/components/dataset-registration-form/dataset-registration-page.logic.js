@@ -89,18 +89,20 @@ export const losValues = (values, losItems) => {
   return retVal;
 };
 
-export const typeValues = values => {
-  if (values) {
-    let retVal = '';
-    const { type } = values;
-    if (type) {
-      retVal = type;
-    }
-    if (retVal.trim().length > 0) {
-      return retVal;
-    }
+export const typeValues = (values, typeItems) => {
+  if (!values) {
+    return null;
   }
-  return null;
+  let retVal = '';
+  const { type } = values;
+
+  if (type) {
+    const typeItem = _.find(typeItems, { uri: type });
+    retVal += typeItem
+      ? `${TranslationsService.translate(_.get(typeItem, 'label'))}. `
+      : '';
+  }
+  return retVal;
 };
 
 export const conceptValues = values => {

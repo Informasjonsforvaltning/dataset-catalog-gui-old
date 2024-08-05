@@ -11,7 +11,11 @@ import Helptext from '../helptext/helptext.component';
 import CheckBoxFieldType from './field-checkbox-type/field-checkbox.component';
 import { typeValues } from '../dataset-registration-form/dataset-registration-page.logic';
 
-interface Props extends TranslationsProps {
+interface ExternalProps {
+  types: any[];
+}
+
+interface Props extends ExternalProps, TranslationsProps {
   syncErrors: any;
   type: any;
   isReadOnly: boolean;
@@ -21,6 +25,7 @@ const FormType: FC<Props> = ({
   syncErrors,
   isReadOnly,
   type,
+  types,
   translationsService
 }) => (
   <form>
@@ -29,8 +34,12 @@ const FormType: FC<Props> = ({
         title={translationsService.translate('schema.type.helptext.type')}
         term='Dataset_type'
       />
-      {!isReadOnly && <Field name='type' component={CheckBoxFieldType} />}
-      {isReadOnly && <div className='pl-3'>{typeValues(type.values)}</div>}
+      {!isReadOnly && (
+        <Field name='type' component={CheckBoxFieldType} types={types} />
+      )}
+      {isReadOnly && (
+        <div className='pl-3'>{typeValues(type.values, types)}</div>
+      )}
       {syncErrors?.errorType && (
         <div className='alert alert-danger mt-3'>{syncErrors.errorType}</div>
       )}
