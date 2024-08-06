@@ -10,9 +10,10 @@ import {
 import Helptext from '../helptext/helptext.component';
 import CheckBoxFieldType from './field-checkbox-type/field-checkbox.component';
 import { typeValues } from '../dataset-registration-form/dataset-registration-page.logic';
+import { DatasetType } from '../../types';
 
 interface ExternalProps {
-  types: any[];
+  types: DatasetType[];
 }
 
 interface Props extends ExternalProps, TranslationsProps {

@@ -67,7 +67,7 @@ import ExpandSVG from '../../images/icon-expand-text-sm.svg';
 
 import './dataset-registration-page.scss';
 
-import type { FileType, MediaType } from '../../types';
+import { DatasetType, FileType, MediaType } from '../../types';
 import {
   SearchType,
   RegistrationStatus as RegStatusEnum
@@ -86,7 +86,7 @@ interface ExternalProps {
   allowDelegatedRegistration: boolean;
   losItems?: any[];
   themesItems?: any[];
-  datasetTypesItems?: any[];
+  datasetTypesItems?: DatasetType[];
   frequencyItems?: any[];
   openLicenseItems?: any[];
   provenanceItems?: any[];

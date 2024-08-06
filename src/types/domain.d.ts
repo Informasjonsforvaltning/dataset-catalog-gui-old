@@ -14,6 +14,12 @@ export interface MediaType {
   uri: string;
 }
 
+export interface DatasetType {
+  uri: string;
+  code: string;
+  label: Record<string, string>;
+}
+
 export interface EnhetsregisteretOrganization {
   organisasjonsnummer: string;
   navn: string;

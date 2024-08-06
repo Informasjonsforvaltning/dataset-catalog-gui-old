@@ -6,9 +6,10 @@ import {
   withTranslations,
   Props as TranslationsProps
 } from '../../../providers/translations';
+import { DatasetType } from '../../../types';
 
 interface ExternalProps {
-  types?: any[];
+  types?: DatasetType[];
 }
 
 interface ExternalProps {}
