@@ -51,6 +51,7 @@ const DatasetPage: FC<Props> = ({
   const { replace } = useHistory();
 
   const referenceDataCodes = [
+    ReferenceDataCode.DATASET_TYPES,
     ReferenceDataCode.FREQUENCY,
     ReferenceDataCode.OPEN_LICENCES,
     ReferenceDataCode.PROVENANCE,
@@ -126,6 +127,9 @@ const DatasetPage: FC<Props> = ({
           allowDelegatedRegistration={allowDelegatedRegistration}
           losItems={referenceData[ReferenceDataCode.LOS]?.losNodes}
           themesItems={referenceData[ReferenceDataCode.THEMES]?.dataThemes}
+          datasetTypesItems={
+            referenceData[ReferenceDataCode.DATASET_TYPES]?.datasetTypes
+          }
           frequencyItems={
             referenceData[ReferenceDataCode.FREQUENCY]?.frequencies
           }
