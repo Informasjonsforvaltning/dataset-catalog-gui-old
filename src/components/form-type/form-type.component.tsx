@@ -28,24 +28,41 @@ const FormType: FC<Props> = ({
   type,
   types,
   translationsService
-}) => (
-  <form>
-    <div className='form-group mb-0'>
-      <Helptext
-        title={translationsService.translate('schema.type.helptext.type')}
-        term='Dataset_type'
-      />
-      {!isReadOnly && (
-        <Field name='type' component={CheckBoxFieldType} types={types} />
-      )}
-      {isReadOnly && (
-        <div className='pl-3'>{typeValues(type.values, types)}</div>
-      )}
-      {syncErrors?.errorType && (
-        <div className='alert alert-danger mt-3'>{syncErrors.errorType}</div>
-      )}
-    </div>
-  </form>
-);
+}) => {
+  const irrelevantTypes = [
+    'ATTO_LEX',
+    'ATTO_PUB',
+    'DOMAIN_MODEL',
+    'DSCRP_SERV',
+    'CORE_COMP',
+    'RELEASE'
+  ];
+  const filteredTypes = types.filter(
+    datasetType => !irrelevantTypes.includes(datasetType.code)
+  );
+  return (
+    <form>
+      <div className='form-group mb-0'>
+        <Helptext
+          title={translationsService.translate('schema.type.helptext.type')}
+          term='Dataset_type'
+        />
+        {!isReadOnly && (
+          <Field
+            name='type'
+            component={CheckBoxFieldType}
+            types={filteredTypes}
+          />
+        )}
+        {isReadOnly && (
+          <div className='pl-3'>{typeValues(type.values, filteredTypes)}</div>
+        )}
+        {syncErrors?.errorType && (
+          <div className='alert alert-danger mt-3'>{syncErrors.errorType}</div>
+        )}
+      </div>
+    </form>
+  );
+};
 
 export default compose<FC>(memo, withTranslations)(FormType);
