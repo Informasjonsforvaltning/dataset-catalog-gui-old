@@ -211,18 +211,8 @@ Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Data
 * Dersom datasettet inneholder personopplysninger vil det være nyttig for bruker å se en eksempedata som viser en anonymisert rad i datasettet.`
   },
   Dataset_type: {
-    abstract: 'Refererer til EU publication office sine datasett-typer.',
-    description: `Velg "Data" dersom datasettbeskrivelsen omhandler fysisk representasjon eller sammenstilling av opplysninger
-
-Velg "Testdata" dersom datasettbeskrivelsen omhandler anonymiserte eller pseudonymiserte data for testformål
-
-Velg "Kodelister" dersom datasettbeskrivelsen omhandler tabeller hvor koder beskrives ved hjelp av relevant informasjon
-
-Velg "Taksonomi" dersom datasettbeskrivelsen omhandler en hierarkisk strukturering av begreper
-
-Velg "Tesauri" dersom datasettbeskrivelsen omhandler en hierarkisk og  assosiativ strukturering av begreper
-
-Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-type' target='_blank'><span>Datasett: type</span></a>`
+    abstract: 'Identifiserer datasettets type.',
+    description: `Verdiene referer til EU’s kontrollerte vokabular <a href='https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/dataset-type' target='_blank'><span>Dataset type</span></a>.`
   },
   Dataset_source: {
     abstract:

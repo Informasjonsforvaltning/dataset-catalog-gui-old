@@ -50,7 +50,10 @@ const CheckboxFieldType: FC<Props> = ({
             onChange={handleChange}
           />
           <span className='form-check-label fdk-form-check-label mr-3' />
-          <span>{translationsService.translate(type.label)}</span>
+          <span>
+            {translationsService.translate(type.label)}{' '}
+            <small>({type.code})</small>
+          </span>
         </label>
       ))}
     </div>
