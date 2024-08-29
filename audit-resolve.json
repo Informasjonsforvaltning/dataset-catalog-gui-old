@@ -897,23 +897,23 @@
     },
     "1097346|node-sass>make-fetch-happen>socks-proxy-agent>socks>ip": {
       "decision": "ignore",
-      "madeAt": 1721723199990,
-      "expiresAt": 1724315143148
+      "madeAt": 1724996716308,
+      "expiresAt": 1727588669123
     },
     "1097346|node-sass>node-gyp>make-fetch-happen>socks-proxy-agent>socks>ip": {
       "decision": "ignore",
-      "madeAt": 1721723199990,
-      "expiresAt": 1724315143148
+      "madeAt": 1724996716308,
+      "expiresAt": 1727588669123
     },
     "1097721|node-sass>make-fetch-happen>socks-proxy-agent>socks>ip": {
       "decision": "ignore",
-      "madeAt": 1721723205925,
-      "expiresAt": 1724315143148
+      "madeAt": 1724996721056,
+      "expiresAt": 1727588669123
     },
     "1097721|node-sass>node-gyp>make-fetch-happen>socks-proxy-agent>socks>ip": {
       "decision": "ignore",
-      "madeAt": 1721723205925,
-      "expiresAt": 1724315143148
+      "madeAt": 1724996721056,
+      "expiresAt": 1727588669123
     },
     "1097616|webpack-bundle-analyzer>ws": {
       "decision": "ignore",
@@ -922,8 +922,53 @@
     },
     "1097679|@fellesdatakatalog/internal-footer>@skatteetaten/frontend-components>axios": {
       "decision": "ignore",
-      "madeAt": 1721723215798,
-      "expiresAt": 1724315143148
+      "madeAt": 1724934533110,
+      "expiresAt": 1727526504046
+    },
+    "1098392|@graphql-codegen/cli>@graphql-tools/url-loader>@graphql-tools/executor-graphql-ws>ws": {
+      "decision": "ignore",
+      "madeAt": 1724934526247,
+      "expiresAt": 1727526504046
+    },
+    "1098392|@graphql-codegen/cli>@graphql-tools/prisma-loader>@graphql-tools/url-loader>@graphql-tools/executor-graphql-ws>ws": {
+      "decision": "ignore",
+      "madeAt": 1724934526247,
+      "expiresAt": 1727526504046
+    },
+    "1098392|@graphql-codegen/cli>@graphql-tools/url-loader>@graphql-tools/executor-legacy-ws>ws": {
+      "decision": "ignore",
+      "madeAt": 1724934526247,
+      "expiresAt": 1727526504046
+    },
+    "1098392|@graphql-codegen/cli>@graphql-tools/prisma-loader>@graphql-tools/url-loader>@graphql-tools/executor-legacy-ws>ws": {
+      "decision": "ignore",
+      "madeAt": 1724934526247,
+      "expiresAt": 1727526504046
+    },
+    "1098562|@commitlint/cli>@commitlint/lint>@commitlint/is-ignored>semver": {
+      "decision": "ignore",
+      "madeAt": 1724934529621,
+      "expiresAt": 1727526504046
+    },
+    "1098393|jest>@jest/core>jest-config>jest-environment-jsdom>jsdom>ws": {
+      "decision": "ignore",
+      "madeAt": 1724996711347,
+      "expiresAt": 1727588669123
+    },
+    "1098393|jest>jest-cli>@jest/core>jest-config>jest-environment-jsdom>jsdom>ws": {
+      "decision": "ignore",
+      "madeAt": 1724996711347,
+      "expiresAt": 1727588669123
+    },
+    "1098393|jest>jest-cli>@jest/core>jest-config>jest-runner>jest-environment-jsdom>jsdom>ws": {
+      "decision": "ignore",
+      "madeAt": 1724996711347,
+      "expiresAt": 1727588669123
+    },
+    "1098393|webpack-bundle-analyzer>ws": {
+      "decision": "ignore",
+      "madeAt": 1724996725618,
+      "expiresAt": 1727588669123
     }
   },
   "rules": {},
