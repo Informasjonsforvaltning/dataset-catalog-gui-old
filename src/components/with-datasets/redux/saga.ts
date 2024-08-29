@@ -39,8 +39,11 @@ function* listDatasetsRequested({
     );
 
     if (Array.isArray(data?._embedded.datasets)) {
+      const allDatasets = data._embedded.datasets as Dataset[];
       yield put(
-        actions.listDatasetsSucceeded(data._embedded.datasets as Dataset[])
+        actions.listDatasetsSucceeded(
+          allDatasets.filter(dataset => dataset.specializedType !== 'SERIES')
+        )
       );
     } else {
       yield put(
