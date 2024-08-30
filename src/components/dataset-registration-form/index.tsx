@@ -279,7 +279,6 @@ const DatasetRegistrationPage: FC<Props> = ({
   const executeSearch = (query: string) => {
     if (catalogId) {
       searchDatasets(query, SearchType.DATASET, [catalogId], true, [
-        RegStatusEnum.APPROVE,
         RegStatusEnum.PUBLISH
       ]);
     }
