@@ -26,7 +26,7 @@ import ServiceMessages from '../../../../../../components/service-messages';
 
 import SC from './styled';
 
-const { FDK_REGISTRATION_BASE_URI } = env;
+const { CATALOG_PORTAL_BASE_URI } = env;
 
 interface Props extends CatalogsProps {}
 
@@ -67,7 +67,7 @@ const OverviewPage: FC<Props> = ({
       )}
       <Breadcrumbs as={SC.Breadcrumbs}>
         <Breadcrumb>
-          <a href={FDK_REGISTRATION_BASE_URI}>
+          <a href={CATALOG_PORTAL_BASE_URI}>
             <Translation id='breadcrumbs.home' />
           </a>
         </Breadcrumb>
