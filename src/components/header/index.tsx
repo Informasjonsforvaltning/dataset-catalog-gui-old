@@ -20,7 +20,8 @@ const {
   ADMIN_GUI_BASE_URI,
   SKE_THEME_PROFILE,
   FDK_COMMUNITY_BASE_URI,
-  CATALOG_ADMIN_BASE_URI
+  CATALOG_ADMIN_BASE_URI,
+  CATALOG_PORTAL_BASE_URI
 } = env;
 
 interface Props extends TranslationsProps {}
@@ -56,6 +57,7 @@ const Header: FC<Props> = ({ translationsService }) => {
   return (
     <HeaderBase
       themeProfile={themeProfile}
+      homeUrl={CATALOG_PORTAL_BASE_URI}
       username={authService.getUser()?.name}
       onLogout={signOut}
       useDemoLogo={env.USE_DEMO_LOGO}

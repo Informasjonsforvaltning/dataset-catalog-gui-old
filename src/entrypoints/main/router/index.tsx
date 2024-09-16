@@ -14,7 +14,7 @@ import Root from '../../../components/root';
 import Footer from '../../../components/footer';
 import env from '../../../env';
 
-const { FDK_REGISTRATION_BASE_URI } = env;
+const { CATALOG_PORTAL_BASE_URI } = env;
 
 const routes = {
   datasets: lazy(() => import('./datasets'))
@@ -33,7 +33,7 @@ const Router: FC<Props> = ({ history }) => {
     );
 
   const redirectToRoot = () => {
-    window.location.href = FDK_REGISTRATION_BASE_URI;
+    window.location.href = CATALOG_PORTAL_BASE_URI;
     return null;
   };
 

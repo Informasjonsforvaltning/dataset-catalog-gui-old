@@ -26,7 +26,7 @@ import SC from './styled';
 
 import { ReferenceDataCode } from '../../../../../../types/enums';
 
-const { FDK_REGISTRATION_BASE_URI } = env;
+const { FDK_REGISTRATION_BASE_URI, CATALOG_PORTAL_BASE_URI } = env;
 
 interface RouteParams {
   catalogId: string;
@@ -97,7 +97,7 @@ const DatasetPage: FC<Props> = ({
     <>
       <Breadcrumbs as={SC.Breadcrumbs}>
         <Breadcrumb>
-          <a href={FDK_REGISTRATION_BASE_URI}>
+          <a href={CATALOG_PORTAL_BASE_URI}>
             <Translation id='breadcrumbs.home' />
           </a>
         </Breadcrumb>

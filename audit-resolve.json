@@ -922,8 +922,8 @@
     },
     "1097679|@fellesdatakatalog/internal-footer>@skatteetaten/frontend-components>axios": {
       "decision": "ignore",
-      "madeAt": 1724934533110,
-      "expiresAt": 1727526504046
+      "madeAt": 1726493813878,
+      "expiresAt": 1729085772410
     },
     "1098392|@graphql-codegen/cli>@graphql-tools/url-loader>@graphql-tools/executor-graphql-ws>ws": {
       "decision": "ignore",
@@ -932,8 +932,8 @@
     },
     "1098392|@graphql-codegen/cli>@graphql-tools/prisma-loader>@graphql-tools/url-loader>@graphql-tools/executor-graphql-ws>ws": {
       "decision": "ignore",
-      "madeAt": 1724934526247,
-      "expiresAt": 1727526504046
+      "madeAt": 1726498522944,
+      "expiresAt": 1729090491013
     },
     "1098392|@graphql-codegen/cli>@graphql-tools/url-loader>@graphql-tools/executor-legacy-ws>ws": {
       "decision": "ignore",
@@ -969,6 +969,36 @@
       "decision": "ignore",
       "madeAt": 1724996725618,
       "expiresAt": 1727588669123
+    },
+    "1099357|node-sass>make-fetch-happen>socks-proxy-agent>socks>ip": {
+      "decision": "ignore",
+      "madeAt": 1726488690958,
+      "expiresAt": 1729080679947
+    },
+    "1099357|node-sass>node-gyp>make-fetch-happen>socks-proxy-agent>socks>ip": {
+      "decision": "ignore",
+      "madeAt": 1726488690958,
+      "expiresAt": 1729080679947
+    },
+    "1097679|@fellesdatakatalog/internal-header>@skatteetaten/frontend-components>axios": {
+      "decision": "ignore",
+      "madeAt": 1726493813878,
+      "expiresAt": 1729085772410
+    },
+    "1098392|@graphql-tools/executor-graphql-ws>ws": {
+      "decision": "ignore",
+      "madeAt": 1726493816634,
+      "expiresAt": 1729085772410
+    },
+    "1099357|socks>ip": {
+      "decision": "ignore",
+      "madeAt": 1726493819156,
+      "expiresAt": 1729085772410
+    },
+    "1098392|@graphql-tools/executor-legacy-ws>ws": {
+      "decision": "ignore",
+      "madeAt": 1726498522944,
+      "expiresAt": 1729090491013
     }
   },
   "rules": {},

@@ -27,6 +27,8 @@ export default validateEnv(
     FDK_CMS_BASE_URI: 'https://cms.fellesdatakatalog.digdir.no',
     CATALOG_ADMIN_BASE_URI:
       'https://catalog-admin.staging.fellesdatakatalog.digdir.no',
+    CATALOG_PORTAL_BASE_URI:
+      'https://catalog-portal.staging.fellesdatakatalog.digdir.no',
     USE_DEMO_LOGO: false
   }
 );
