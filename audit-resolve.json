@@ -927,28 +927,28 @@
     },
     "1098392|@graphql-codegen/cli>@graphql-tools/url-loader>@graphql-tools/executor-graphql-ws>ws": {
       "decision": "ignore",
-      "madeAt": 1724934526247,
-      "expiresAt": 1727526504046
+      "madeAt": 1728903130026,
+      "expiresAt": 1731495096755
     },
     "1098392|@graphql-codegen/cli>@graphql-tools/prisma-loader>@graphql-tools/url-loader>@graphql-tools/executor-graphql-ws>ws": {
       "decision": "ignore",
-      "madeAt": 1726498522944,
-      "expiresAt": 1729090491013
+      "madeAt": 1728903130026,
+      "expiresAt": 1731495096755
     },
     "1098392|@graphql-codegen/cli>@graphql-tools/url-loader>@graphql-tools/executor-legacy-ws>ws": {
       "decision": "ignore",
-      "madeAt": 1724934526247,
-      "expiresAt": 1727526504046
+      "madeAt": 1728903130026,
+      "expiresAt": 1731495096755
     },
     "1098392|@graphql-codegen/cli>@graphql-tools/prisma-loader>@graphql-tools/url-loader>@graphql-tools/executor-legacy-ws>ws": {
       "decision": "ignore",
-      "madeAt": 1724934526247,
-      "expiresAt": 1727526504046
+      "madeAt": 1728903130026,
+      "expiresAt": 1731495096755
     },
     "1098562|@commitlint/cli>@commitlint/lint>@commitlint/is-ignored>semver": {
       "decision": "ignore",
-      "madeAt": 1724934529621,
-      "expiresAt": 1727526504046
+      "madeAt": 1728903133648,
+      "expiresAt": 1731495096755
     },
     "1098393|jest>@jest/core>jest-config>jest-environment-jsdom>jsdom>ws": {
       "decision": "ignore",
@@ -999,6 +999,11 @@
       "decision": "ignore",
       "madeAt": 1726498522944,
       "expiresAt": 1729090491013
+    },
+    "1099846|react-cookie>universal-cookie>cookie": {
+      "decision": "ignore",
+      "madeAt": 1728903140158,
+      "expiresAt": 1731495096755
     }
   },
   "rules": {},
