@@ -48,7 +48,7 @@ const SelectField: FC<Props> = ({
 
   const getLabel = (option: any) =>
     translationsService.translate(
-      option[labelKey] ?? option.title ?? option.prefLabel
+      option[labelKey] ?? option.title ?? option.prefLabel ?? option.uri
     );
 
   const getValue = () => {
