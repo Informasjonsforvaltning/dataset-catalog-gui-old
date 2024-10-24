@@ -122,8 +122,15 @@ const SpatialTagsInputField: FC<Props> = ({
     <input {...inputProps} className='form-control react-autosuggest__input' />
   );
 
+  isReadOnly = true; // Temporarily deactivate field
+
   return isReadOnly ? (
-    <TagsInputFieldArrayReadOnly input={input} meta={meta} />
+    <>
+      <p>
+        <Translation id='temporarilyDeactivated' />
+      </p>
+      <TagsInputFieldArrayReadOnly input={input} meta={meta} />
+    </>
   ) : (
     <div className='fdk-spatial'>
       <Autosuggest
