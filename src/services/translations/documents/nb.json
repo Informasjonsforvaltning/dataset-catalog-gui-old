@@ -26,6 +26,7 @@
   "noAccessCatalog": "Du har ikke tilgang til denne katalogen",
   "none": "Ingen",
   "dataCatalogs": "Datakataloger",
+  "temporarilyDeactivated": "Feltet er midlertidig deaktivert.",
   "breadcrumbs": {
     "home": "Alle kataloger",
     "API-descriptions": "API-beskrivelser",
