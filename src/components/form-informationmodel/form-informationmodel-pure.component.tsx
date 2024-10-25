@@ -44,7 +44,8 @@ const FormInformationModel: FC<Props> = ({
           <FieldArray
             name='informationModel'
             component={FdkInformationModels}
-            isReadOnly={isReadOnly}
+            /* eslint-disable-next-line react/jsx-boolean-value */
+            isReadOnly={true}
             dispatch={dispatch}
             catalogId={catalogId}
             datasetId={datasetId}
