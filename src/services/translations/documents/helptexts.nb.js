@@ -153,9 +153,10 @@ Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Data
     description: `Se spesifikasjonen <a href='https://data.norge.no/specification/dcat-ap-no/#Datasett-iSamsvarMed' target='_blank'><span>Datasett: i samsvar med</span></a>`
   },
   Dataset_fdkInformationModel: {
-    abstract:
-      'Søk etter informasjonsmodeller fra Felles datakatalog og velg fra nedtrekksliste.',
-    description: `Se spesifikasjonen <a href='https://data.norge.no/specification/modelldcat-ap-no/#Informasjonsmodell-iSamsvarMed' target='_blank'><span>Informasjonsmodell: i samsvar med</span></a>`
+    abstract: 'Dette feltet er midlertidig deaktivert.',
+    description: `Søk etter informasjonsmodeller fra Felles datakatalog og velg fra nedtrekksliste.
+
+Se spesifikasjonen <a href='https://data.norge.no/specification/modelldcat-ap-no/#Informasjonsmodell-iSamsvarMed' target='_blank'><span>Informasjonsmodell: i samsvar med</span></a>`
   },
   Dataset_externalInformationModel: {
     abstract: 'Legg til informasjonsmodell via lenke.',
