@@ -922,8 +922,8 @@
     },
     "1097679|@fellesdatakatalog/internal-footer>@skatteetaten/frontend-components>axios": {
       "decision": "ignore",
-      "madeAt": 1726493813878,
-      "expiresAt": 1729085772410
+      "madeAt": 1729860002111,
+      "expiresAt": 1732451784716
     },
     "1098392|@graphql-codegen/cli>@graphql-tools/url-loader>@graphql-tools/executor-graphql-ws>ws": {
       "decision": "ignore",
