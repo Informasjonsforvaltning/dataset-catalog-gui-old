@@ -32,6 +32,7 @@ interface ExternalProps {
   error?: any;
   justPublishedOrUnPublished: boolean;
   allowPublish: boolean;
+  allowDelete: boolean;
   onChange: (status: string) => void;
   registrationStatus: string;
   onShowConfirmDraft: () => void;
@@ -48,6 +49,7 @@ const DefaultDialog: FC<Props> = ({
   type,
   isSaving,
   allowPublish,
+  allowDelete,
   error,
   onChange,
   registrationStatus,
@@ -156,7 +158,9 @@ const DefaultDialog: FC<Props> = ({
         <button
           type='button'
           className='btn bg-transparent fdk-color-link'
-          disabled={isPublished(registrationStatus) || isSaving || error}
+          disabled={
+            isPublished(registrationStatus) || isSaving || error || !allowDelete
+          }
           onClick={onShowConfirmDelete}
         >
           <Translation id='formStatus.delete' />
