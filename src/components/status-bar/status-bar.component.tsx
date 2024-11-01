@@ -21,6 +21,7 @@ interface ExternalProps {
   justPublishedOrUnPublished: boolean;
   onDelete: () => void;
   allowPublish: boolean;
+  allowDelete: boolean;
   onChange: (status: string) => void;
   registrationStatus: string;
 }
@@ -35,6 +36,7 @@ const StatusBar: FC<Props> = ({
   justPublishedOrUnPublished,
   onDelete,
   allowPublish,
+  allowDelete,
   onChange,
   registrationStatus,
   translationsService
@@ -109,6 +111,7 @@ const StatusBar: FC<Props> = ({
         type={type}
         isSaving={isSaving}
         allowPublish={allowPublish}
+        allowDelete={allowDelete}
         onChange={status => onChange(status)}
         registrationStatus={registrationStatus}
         lastSaved={lastSaved}

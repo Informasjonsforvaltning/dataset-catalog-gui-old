@@ -666,6 +666,9 @@ const DatasetRegistrationPage: FC<Props> = ({
                 }
                 onDelete={handleDeleteDataset}
                 allowPublish={isAllowedToPublish()}
+                allowDelete={
+                  datasetItem?.registrationStatus !== RegStatusEnum.PUBLISH
+                }
               />
             )}
           </div>

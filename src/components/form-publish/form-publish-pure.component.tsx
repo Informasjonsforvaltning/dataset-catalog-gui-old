@@ -11,6 +11,7 @@ interface ExternalProps {
   justPublishedOrUnPublished: boolean;
   onDelete: () => void;
   allowPublish: boolean;
+  allowDelete: boolean;
   type: 'dataset' | 'api';
 }
 
@@ -23,6 +24,7 @@ const FormPublish: FC<Props> = ({
   justPublishedOrUnPublished,
   onDelete,
   allowPublish,
+  allowDelete,
   type
 }) => (
   <form>
@@ -37,6 +39,7 @@ const FormPublish: FC<Props> = ({
           justPublishedOrUnPublished={justPublishedOrUnPublished}
           onDelete={onDelete}
           allowPublish={allowPublish}
+          allowDelete={allowDelete}
           onChange={input.onChange}
           registrationStatus={input.value}
         />
