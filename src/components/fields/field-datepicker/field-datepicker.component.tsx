@@ -21,8 +21,9 @@ const DatepickerField: FC<Props> = ({
   label,
   showLabel
 }) => {
-  const handleChange = (date: any) =>
-    onChange(moment(date).format('YYYY-MM-DD'));
+  const handleChange = (date: any) => {
+    onChange(date ? moment(date).format('YYYY-MM-DD') : '');
+  };
 
   return (
     <div className='pl-2'>
