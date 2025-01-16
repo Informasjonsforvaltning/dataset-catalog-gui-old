@@ -922,28 +922,28 @@
     },
     "1097679|@fellesdatakatalog/internal-footer>@skatteetaten/frontend-components>axios": {
       "decision": "ignore",
-      "madeAt": 1729860002111,
-      "expiresAt": 1732451784716
+      "madeAt": 1737015409948,
+      "expiresAt": 1739607362606
     },
     "1098392|@graphql-codegen/cli>@graphql-tools/url-loader>@graphql-tools/executor-graphql-ws>ws": {
       "decision": "ignore",
-      "madeAt": 1728903130026,
-      "expiresAt": 1731495096755
+      "madeAt": 1737015387296,
+      "expiresAt": 1739607362606
     },
     "1098392|@graphql-codegen/cli>@graphql-tools/prisma-loader>@graphql-tools/url-loader>@graphql-tools/executor-graphql-ws>ws": {
       "decision": "ignore",
-      "madeAt": 1728903130026,
-      "expiresAt": 1731495096755
+      "madeAt": 1737015387296,
+      "expiresAt": 1739607362606
     },
     "1098392|@graphql-codegen/cli>@graphql-tools/url-loader>@graphql-tools/executor-legacy-ws>ws": {
       "decision": "ignore",
-      "madeAt": 1728903130026,
-      "expiresAt": 1731495096755
+      "madeAt": 1737015387296,
+      "expiresAt": 1739607362606
     },
     "1098392|@graphql-codegen/cli>@graphql-tools/prisma-loader>@graphql-tools/url-loader>@graphql-tools/executor-legacy-ws>ws": {
       "decision": "ignore",
-      "madeAt": 1728903130026,
-      "expiresAt": 1731495096755
+      "madeAt": 1737015387296,
+      "expiresAt": 1739607362606
     },
     "1098562|@commitlint/cli>@commitlint/lint>@commitlint/is-ignored>semver": {
       "decision": "ignore",
@@ -1002,8 +1002,33 @@
     },
     "1099846|react-cookie>universal-cookie>cookie": {
       "decision": "ignore",
-      "madeAt": 1728903140158,
-      "expiresAt": 1731495096755
+      "madeAt": 1737015393760,
+      "expiresAt": 1739607362606
+    },
+    "1100563|eslint>cross-spawn": {
+      "decision": "ignore",
+      "madeAt": 1737015397015,
+      "expiresAt": 1739607362606
+    },
+    "1101088|@commitlint/cli>@commitlint/lint>@commitlint/is-ignored>semver": {
+      "decision": "ignore",
+      "madeAt": 1737015405429,
+      "expiresAt": 1739607362606
+    },
+    "1100562|npm-run-all>cross-spawn": {
+      "decision": "ignore",
+      "madeAt": 1737015414537,
+      "expiresAt": 1739607362606
+    },
+    "1100563|rdflib>solid-namespace>standard>eslint>cross-spawn": {
+      "decision": "ignore",
+      "madeAt": 1737015417072,
+      "expiresAt": 1739607362606
+    },
+    "1100563|node-sass>cross-spawn": {
+      "decision": "ignore",
+      "madeAt": 1737015417072,
+      "expiresAt": 1739607362606
     }
   },
   "rules": {},
