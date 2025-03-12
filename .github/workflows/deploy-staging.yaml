@@ -24,8 +24,6 @@ jobs:
     name: Build and test dev image on PR from dependabot
     if: ${{ github.actor == 'dependabot[bot]' && github.event_name == 'pull_request' }}
     uses: Informasjonsforvaltning/workflows/.github/workflows/build.yaml@main
-    with:
-      dockerfile: dev.Dockerfile
 
   build-dev-image:
     name: Build and test dev image on PR from dependabot
