@@ -18,12 +18,12 @@ import TagsInputFieldArrayReadOnly from '../../fields/field-input-tags-objects-r
 import './styles.scss';
 
 import type { AdministrativeUnit } from '../../../types';
-import { AdministrativeUnitType } from '../../../types/enums';
 
 import { CrossLightIcon } from '../../../fdk-icons/icons';
 
 interface ExternalProps extends WrappedFieldProps {
   isReadOnly?: boolean;
+  administrativeEnheter: AdministrativeUnit[];
   onUpdateAdministrativeUnits: (
     administrativeUnits: AdministrativeUnit[]
   ) => void;
@@ -35,15 +35,14 @@ const SpatialTagsInputField: FC<Props> = ({
   input,
   meta,
   isReadOnly,
-  administrativeUnitSuggestions,
-  kartverketActions: {
-    searchAdministrativeUnitsRequested: searchAdministrativeUnits,
-    clearAdministrativeUnitsSearchSuggestions: clearSuggestions
-  },
   onUpdateAdministrativeUnits,
-  translationsService
+  translationsService,
+  administrativeEnheter
 }) => {
   const [value, setValue] = useState('');
+  const [suggestionList, setSuggestionList] = useState<AdministrativeUnit[]>(
+    []
+  );
 
   const removePlace = (index: number) => () => {
     input.value.splice(index, 1);
@@ -56,8 +55,12 @@ const SpatialTagsInputField: FC<Props> = ({
     }
   };
 
-  const fetchSuggestions = ({ value: name }: any) =>
-    searchAdministrativeUnits(name ?? '', 5);
+  const fetchSuggestions = ({ value: query }: any) => {
+    const filteredSuggestions = administrativeEnheter.filter(suggestion =>
+      suggestion?.name?.toLowerCase().includes(query)
+    );
+    setSuggestionList(filteredSuggestions);
+  };
 
   const onSuggestionSelected = (_: any, { suggestion }: any) => {
     if (!input.value?.find(({ uri }: any) => uri === suggestion.uri)) {
@@ -77,24 +80,9 @@ const SpatialTagsInputField: FC<Props> = ({
   const getSuggestionValue = ({ title }: any) =>
     translationsService.translate(title);
 
-  const renderSuggestion = ({ name, type }: AdministrativeUnit) => (
+  const renderSuggestion = ({ name }: AdministrativeUnit) => (
     <div className='d-flex mb-3 suggestion'>
       <span>{name}</span>
-      {type === AdministrativeUnitType.MUNICIPALITY && (
-        <span className='ml-5'>
-          <Translation id='administrativeUnit.municipality' />
-        </span>
-      )}
-      {type === AdministrativeUnitType.COUNTY && (
-        <span className='ml-5'>
-          <Translation id='administrativeUnit.county' />
-        </span>
-      )}
-      {type === AdministrativeUnitType.NATION && (
-        <span className='ml-5'>
-          <Translation id='administrativeUnit.nation' />
-        </span>
-      )}
     </div>
   );
 
@@ -105,11 +93,6 @@ const SpatialTagsInputField: FC<Props> = ({
           <span>
             <strong>
               <Translation id='administrativeUnit.name' />
-            </strong>
-          </span>
-          <span className='ml-5'>
-            <strong>
-              <Translation id='administrativeUnit.type' />
             </strong>
           </span>
         </div>
@@ -128,9 +111,9 @@ const SpatialTagsInputField: FC<Props> = ({
     <div className='fdk-spatial'>
       <Autosuggest
         highlightFirstSuggestion
-        suggestions={administrativeUnitSuggestions}
-        onSuggestionsFetchRequested={fetchSuggestions}
-        onSuggestionsClearRequested={clearSuggestions}
+        suggestions={suggestionList}
+        onSuggestionsFetchRequested={val => fetchSuggestions(val)}
+        onSuggestionsClearRequested={() => setSuggestionList([])}
         onSuggestionSelected={onSuggestionSelected}
         getSuggestionValue={getSuggestionValue}
         renderSuggestion={renderSuggestion}
@@ -142,30 +125,31 @@ const SpatialTagsInputField: FC<Props> = ({
           onChange
         }}
       />
-      {input.value?.map(({ uri, prefLabel }: any, index: number) => (
-        <div
-          key={`external-spatial-${uri}-${index}`}
-          className='fdk-spatial-pill'
-        >
-          <span className='fdk-spatial-pill-label'>
-            {prefLabel?.length > 0 ? <Translation object={prefLabel} /> : uri}
-          </span>
-          <i
-            className='fa mr-2 remove-fdk-spatial'
-            aria-label={
-              Object.keys(prefLabel ?? {}).length > 0
-                ? translationsService.translate(prefLabel)
-                : uri
-            }
-            role='button'
-            tabIndex={0}
-            onClick={removePlace(index)}
-            onKeyPress={removePlace(index)}
+      {input.value?.map(({ uri }: any, index: number) => {
+        const match = administrativeEnheter.find(item => item.uri === uri);
+        return (
+          <div
+            key={`external-spatial-${uri}-${index}`}
+            className='fdk-spatial-pill'
           >
-            <CrossLightIcon />
-          </i>
-        </div>
-      ))}
+            <span className='fdk-spatial-pill-label'>
+              {match?.name ? match?.name : uri}
+            </span>
+            <i
+              className='fa mr-2 remove-fdk-spatial'
+              aria-label={
+                Object.keys(match?.name ?? {}).length > 0 ? match?.name : uri
+              }
+              role='button'
+              tabIndex={0}
+              onClick={removePlace(index)}
+              onKeyPress={removePlace(index)}
+            >
+              <CrossLightIcon />
+            </i>
+          </div>
+        );
+      })}
     </div>
   );
 };

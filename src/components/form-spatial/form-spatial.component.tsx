@@ -24,6 +24,7 @@ interface ExternalProps {
   datasetId: string;
   datasetItem: any;
   isReadOnly: boolean;
+  administrativeEnheter: any[];
 }
 
 interface Props extends ExternalProps, TranslationsProps {}
@@ -139,7 +140,8 @@ const FormSpatial: FC<Props> = ({
   datasetId,
   datasetItem,
   isReadOnly,
-  translationsService
+  translationsService,
+  administrativeEnheter
 }) => {
   const deleteFieldAtIndex = (fields: any, index: number) => {
     const values = fields.getAll();
@@ -183,6 +185,7 @@ const FormSpatial: FC<Props> = ({
           label={translationsService.translate('schema.spatial.spatialLabel')}
           isReadOnly={isReadOnly}
           onUpdateAdministrativeUnits={onUpdateAdministrativeUnits('spatial')}
+          administrativeEnheter={administrativeEnheter}
         />
       </div>
       <div className='form-group mb-0'>
