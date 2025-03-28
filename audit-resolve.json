@@ -922,28 +922,28 @@
     },
     "1097679|@fellesdatakatalog/internal-footer>@skatteetaten/frontend-components>axios": {
       "decision": "ignore",
-      "madeAt": 1741779609817,
-      "expiresAt": 1744371570030
+      "madeAt": 1743172156398,
+      "expiresAt": 1745764120790
     },
     "1098392|@graphql-codegen/cli>@graphql-tools/url-loader>@graphql-tools/executor-graphql-ws>ws": {
       "decision": "ignore",
-      "madeAt": 1741779597776,
-      "expiresAt": 1744371570030
+      "madeAt": 1743172146812,
+      "expiresAt": 1745764120790
     },
     "1098392|@graphql-codegen/cli>@graphql-tools/prisma-loader>@graphql-tools/url-loader>@graphql-tools/executor-graphql-ws>ws": {
       "decision": "ignore",
-      "madeAt": 1741779597776,
-      "expiresAt": 1744371570030
+      "madeAt": 1743172146812,
+      "expiresAt": 1745764120790
     },
     "1098392|@graphql-codegen/cli>@graphql-tools/url-loader>@graphql-tools/executor-legacy-ws>ws": {
       "decision": "ignore",
-      "madeAt": 1741779597776,
-      "expiresAt": 1744371570030
+      "madeAt": 1743172146812,
+      "expiresAt": 1745764120790
     },
     "1098392|@graphql-codegen/cli>@graphql-tools/prisma-loader>@graphql-tools/url-loader>@graphql-tools/executor-legacy-ws>ws": {
       "decision": "ignore",
-      "madeAt": 1741779597776,
-      "expiresAt": 1744371570030
+      "madeAt": 1743172146812,
+      "expiresAt": 1745764120790
     },
     "1098562|@commitlint/cli>@commitlint/lint>@commitlint/is-ignored>semver": {
       "decision": "ignore",
@@ -1002,23 +1002,23 @@
     },
     "1099846|react-cookie>universal-cookie>cookie": {
       "decision": "ignore",
-      "madeAt": 1741779602097,
-      "expiresAt": 1744371570030
+      "madeAt": 1743172149576,
+      "expiresAt": 1745764120790
     },
     "1100563|eslint>cross-spawn": {
       "decision": "ignore",
-      "madeAt": 1741779604972,
-      "expiresAt": 1744371570030
+      "madeAt": 1743172151577,
+      "expiresAt": 1745764120790
     },
     "1101088|@commitlint/cli>@commitlint/lint>@commitlint/is-ignored>semver": {
       "decision": "ignore",
-      "madeAt": 1741779607567,
-      "expiresAt": 1744371570030
+      "madeAt": 1743172154037,
+      "expiresAt": 1745764120790
     },
     "1100562|npm-run-all>cross-spawn": {
       "decision": "ignore",
-      "madeAt": 1741779615625,
-      "expiresAt": 1744371570030
+      "madeAt": 1743172162192,
+      "expiresAt": 1745764120790
     },
     "1100563|rdflib>solid-namespace>standard>eslint>cross-spawn": {
       "decision": "ignore",
@@ -1027,13 +1027,13 @@
     },
     "1100563|node-sass>cross-spawn": {
       "decision": "ignore",
-      "madeAt": 1741779617785,
-      "expiresAt": 1744371570030
+      "madeAt": 1743172164045,
+      "expiresAt": 1745764120790
     },
     "1102472|@fellesdatakatalog/internal-footer>@skatteetaten/frontend-components>axios": {
       "decision": "ignore",
-      "madeAt": 1741779613101,
-      "expiresAt": 1744371570030
+      "madeAt": 1743172159630,
+      "expiresAt": 1745764120790
     }
   },
   "rules": {},

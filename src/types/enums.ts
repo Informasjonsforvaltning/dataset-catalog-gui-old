@@ -37,5 +37,6 @@ export enum ReferenceDataCode {
   OPEN_LICENCES = 'open-licenses',
   PROVENANCE = 'provenance-statements',
   FILE_TYPES = 'eu/file-types',
-  MEDIA_TYPES = 'iana/media-types'
+  MEDIA_TYPES = 'iana/media-types',
+  ADMINISTRATIVE_ENHETER = 'geonorge/administrative-enheter'
 }

@@ -58,7 +58,8 @@ const DatasetPage: FC<Props> = ({
     ReferenceDataCode.LOS,
     ReferenceDataCode.THEMES,
     ReferenceDataCode.FILE_TYPES,
-    ReferenceDataCode.MEDIA_TYPES
+    ReferenceDataCode.MEDIA_TYPES,
+    ReferenceDataCode.ADMINISTRATIVE_ENHETER
   ];
 
   useEffect(() => {
@@ -142,6 +143,9 @@ const DatasetPage: FC<Props> = ({
           fileTypes={referenceData[ReferenceDataCode.FILE_TYPES]?.fileTypes}
           mediaTypes={referenceData[ReferenceDataCode.MEDIA_TYPES]?.mediaTypes}
           handleDeleteDataset={handleDeleteDataset}
+          administrativeEnheter={
+            referenceData[ReferenceDataCode.ADMINISTRATIVE_ENHETER]?.enheter
+          }
         />
       </SC.Page>
     </>

@@ -87,6 +87,7 @@ interface ExternalProps {
   losItems?: any[];
   themesItems?: any[];
   datasetTypesItems?: DatasetType[];
+  administrativeEnheter?: any[];
   frequencyItems?: any[];
   openLicenseItems?: any[];
   provenanceItems?: any[];
@@ -129,6 +130,7 @@ const DatasetRegistrationPage: FC<Props> = ({
   openLicenseItems,
   fileTypes,
   mediaTypes,
+  administrativeEnheter,
   datasetFormStatus,
   catalogId,
   datasetId,
@@ -310,6 +312,7 @@ const DatasetRegistrationPage: FC<Props> = ({
         referenceTypesItems &&
         referenceDatasetsItems &&
         referenceDatasetSeriesItems &&
+        administrativeEnheter &&
         datasetSuggestions &&
         datasetSeries &&
         openLicenseItems &&
@@ -477,6 +480,7 @@ const DatasetRegistrationPage: FC<Props> = ({
                 >
                   <ConnectedFormSpatial
                     datasetItem={datasetItem}
+                    administrativeEnheter={administrativeEnheter}
                     catalogId={catalogId}
                     datasetId={datasetId}
                     isReadOnly={isReadOnly}
