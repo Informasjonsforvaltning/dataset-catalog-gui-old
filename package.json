@@ -131,7 +131,7 @@
   "devDependencies": {
     "@babel/core": "^7.22.5",
     "@babel/preset-env": "^7.22.5",
-    "@babel/preset-react": "^7.22.5",
+    "@babel/preset-react": "^7.26.3",
     "@commitlint/cli": "^12.1.4",
     "@commitlint/config-conventional": "^12.1.4",
     "@graphql-codegen/cli": "^2.2.1",
