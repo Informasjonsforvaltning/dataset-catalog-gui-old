@@ -4,6 +4,7 @@ import Autosuggest from 'react-autosuggest';
 import TagsInput, { RenderTagProps } from 'react-tagsinput';
 import type { WrappedFieldProps } from 'redux-form';
 
+import { isEmpty } from 'lodash';
 import {
   withTranslations,
   Props as TranslationsProps
@@ -29,9 +30,13 @@ const ConceptTagsInputField: FC<Props> = ({ input, translationsService }) => {
 
   let lastRequestId: any;
 
-  const tagNodes = (input.value || []).map((item: any) =>
-    translationsService.translate(item.prefLabel)
-  );
+  const tagNodes = (input.value || []).map((item: any) => {
+    const label = translationsService.translate(item.prefLabel);
+    if (isEmpty(label)) {
+      return item.uri;
+    }
+    return label;
+  });
 
   const getSuggestionValue = (suggestion: any) =>
     translationsService.translate(suggestion?.title);
