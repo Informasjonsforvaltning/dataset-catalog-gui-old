@@ -1034,6 +1034,11 @@
       "decision": "ignore",
       "madeAt": 1743172159630,
       "expiresAt": 1745764120790
+    },
+    "1103617|@fellesdatakatalog/internal-footer>@skatteetaten/frontend-components>axios": {
+      "decision": "ignore",
+      "madeAt": 1744093670173,
+      "expiresAt": 1746685657254
     }
   },
   "rules": {},
