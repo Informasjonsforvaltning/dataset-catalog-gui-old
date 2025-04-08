@@ -113,7 +113,7 @@ export const conceptValues = values => {
       concepts.forEach(item => {
         retVal += TranslationsService.translate(item.prefLabel)
           ? `${TranslationsService.translate(item.prefLabel)}. `
-          : '';
+          : item.uri;
       });
     }
     if (keyword) {
