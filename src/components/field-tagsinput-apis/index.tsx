@@ -2,6 +2,7 @@ import React, { memo, FC, useState, useEffect } from 'react';
 import { compose } from 'redux';
 import ReactTags, { Tag } from 'react-tag-autocomplete';
 import type { WrappedFieldProps } from 'redux-form';
+import { isEmpty } from 'lodash';
 
 import {
   withTranslations,
@@ -67,10 +68,13 @@ const InputTagsAPIsField: FC<Props> = ({
       const accessServices = Array.isArray(value) ? value : [value];
 
       setTags(
-        accessServices.filter(Boolean).map(({ uri, description }) => ({
-          id: uri,
-          name: translationsService.translate(description)
-        }))
+        accessServices.filter(Boolean).map(({ uri, description }) => {
+          const label = translationsService.translate(description);
+          return {
+            id: uri,
+            name: isEmpty(label) ? uri : label
+          };
+        })
       );
     }
   }, []);
