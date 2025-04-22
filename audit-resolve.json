@@ -922,8 +922,8 @@
     },
     "1097679|@fellesdatakatalog/internal-footer>@skatteetaten/frontend-components>axios": {
       "decision": "ignore",
-      "madeAt": 1743172156398,
-      "expiresAt": 1745764120790
+      "madeAt": 1745324159917,
+      "expiresAt": 1747916125479
     },
     "1098392|@graphql-codegen/cli>@graphql-tools/url-loader>@graphql-tools/executor-graphql-ws>ws": {
       "decision": "ignore",
@@ -932,8 +932,8 @@
     },
     "1098392|@graphql-codegen/cli>@graphql-tools/prisma-loader>@graphql-tools/url-loader>@graphql-tools/executor-graphql-ws>ws": {
       "decision": "ignore",
-      "madeAt": 1743172146812,
-      "expiresAt": 1745764120790
+      "madeAt": 1745324167689,
+      "expiresAt": 1747916125479
     },
     "1098392|@graphql-codegen/cli>@graphql-tools/url-loader>@graphql-tools/executor-legacy-ws>ws": {
       "decision": "ignore",
@@ -982,8 +982,8 @@
     },
     "1097679|@fellesdatakatalog/internal-header>@skatteetaten/frontend-components>axios": {
       "decision": "ignore",
-      "madeAt": 1726493813878,
-      "expiresAt": 1729085772410
+      "madeAt": 1745324159917,
+      "expiresAt": 1747916125479
     },
     "1098392|@graphql-tools/executor-graphql-ws>ws": {
       "decision": "ignore",
@@ -997,8 +997,8 @@
     },
     "1098392|@graphql-tools/executor-legacy-ws>ws": {
       "decision": "ignore",
-      "madeAt": 1726498522944,
-      "expiresAt": 1729090491013
+      "madeAt": 1745324167689,
+      "expiresAt": 1747916125479
     },
     "1099846|react-cookie>universal-cookie>cookie": {
       "decision": "ignore",
@@ -1037,8 +1037,18 @@
     },
     "1103617|@fellesdatakatalog/internal-footer>@skatteetaten/frontend-components>axios": {
       "decision": "ignore",
-      "madeAt": 1744093670173,
-      "expiresAt": 1746685657254
+      "madeAt": 1745324163144,
+      "expiresAt": 1747916125479
+    },
+    "1103617|@fellesdatakatalog/internal-header>@skatteetaten/frontend-components>axios": {
+      "decision": "ignore",
+      "madeAt": 1745324163144,
+      "expiresAt": 1747916125479
+    },
+    "1103907|react-cookie>universal-cookie>cookie": {
+      "decision": "ignore",
+      "madeAt": 1745324171181,
+      "expiresAt": 1747916125479
     }
   },
   "rules": {},

@@ -184,75 +184,103 @@ const DatasetRegistrationPage: FC<Props> = ({
   const referenceTypesItems = [
     {
       code: 'hasVersion',
+      uriAsPrefix: 'dct:hasVersion',
       label: {
-        nb: 'Har versjon'
-      }
-    },
-    {
-      code: 'isPartOf',
-      label: {
-        nb: 'Er en del av'
-      }
-    },
-    {
-      code: 'hasPart',
-      label: {
-        nb: 'Har del'
-      }
-    },
-    {
-      code: 'isReferencedBy',
-      label: {
-        nb: 'Er referert av'
-      }
-    },
-    {
-      code: 'isReplacedBy',
-      label: {
-        nb: 'Er erstattet av'
-      }
-    },
-    {
-      code: 'isRequiredBy',
-      label: {
-        nb: 'Er påkrevd av'
-      }
+        nn: 'Har versjon',
+        nb: 'Har versjon',
+        en: 'Has version'
+      },
+      uri: 'http://purl.org/dc/terms/hasVersion'
     },
     {
       code: 'isVersionOf',
+      uriAsPrefix: 'dct:isVersionOf',
       label: {
-        nb: 'Er versjon av'
-      }
+        nn: 'Er versjon av',
+        nb: 'Er versjon av',
+        en: 'Is version of'
+      },
+      uri: 'http://purl.org/dc/terms/isVersionOf'
+    },
+    {
+      code: 'isPartOf',
+      uriAsPrefix: 'dct:isPartOf',
+      label: {
+        nn: 'Er del av',
+        nb: 'Er en del av',
+        en: 'Is part of'
+      },
+      uri: 'http://purl.org/dc/terms/isPartOf'
+    },
+    {
+      code: 'hasPart',
+      uriAsPrefix: 'dct:hasPart',
+      label: {
+        nn: 'Har del',
+        nb: 'Har del',
+        en: 'Has part'
+      },
+      uri: 'http://purl.org/dc/terms/hasPart'
+    },
+    {
+      code: 'isReferencedBy',
+      uriAsPrefix: 'dct:isReferencedBy',
+      label: {
+        nn: 'Er referert av',
+        nb: 'Er referert av',
+        en: 'Is referenced by'
+      },
+      uri: 'http://purl.org/dc/terms/isReferencedBy'
     },
     {
       code: 'references',
+      uriAsPrefix: 'dct:references',
       label: {
-        nb: 'Refererer'
-      }
+        nn: 'Refererar',
+        nb: 'Refererer',
+        en: 'References'
+      },
+      uri: 'http://purl.org/dc/terms/references'
     },
     {
-      code: 'relation',
+      code: 'isReplacedBy',
+      uriAsPrefix: 'dct:isReplacedBy',
       label: {
-        nb: 'Er relatert til'
-      }
+        nn: 'Er erstatta av',
+        nb: 'Er erstattet av',
+        en: 'Is replaced by'
+      },
+      uri: 'http://purl.org/dc/terms/isReplacedBy'
     },
     {
       code: 'replaces',
+      uriAsPrefix: 'dct:replaces',
       label: {
-        nb: 'Erstatter'
-      }
+        nn: 'Erstatter',
+        nb: 'Erstatter',
+        en: 'Replaces'
+      },
+      uri: 'http://purl.org/dc/terms/replaces'
     },
     {
-      code: 'requires',
+      code: 'relation',
+      uriAsPrefix: 'dct:relation',
       label: {
-        nb: 'Krever'
-      }
+        nn: 'Er relatert til',
+        nb: 'Er relatert til',
+        en: 'Has relation to'
+      },
+      uri: 'http://purl.org/dc/terms/relation'
     },
     {
       code: 'source',
+      uriAsPrefix: 'dct:source',
       label: {
-        nb: 'Er avledet fra'
-      }
+        nn: 'Kjelde',
+        nb: 'Kilde',
+        en: 'Source'
+      },
+      uri: 'http://purl.org/dc/terms/source'
     }
   ];
 
