@@ -63,7 +63,9 @@
     "yaml": "^2.2.2",
     "semver": "^7.5.3",
     "axios": "^1.6.7",
-    "@babel/traverse": "^7.15.4"
+    "@babel/traverse": "^7.15.4",
+    "cookie": "^1.0.2",
+    "cross-spawn": "^7.0.5"
   },
   "dependencies": {
     "@apollo/client": "^3.11.8",
@@ -134,11 +136,11 @@
     "@babel/preset-react": "^7.22.5",
     "@commitlint/cli": "^12.1.4",
     "@commitlint/config-conventional": "^12.1.4",
-    "@graphql-codegen/cli": "^2.2.1",
-    "@graphql-codegen/fragment-matcher": "^3.1.0",
-    "@graphql-codegen/typescript": "^2.7.2",
-    "@graphql-codegen/typescript-operations": "^2.1.8",
-    "@graphql-codegen/typescript-react-apollo": "^3.2.16",
+    "@graphql-codegen/cli": "^5.0.5",
+    "@graphql-codegen/fragment-matcher": "^5.1.0",
+    "@graphql-codegen/typescript": "^4.1.6",
+    "@graphql-codegen/typescript-operations": "^4.6.0",
+    "@graphql-codegen/typescript-react-apollo": "^4.3.2",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.1",
     "@svgr/webpack": "^8.0.1",
     "@testing-library/jest-dom": "^5.16.5",
